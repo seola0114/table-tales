@@ -100,6 +100,7 @@ const typography = [
     sample: "플레이한 게임부터,",
     className: "text-[40px] leading-[1.02] tracking-[-0.05em] sm:text-[58px]",
     spec: "40 / 58",
+    lineHeight: "1.02",
     weight: "700",
     usage: "메인 히어로 H1, 가장 강한 첫 인상",
   },
@@ -108,6 +109,7 @@ const typography = [
     sample: "실제 서비스 화면 기준으로",
     className: "text-[36px] leading-[1.05] tracking-[-0.03em] sm:text-[44px]",
     spec: "36 / 44",
+    lineHeight: "1.05",
     weight: "700",
     usage: "섹션 메인 타이틀",
   },
@@ -116,6 +118,7 @@ const typography = [
     sample: "토큰 기준으로 다시 본 UI 패턴",
     className: "text-[28px] leading-[1.15] tracking-[-0.025em] sm:text-[34px]",
     spec: "28 / 34",
+    lineHeight: "1.15",
     weight: "700",
     usage: "카드/블록 제목, 서브 섹션 타이틀",
   },
@@ -124,6 +127,7 @@ const typography = [
     sample: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다.",
     className: "text-[16px] leading-relaxed tracking-[-0.01em]",
     spec: "16",
+    lineHeight: "1.625",
     weight: "400/500",
     usage: "본문, 설명문, 랜딩의 주요 카피",
   },
@@ -132,6 +136,7 @@ const typography = [
     sample: "카드 안쪽 보조 설명과 부가 문장에 사용합니다.",
     className: "text-[14px] leading-relaxed",
     spec: "14",
+    lineHeight: "1.625",
     weight: "400/500",
     usage: "카드 설명, 보조 문장",
   },
@@ -140,6 +145,7 @@ const typography = [
     sample: "Product Flow",
     className: "text-[12px] uppercase tracking-[0.16em]",
     spec: "12",
+    lineHeight: "1.4",
     weight: "600",
     usage: "토큰 제목, 카드 라벨, 스탯 라벨",
   },
@@ -148,6 +154,7 @@ const typography = [
     sample: "Foundations",
     className: "font-display-italic text-[14px] tracking-wide",
     spec: "14",
+    lineHeight: "1.4",
     weight: "600",
     usage: "섹션 위 작은 보라 라벨",
   },
@@ -156,6 +163,7 @@ const typography = [
     sample: "surface-container-high",
     className: "text-[11px] uppercase tracking-[0.16em]",
     spec: "11",
+    lineHeight: "1.35",
     weight: "500/600",
     usage: "캡션, 상태 라벨, 메타 정보",
   },
@@ -241,6 +249,7 @@ function TypeRow({
   sample,
   className,
   spec,
+  lineHeight,
   weight,
   usage,
 }: {
@@ -248,6 +257,7 @@ function TypeRow({
   sample: string;
   className: string;
   spec: string;
+  lineHeight: string;
   weight: string;
   usage: string;
 }) {
@@ -257,6 +267,7 @@ function TypeRow({
         <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{label}</p>
         <p className="mt-2 text-[13px] text-white/45">Weight {weight}</p>
         <p className="text-[13px] text-white/45">Size {spec}</p>
+        <p className="text-[13px] text-white/45">Line-height {lineHeight}</p>
       </div>
       <div className="min-w-0">
         <p className={`${className} break-keep text-white`}>{sample}</p>
@@ -457,6 +468,12 @@ export default function DesignSystemPage() {
                   <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Tracking</p>
                   <p className="mt-2 text-[14px] leading-relaxed text-white/50">
                     큰 제목은 `-0.03em ~ -0.05em`, 본문은 기본 또는 `-0.01em`, 라벨은 넓은 letter spacing을 씁니다.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Line Height</p>
+                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">
+                    디스플레이는 `1.02 ~ 1.15`로 타이트하게, 본문은 `1.625`, 라벨과 캡션은 `1.35 ~ 1.4`로 정리합니다.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
