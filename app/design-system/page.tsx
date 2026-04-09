@@ -1,6 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { ArrowRight, Check, Clock3, Sparkles, Trophy, Users } from "lucide-react";
+
+const tabs = [
+  { id: "foundations", label: "Foundations" },
+  { id: "typography", label: "Typography" },
+  { id: "components", label: "Components" },
+  { id: "composition", label: "Composition" },
+] as const;
 
 const primaryTokens = [
   { label: "primary", value: "#8B5CF6", note: "브랜드 메인 액션, CTA, 핵심 하이라이트" },
@@ -37,48 +45,48 @@ const supportTokens = [
   { label: "brand-blue", value: "#7DA2FF", note: "보조 하이라이트와 그라디언트 확장" },
 ];
 
-const tonalPalettes = [
+const supportTonalPalettes = [
   {
-    name: "Primary",
-    role: "브랜드 메인 인터랙션과 강조 요소",
+    name: "Data Mint",
+    role: "상태, 활성, 성공 메시지, 진행 상태",
     tones: [
       { tone: 0, value: "#000000" },
-      { tone: 10, value: "#190A2E" },
-      { tone: 20, value: "#2C1250" },
-      { tone: 30, value: "#441F76" },
-      { tone: 40, value: "#5C2DA0" },
-      { tone: 50, value: "#7444C8" },
-      { tone: 60, value: "#8B5CF6" },
-      { tone: 70, value: "#A78BFA" },
-      { tone: 80, value: "#C4B4FD" },
-      { tone: 90, value: "#E9DDFF" },
-      { tone: 95, value: "#F5EEFF" },
-      { tone: 99, value: "#FEFBFF" },
+      { tone: 10, value: "#002117" },
+      { tone: 20, value: "#003827" },
+      { tone: 30, value: "#00513A" },
+      { tone: 40, value: "#006B4D" },
+      { tone: 50, value: "#008661" },
+      { tone: 60, value: "#19C8A6" },
+      { tone: 70, value: "#53E4C3" },
+      { tone: 80, value: "#85FFD9" },
+      { tone: 90, value: "#B5FFE9" },
+      { tone: 95, value: "#D5FFF2" },
+      { tone: 99, value: "#F4FFF9" },
       { tone: 100, value: "#FFFFFF" },
     ],
   },
   {
-    name: "Secondary",
-    role: "primary와 함께 붙는 보조 브랜드 톤",
+    name: "Data Amber",
+    role: "랭크, 배지, 포인트, 성취 하이라이트",
     tones: [
       { tone: 0, value: "#000000" },
-      { tone: 10, value: "#151427" },
-      { tone: 20, value: "#24233D" },
-      { tone: 30, value: "#393857" },
-      { tone: 40, value: "#504E73" },
-      { tone: 50, value: "#686590" },
-      { tone: 60, value: "#817EAD" },
-      { tone: 70, value: "#9B98CA" },
-      { tone: 80, value: "#B6B2E8" },
-      { tone: 90, value: "#E1DEFF" },
-      { tone: 95, value: "#F2EEFF" },
-      { tone: 99, value: "#FEFBFF" },
+      { tone: 10, value: "#261900" },
+      { tone: 20, value: "#3F2D00" },
+      { tone: 30, value: "#5A4200" },
+      { tone: 40, value: "#765800" },
+      { tone: 50, value: "#946F00" },
+      { tone: 60, value: "#B28700" },
+      { tone: 70, value: "#D19F17" },
+      { tone: 80, value: "#FFBF47" },
+      { tone: 90, value: "#FFE08E" },
+      { tone: 95, value: "#FFF0C4" },
+      { tone: 99, value: "#FFFBEF" },
       { tone: 100, value: "#FFFFFF" },
     ],
   },
   {
-    name: "Tertiary",
-    role: "시각적 변주와 데이터 강조에 쓰는 블루 축",
+    name: "Brand Blue",
+    role: "차트, 링크 강조, 보조 하이라이트, 정보성 포인트",
     tones: [
       { tone: 0, value: "#000000" },
       { tone: 10, value: "#001A38" },
@@ -87,97 +95,12 @@ const tonalPalettes = [
       { tone: 40, value: "#2862B3" },
       { tone: 50, value: "#4A7BD6" },
       { tone: 60, value: "#6D95F3" },
-      { tone: 70, value: "#8FB1FF" },
+      { tone: 70, value: "#7DA2FF" },
       { tone: 80, value: "#B7CCFF" },
       { tone: 90, value: "#DCE5FF" },
       { tone: 95, value: "#EEF2FF" },
       { tone: 99, value: "#FCFCFF" },
       { tone: 100, value: "#FFFFFF" },
-    ],
-  },
-  {
-    name: "Neutral",
-    role: "배경과 기본 surface를 만드는 중성 축",
-    tones: [
-      { tone: 0, value: "#000000" },
-      { tone: 10, value: "#070711" },
-      { tone: 20, value: "#141425" },
-      { tone: 30, value: "#2A2A3A" },
-      { tone: 40, value: "#424252" },
-      { tone: 50, value: "#5B5B6B" },
-      { tone: 60, value: "#757585" },
-      { tone: 70, value: "#9090A0" },
-      { tone: 80, value: "#ABABBB" },
-      { tone: 90, value: "#C7C6D7" },
-      { tone: 95, value: "#E4E2F3" },
-      { tone: 99, value: "#FCF8FF" },
-      { tone: 100, value: "#FFFFFF" },
-    ],
-  },
-  {
-    name: "Neutral Variant",
-    role: "outline과 surface variant에 쓰는 살짝 색이 도는 중성 축",
-    tones: [
-      { tone: 0, value: "#000000" },
-      { tone: 10, value: "#0D0C16" },
-      { tone: 20, value: "#1B1A2A" },
-      { tone: 30, value: "#323043" },
-      { tone: 40, value: "#49475B" },
-      { tone: 50, value: "#626075" },
-      { tone: 60, value: "#7B788E" },
-      { tone: 70, value: "#9591A8" },
-      { tone: 80, value: "#B0ACC4" },
-      { tone: 90, value: "#CBC6E0" },
-      { tone: 95, value: "#E9E3F8" },
-      { tone: 99, value: "#FDF8FF" },
-      { tone: 100, value: "#FFFFFF" },
-    ],
-  },
-];
-
-const primaryPalettes = [
-  {
-    name: "Signature Dark",
-    usage: "현재 랜딩의 기본 조합. 가장 브랜드답고 안정적인 세트",
-    chips: [
-      { label: "primary", value: "#8B5CF6" },
-      { label: "primary-fixed-dim", value: "#A78BFA" },
-      { label: "brand-blue", value: "#7DA2FF" },
-      { label: "surface", value: "#070711" },
-      { label: "surface-container", value: "#141425" },
-    ],
-  },
-  {
-    name: "Editorial Glow",
-    usage: "히어로, 섹션 헤더, 강조 배너처럼 시선 집중이 필요한 조합",
-    chips: [
-      { label: "primary", value: "#8B5CF6" },
-      { label: "primary-fixed", value: "#CDB7FF" },
-      { label: "on-primary-container", value: "#E9DDFF" },
-      { label: "surface-container-high", value: "#1B1B31" },
-      { label: "outline", value: "#FFFFFF1F" },
-    ],
-  },
-  {
-    name: "Product UI",
-    usage: "실제 앱 화면 옆 카드, 설명 블록, 데이터 요약 모듈에 적합한 세트",
-    chips: [
-      { label: "primary-container", value: "#24163F" },
-      { label: "primary", value: "#8B5CF6" },
-      { label: "data-mint", value: "#19C8A6" },
-      { label: "surface-container-highest", value: "#242440" },
-      { label: "on-surface-variant", value: "#B8B8C7" },
-    ],
-  },
-  {
-    name: "Warm Accent",
-    usage: "배지, 성취, 리뷰, 통계 포인트처럼 감정선을 주고 싶을 때",
-    chips: [
-      { label: "primary", value: "#8B5CF6" },
-      { label: "data-amber", value: "#FFBF47" },
-      { label: "primary-fixed-dim", value: "#A78BFA" },
-      { label: "surface-container", value: "#141425" },
-      { label: "on-surface", value: "#FFFFFF" },
     ],
   },
 ];
@@ -267,15 +190,7 @@ const typography = [
   },
 ];
 
-function TokenRow({
-  label,
-  value,
-  note,
-}: {
-  label: string;
-  value: string;
-  note: string;
-}) {
+function TokenRow({ label, value, note }: { label: string; value: string; note: string }) {
   return (
     <div className="grid items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-3 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,0.75fr)_minmax(0,1fr)]">
       <div className="flex items-center gap-3">
@@ -286,10 +201,7 @@ function TokenRow({
         </div>
       </div>
       <p className="text-[13px] font-semibold text-white/75">{value}</p>
-      <div
-        className="h-11 rounded-xl border border-white/8"
-        style={{ background: value }}
-      />
+      <div className="h-11 rounded-xl border border-white/8" style={{ background: value }} />
     </div>
   );
 }
@@ -377,41 +289,6 @@ function TypeRow({
   );
 }
 
-function PaletteCard({
-  name,
-  usage,
-  chips,
-}: {
-  name: string;
-  usage: string;
-  chips: { label: string; value: string }[];
-}) {
-  return (
-    <div className="glass-card p-6">
-      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{name}</p>
-      <p className="mt-2 text-[14px] leading-relaxed text-white/50">{usage}</p>
-      <div className="mt-5 overflow-hidden rounded-[20px] border border-white/8">
-        <div className="grid grid-cols-5">
-          {chips.map((chip) => (
-            <div key={chip.label} className="h-24" style={{ background: chip.value }} />
-          ))}
-        </div>
-      </div>
-      <div className="mt-4 grid gap-2">
-        {chips.map((chip) => (
-          <div key={chip.label} className="flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.02] px-3 py-2">
-            <div className="flex items-center gap-2">
-              <div className="h-4 w-4 rounded-full border border-white/10" style={{ background: chip.value }} />
-              <span className="text-[13px] font-medium text-white/75">{chip.label}</span>
-            </div>
-            <span className="text-[12px] text-white/45">{chip.value}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function TonalPaletteCard({
   name,
   role,
@@ -432,17 +309,13 @@ function TonalPaletteCard({
             className="grid grid-cols-[64px_1fr_110px] items-center border-b border-black/10 last:border-b-0"
             style={{ background: item.value }}
           >
-            <div
-              className={`border-r border-black/10 px-3 py-3 text-[12px] font-semibold ${item.tone <= 50 ? "text-white/80" : "text-black/75"}`}
-            >
+            <div className={`border-r border-black/10 px-3 py-3 text-[12px] font-semibold ${item.tone <= 50 ? "text-white/80" : "text-black/75"}`}>
               {item.tone}
             </div>
             <div className={`px-4 py-3 text-[13px] font-medium ${item.tone <= 50 ? "text-white/85" : "text-black/80"}`}>
               {name.toLowerCase()}
             </div>
-            <div
-              className={`border-l border-black/10 px-3 py-3 text-right text-[12px] font-semibold ${item.tone <= 50 ? "text-white/75" : "text-black/70"}`}
-            >
+            <div className={`border-l border-black/10 px-3 py-3 text-right text-[12px] font-semibold ${item.tone <= 50 ? "text-white/75" : "text-black/70"}`}>
               {item.value}
             </div>
           </div>
@@ -452,7 +325,300 @@ function TonalPaletteCard({
   );
 }
 
+function FoundationsContent() {
+  return (
+    <section className="space-y-8">
+      <SectionTitle
+        eyebrow="Foundations"
+        title="새 기준으로 정리한"
+        highlight="컬러 토큰"
+        description="페이지 기본 색상은 primary, surface, support의 세 축으로 정리하고, support colors는 tonal palette로 확장합니다."
+      />
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <TokenSection
+          title="Primary"
+          description="브랜드 액션과 보라 계열 하이라이트를 담당하는 토큰입니다."
+          tokens={primaryTokens}
+        />
+        <TokenSection
+          title="Surface"
+          description="배경, 카드, 컨테이너, 보더 단계감을 담당하는 토큰입니다."
+          tokens={surfaceTokens}
+        />
+      </div>
+
+      <div className="glass-card p-6">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Support Colors</p>
+        <p className="mt-2 text-[14px] leading-relaxed text-white/50">
+          상태와 데이터 강조를 위한 보조 토큰입니다. 브랜드 주색을 흐리지 않도록 제한적으로 사용합니다.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          {supportTokens.map((token) => (
+            <TokenRow key={token.label} {...token} />
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <div className="text-center">
+          <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Support Tonal Palettes</p>
+          <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-white sm:text-[36px]">
+            Support Colors를 위한
+            <br />
+            <span className="gradient-text">Material 3 tonal palette</span>
+          </h3>
+          <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-relaxed text-white/50">
+            `data-mint`, `data-amber`, `brand-blue`는 단일 컬러로만 쓰기보다, Material 3 방식처럼 tone 단위로 확장해두면 상태, 배지, 데이터 시각화에 더 안정적으로 적용할 수 있습니다.
+          </p>
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          {supportTonalPalettes.map((palette) => (
+            <TonalPaletteCard key={palette.name} {...palette} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TypographyContent() {
+  return (
+    <section className="space-y-8">
+      <SectionTitle
+        eyebrow="Typography"
+        title="랜딩에서 실제로 쓰는"
+        highlight="타입 스케일"
+        description="Pretendard 기반으로 제목, 본문, 라벨, 캡션을 단계별로 정리했습니다."
+      />
+
+      <div className="glass-card p-6">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Type Scale</p>
+        <div className="mt-5 space-y-3">
+          {typography.map((item) => (
+            <TypeRow key={item.label} {...item} />
+          ))}
+        </div>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Typography Rules</p>
+          <div className="mt-5 space-y-4">
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Font Family</p>
+              <p className="mt-2 text-[24px] font-bold text-white">Pretendard</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">전체 UI와 본문, 헤드라인 모두 Pretendard를 기준으로 통일합니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Tracking</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">큰 제목은 `-0.03em ~ -0.05em`, 본문은 기본 또는 `-0.01em`, 라벨은 넓은 letter spacing을 씁니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Line Height</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">디스플레이는 `1.02 ~ 1.15`로 타이트하게, 본문은 `1.625`, 라벨과 캡션은 `1.35 ~ 1.4`로 정리합니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Color Roles</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">제목은 `on-surface`, 본문은 `on-surface-variant`, eyebrow와 강조 라벨은 `primary-fixed-dim`을 우선 사용합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Live Composition Sample</p>
+          <div className="mt-5 rounded-[28px] border border-white/10 bg-[#141425] p-6">
+            <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Product Flow</p>
+            <h2 className="mt-3 text-[36px] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-[44px]">
+              실제 서비스 화면 기준으로
+              <br />
+              <span className="gradient-text">더 또렷하게 정리한 경험</span>
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/55">
+              Pretendard 기반의 선명한 본문 텍스트를 사용하고, dark surface 위에서는 `on-surface`와 `on-surface-variant` 단계로 가독성을 나눕니다.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
+                <Sparkles size={12} />
+                Eyebrow
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#19c8a6]/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#43e0c1]">
+                <Check size={12} />
+                Caption
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ComponentsContent() {
+  return (
+    <section className="space-y-8">
+      <SectionTitle
+        eyebrow="Components"
+        title="토큰 기준으로 다시 본"
+        highlight="UI 패턴"
+        description="버튼, 칩, 카드도 새 토큰 이름 기준으로 읽을 수 있게 정리했습니다."
+      />
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Buttons & Badges</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <button className="rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-5 py-3 text-[14px] font-semibold text-white">
+              Primary CTA
+            </button>
+            <button className="rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF]">
+              Tonal Button
+            </button>
+            <button className="rounded-xl border border-white/15 bg-[#141425] px-5 py-3 text-[14px] font-medium text-white/75">
+              Surface Secondary
+            </button>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
+              <Sparkles size={12} />
+              Primary Container Badge
+            </div>
+          </div>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Primary</p>
+              <p className="mt-2 text-[14px] font-semibold text-white">`primary` + `on-primary`</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-white/50">가장 강한 액션 버튼에 사용합니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Tonal</p>
+              <p className="mt-2 text-[14px] font-semibold text-white">`primary-container` + `on-primary-container`</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-white/50">보조 강조 액션이나 필터, 상태성 버튼에 적합합니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Secondary</p>
+              <p className="mt-2 text-[14px] font-semibold text-white">`surface-container` + `outline`</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-white/50">기본 액션 옆에 놓는 중립 버튼에 사용합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Status & Data Chips</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
+              <Clock3 size={12} />
+              기록 중
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#19c8a6]/12 px-3 py-1.5 text-[12px] font-semibold text-[#43e0c1]">
+              <Check size={12} />
+              Active
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#ffbf47]/14 px-3 py-1.5 text-[12px] font-semibold text-[#ffbf47]">
+              <Trophy size={12} />
+              Best Win Streak
+            </div>
+          </div>
+        </div>
+
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Cards</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-[24px] border border-[#FFFFFF12] bg-[#141425] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Surface Container</p>
+              <p className="mt-2 text-[18px] font-bold">정보 카드</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">기본 정보 모듈과 설명 카드에 사용합니다.</p>
+            </div>
+            <div className="rounded-[24px] border border-[#FFFFFF1F] bg-[#1B1B31] p-4 shadow-[0_16px_48px_rgba(0,0,0,0.3)]">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Surface High</p>
+              <p className="mt-2 text-[18px] font-bold">강조 카드</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">히어로와 강조 블록, 대표 패널에 사용합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Stat Cards</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {[
+              { icon: Trophy, label: "Best Win Streak", value: "6", color: "from-[#ff9f1a] to-[#ffbf47]" },
+              { icon: Users, label: "Unique Players", value: "12", color: "from-[#2fa5ff] to-[#5666ff]" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-[24px] border border-[#FFFFFF1F] bg-[#1B1B31] p-5">
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${item.color}`}>
+                  <item.icon size={16} className="text-white" />
+                </div>
+                <p className="mt-4 text-[11px] uppercase tracking-[0.16em] text-white/30">{item.label}</p>
+                <p className="mt-1 text-[28px] font-bold text-white">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CompositionContent() {
+  return (
+    <section className="space-y-8">
+      <SectionTitle
+        eyebrow="Composition"
+        title="레이아웃을 조립할 때의"
+        highlight="토큰 사용 원칙"
+        description="컬러 이름과 레이어 이름을 같이 쓰면 페이지를 훨씬 안정적으로 확장할 수 있습니다."
+      />
+
+      <div className="glass-card p-6">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Spacing, Radius, Shadows</p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {spacing.map((item) => (
+            <div key={item.token} className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{item.token}</p>
+              <p className="mt-1 text-[18px] font-bold text-white">{item.value}</p>
+              <p className="mt-2 text-[13px] text-white/45">{item.usage}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-xl border border-white/8 bg-white/[0.03] p-4 text-center">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Radius</p>
+            <p className="mt-2 text-[20px] font-bold">16px</p>
+          </div>
+          <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-center">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Radius Large</p>
+            <p className="mt-2 text-[20px] font-bold">24-32px</p>
+          </div>
+          <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-center">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Shadow</p>
+            <p className="mt-2 text-[20px] font-bold">Soft Glow</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Primary Usage</p>
+          <p className="mt-3 text-[22px] font-bold">액션은 primary에만 집중</p>
+          <p className="mt-3 text-[14px] leading-relaxed text-white/50">CTA, 핵심 링크, 중요한 강조만 `primary`와 `primary-container`를 사용합니다.</p>
+        </div>
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Surface Layering</p>
+          <p className="mt-3 text-[22px] font-bold">배경은 surface 단계로 쌓기</p>
+          <p className="mt-3 text-[14px] leading-relaxed text-white/50">페이지는 `surface`, 카드는 `surface-container`, 강조 패널은 `surface-container-high`를 우선 사용합니다.</p>
+        </div>
+        <div className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Outline Discipline</p>
+          <p className="mt-3 text-[22px] font-bold">경계는 outline으로 절제</p>
+          <p className="mt-3 text-[14px] leading-relaxed text-white/50">너무 많은 색 보더 대신 `outline`과 `outline-variant`로 레이어만 구분합니다.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function DesignSystemPage() {
+  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]["id"]>("foundations");
+
   return (
     <main className="min-h-screen bg-[#070711] text-white">
       <div className="absolute inset-0 -z-10">
@@ -469,7 +635,7 @@ export default function DesignSystemPage() {
         <div className="absolute right-0 top-[20%] h-[520px] w-[520px] rounded-full bg-[#7DA2FF]/8 blur-3xl" />
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-20 px-6 py-12 lg:px-10 lg:py-16">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 py-12 lg:px-10 lg:py-16">
         <section className="glass-card-strong overflow-hidden rounded-[32px] border border-white/[0.12] px-6 py-8 lg:px-10 lg:py-12">
           <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
@@ -480,359 +646,73 @@ export default function DesignSystemPage() {
               <h1 className="mt-6 text-[40px] font-bold leading-[1.02] tracking-[-0.05em] text-white sm:text-[58px]">
                 홈페이지 기준으로
                 <br />
-                <span className="gradient-text">토큰까지 정리한</span>
+                <span className="gradient-text">콘텐츠별로 나눈</span>
                 <br />
                 디자인 시스템
               </h1>
               <p className="mt-5 max-w-[560px] text-[16px] leading-relaxed text-white/55">
-                이번 업데이트에서는 컬러를 단순 브랜드 색상이 아니라 `primary`, `surface`, `outline`
-                체계로 다시 정리했습니다. 앞으로 새 화면을 만들 때도 같은 이름으로 일관되게 확장할 수 있습니다.
+                이제 디자인 시스템 페이지를 `Foundations`, `Typography`, `Components`, `Composition` 탭으로 나눠서,
+                필요한 내용만 빠르게 찾아볼 수 있게 정리했습니다.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)]">
                   Primary Button
                   <ArrowRight size={16} />
                 </button>
-                <button className="rounded-xl border border-white/15 bg-[#141425] px-6 py-3.5 text-[15px] font-medium text-white/75">
-                  Surface Button
+                <button className="rounded-xl bg-[#24163F] px-6 py-3.5 text-[15px] font-semibold text-[#E9DDFF]">
+                  Tonal Button
                 </button>
               </div>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="glass-card p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Token Principles</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Page Structure</p>
                 <ul className="mt-4 space-y-3 text-[14px] text-white/60">
-                  <li>브랜드 컬러는 `primary` 계열로만 관리합니다.</li>
-                  <li>배경과 카드의 단계감은 `surface-container` 계열로 나눕니다.</li>
-                  <li>보더는 `outline`, 더 약한 경계는 `outline-variant`를 사용합니다.</li>
+                  <li>Foundations: 컬러 토큰과 support tonal palette</li>
+                  <li>Typography: 타입 스케일과 line-height 규칙</li>
+                  <li>Components: 버튼, 칩, 카드 시스템</li>
+                  <li>Composition: spacing, radius, 레이어 사용 원칙</li>
                 </ul>
               </div>
               <div className="glass-card p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Homepage Mood</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Support Colors</p>
                 <ul className="mt-4 space-y-3 text-[14px] text-white/60">
-                  <li>배경은 아주 어둡게 유지하고, 브랜드 퍼플은 액션에 집중합니다.</li>
-                  <li>밝은 앱 스크린샷은 dark surface 위에서 더 또렷하게 보이게 합니다.</li>
-                  <li>민트, 앰버, 블루는 support 토큰으로만 제한적으로 사용합니다.</li>
+                  <li>support colors는 단일 값보다 tonal palette로 관리합니다.</li>
+                  <li>민트, 앰버, 블루 각각 tone 단계별 확장이 가능합니다.</li>
+                  <li>상태, 배지, 데이터 시각화에서 더 일관되게 적용할 수 있습니다.</li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="space-y-8">
-          <SectionTitle
-            eyebrow="Foundations"
-            title="새 기준으로 정리한"
-            highlight="컬러 토큰"
-            description="올려주신 구조에 맞춰 primary와 surface 계열을 토큰 이름 중심으로 정리했습니다."
-          />
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <TokenSection
-              title="Primary"
-              description="브랜드 액션과 보라 계열 하이라이트를 담당하는 토큰입니다."
-              tokens={primaryTokens}
-            />
-            <TokenSection
-              title="Surface"
-              description="배경, 카드, 컨테이너, 보더 단계감을 담당하는 토큰입니다."
-              tokens={surfaceTokens}
-            />
-          </div>
-
-          <div className="glass-card p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Support Colors</p>
-            <p className="mt-2 text-[14px] leading-relaxed text-white/50">
-              상태와 데이터 강조를 위한 보조 토큰입니다. 브랜드 주색을 흐리지 않도록 제한적으로 사용합니다.
-            </p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-3">
-              {supportTokens.map((token) => (
-                <TokenRow key={token.label} {...token} />
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="text-center">
-              <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Material 3 Tonal Palettes</p>
-              <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-white sm:text-[36px]">
-                M3 방식으로 정리한
-                <br />
-                <span className="gradient-text">브랜드 tonal palette</span>
-              </h3>
-              <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-relaxed text-white/50">
-                Material 3는 하나의 source color에서 `primary`, `secondary`, `tertiary`, `neutral`, `neutral variant`
-                팔레트를 만들고, 각 팔레트 안에서 `0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100`
-                톤을 사용합니다. 이 구조를 참고해 현재 Table Tales 브랜드에 맞는 tonal palette를 정리했습니다.
-              </p>
-            </div>
-
-            <div className="grid gap-6 xl:grid-cols-2">
-              {tonalPalettes.map((palette) => (
-                <TonalPaletteCard key={palette.name} {...palette} />
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="text-center">
-              <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Palette Sets</p>
-              <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-white sm:text-[36px]">
-                primary와 가장 잘 어울리는
-                <br />
-                <span className="gradient-text">컬러 팔레트 조합</span>
-              </h3>
-              <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-white/50">
-                새 화면을 만들 때 `primary`를 단독으로 보지 말고, 함께 붙는 surface와 support 색까지 세트로 선택하면 훨씬 안정적으로 확장됩니다.
-              </p>
-            </div>
-
-            <div className="grid gap-6 lg:grid-cols-2">
-              {primaryPalettes.map((palette) => (
-                <PaletteCard key={palette.name} {...palette} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-8">
-          <SectionTitle
-            eyebrow="Typography"
-            title="랜딩에서 실제로 쓰는"
-            highlight="타입 스케일"
-            description="Pretendard 기반으로 제목, 본문, 라벨, 캡션을 단계별로 정리했습니다. 새 페이지를 만들 때 이 스케일 안에서만 쓰면 톤이 안정적으로 유지됩니다."
-          />
-
-          <div className="glass-card p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Type Scale</p>
-            <div className="mt-5 space-y-3">
-              {typography.map((item) => (
-                <TypeRow key={item.label} {...item} />
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Typography Rules</p>
-              <div className="mt-5 space-y-4">
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Font Family</p>
-                  <p className="mt-2 text-[24px] font-bold text-white">Pretendard</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">
-                    전체 UI와 본문, 헤드라인 모두 Pretendard를 기준으로 통일합니다.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Tracking</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">
-                    큰 제목은 `-0.03em ~ -0.05em`, 본문은 기본 또는 `-0.01em`, 라벨은 넓은 letter spacing을 씁니다.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Line Height</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">
-                    디스플레이는 `1.02 ~ 1.15`로 타이트하게, 본문은 `1.625`, 라벨과 캡션은 `1.35 ~ 1.4`로 정리합니다.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Color Roles</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">
-                    제목은 `on-surface`, 본문은 `on-surface-variant`, eyebrow와 강조 라벨은 `primary-fixed-dim`을 우선 사용합니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Live Composition Sample</p>
-              <div className="mt-5 rounded-[28px] border border-white/10 bg-[#141425] p-6">
-                <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Product Flow</p>
-                <h2 className="mt-3 text-[36px] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-[44px]">
-                  실제 서비스 화면 기준으로
-                  <br />
-                  <span className="gradient-text">더 또렷하게 정리한 경험</span>
-                </h2>
-                <p className="mt-4 text-[16px] leading-relaxed text-white/55">
-                  Pretendard 기반의 선명한 본문 텍스트를 사용하고, dark surface 위에서는
-                  `on-surface`와 `on-surface-variant` 단계로 가독성을 나눕니다.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
-                    <Sparkles size={12} />
-                    Eyebrow
-                  </div>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#19c8a6]/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#43e0c1]">
-                    <Check size={12} />
-                    Caption
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="glass-card p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Spacing, Radius, Shadows</p>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              {spacing.map((item) => (
-                <div key={item.token} className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{item.token}</p>
-                  <p className="mt-1 text-[18px] font-bold text-white">{item.value}</p>
-                  <p className="mt-2 text-[13px] text-white/45">{item.usage}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-xl border border-white/8 bg-white/[0.03] p-4 text-center">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Radius</p>
-                <p className="mt-2 text-[20px] font-bold">16px</p>
-              </div>
-              <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-center">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Radius Large</p>
-                <p className="mt-2 text-[20px] font-bold">24-32px</p>
-              </div>
-              <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-center">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Shadow</p>
-                <p className="mt-2 text-[20px] font-bold">Soft Glow</p>
-              </div>
-            </div>
-        </section>
-
-        <section className="space-y-8">
-          <SectionTitle
-            eyebrow="Components"
-            title="토큰 기준으로 다시 본"
-            highlight="UI 패턴"
-            description="버튼, 칩, 카드도 새 토큰 이름 기준으로 읽을 수 있게 정리했습니다."
-          />
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Buttons & Badges</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <button className="rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-5 py-3 text-[14px] font-semibold text-white">
-                  Primary CTA
+        <section className="glass-card p-3">
+          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+            {tabs.map((tab) => {
+              const active = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`rounded-2xl px-4 py-3 text-left transition-all duration-200 ${
+                    active
+                      ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
+                      : "bg-white/[0.02] text-white/55 hover:bg-white/[0.04] hover:text-white"
+                  }`}
+                >
+                  <p className="text-[11px] uppercase tracking-[0.16em]">{tab.label}</p>
                 </button>
-                <button className="rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF]">
-                  Tonal Button
-                </button>
-                <button className="rounded-xl border border-white/15 bg-[#141425] px-5 py-3 text-[14px] font-medium text-white/75">
-                  Surface Secondary
-                </button>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
-                  <Sparkles size={12} />
-                  Primary Container Badge
-                </div>
-              </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Primary</p>
-                  <p className="mt-2 text-[14px] font-semibold text-white">`primary` + `on-primary`</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/50">가장 강한 액션 버튼에 사용합니다.</p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Tonal</p>
-                  <p className="mt-2 text-[14px] font-semibold text-white">`primary-container` + `on-primary-container`</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/50">보조 강조 액션이나 필터, 상태성 버튼에 적합합니다.</p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Secondary</p>
-                  <p className="mt-2 text-[14px] font-semibold text-white">`surface-container` + `outline`</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/50">기본 액션 옆에 놓는 중립 버튼에 사용합니다.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Status & Data Chips</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
-                  <Clock3 size={12} />
-                  기록 중
-                </div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#19c8a6]/12 px-3 py-1.5 text-[12px] font-semibold text-[#43e0c1]">
-                  <Check size={12} />
-                  Active
-                </div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#ffbf47]/14 px-3 py-1.5 text-[12px] font-semibold text-[#ffbf47]">
-                  <Trophy size={12} />
-                  Best Win Streak
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Cards</p>
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[24px] border border-[#FFFFFF12] bg-[#141425] p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Surface Container</p>
-                  <p className="mt-2 text-[18px] font-bold">정보 카드</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">기본 정보 모듈과 설명 카드에 사용합니다.</p>
-                </div>
-                <div className="rounded-[24px] border border-[#FFFFFF1F] bg-[#1B1B31] p-4 shadow-[0_16px_48px_rgba(0,0,0,0.3)]">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Surface High</p>
-                  <p className="mt-2 text-[18px] font-bold">강조 카드</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/50">히어로와 강조 블록, 대표 패널에 사용합니다.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Stat Cards</p>
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                {[
-                  { icon: Trophy, label: "Best Win Streak", value: "6", color: "from-[#ff9f1a] to-[#ffbf47]" },
-                  { icon: Users, label: "Unique Players", value: "12", color: "from-[#2fa5ff] to-[#5666ff]" },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[24px] border border-[#FFFFFF1F] bg-[#1B1B31] p-5">
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${item.color}`}>
-                      <item.icon size={16} className="text-white" />
-                    </div>
-                    <p className="mt-4 text-[11px] uppercase tracking-[0.16em] text-white/30">{item.label}</p>
-                    <p className="mt-1 text-[28px] font-bold text-white">{item.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+              );
+            })}
           </div>
         </section>
 
-        <section className="space-y-8">
-          <SectionTitle
-            eyebrow="Composition"
-            title="레이아웃을 조립할 때의"
-            highlight="토큰 사용 원칙"
-            description="컬러 이름과 레이어 이름을 같이 쓰면 페이지를 훨씬 안정적으로 확장할 수 있습니다."
-          />
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Primary Usage</p>
-              <p className="mt-3 text-[22px] font-bold">액션은 primary에만 집중</p>
-              <p className="mt-3 text-[14px] leading-relaxed text-white/50">
-                CTA, 핵심 링크, 중요한 강조만 `primary`와 `primary-container`를 사용합니다.
-              </p>
-            </div>
-
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Surface Layering</p>
-              <p className="mt-3 text-[22px] font-bold">배경은 surface 단계로 쌓기</p>
-              <p className="mt-3 text-[14px] leading-relaxed text-white/50">
-                페이지는 `surface`, 카드는 `surface-container`, 강조 패널은 `surface-container-high`를 우선 사용합니다.
-              </p>
-            </div>
-
-            <div className="glass-card p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Outline Discipline</p>
-              <p className="mt-3 text-[22px] font-bold">경계는 outline으로 절제</p>
-              <p className="mt-3 text-[14px] leading-relaxed text-white/50">
-                너무 많은 색 보더 대신 `outline`과 `outline-variant`로 레이어만 구분합니다.
-              </p>
-            </div>
-          </div>
-        </section>
+        {activeTab === "foundations" && <FoundationsContent />}
+        {activeTab === "typography" && <TypographyContent />}
+        {activeTab === "components" && <ComponentsContent />}
+        {activeTab === "composition" && <CompositionContent />}
       </div>
     </main>
   );
