@@ -50,8 +50,10 @@ function DeviceFrame({
   priority?: boolean;
 }) {
   return (
-    <div className={`relative rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,#dce2ea_0%,#eef2f6_100%)] p-3 shadow-[0_26px_80px_rgba(0,0,0,0.55)] ${className}`}>
-      <div className="overflow-hidden rounded-[26px] border border-black/6 bg-white">
+    <div
+      className={`relative rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,#171b2a_0%,#0d1019_100%)] p-3 shadow-[0_26px_80px_rgba(0,0,0,0.55)] ${className}`}
+    >
+      <div className="overflow-hidden rounded-[26px] border border-white/6 bg-[#090b12]">
         <Image
           src={src}
           alt={alt}

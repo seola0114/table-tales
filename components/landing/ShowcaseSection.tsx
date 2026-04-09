@@ -62,8 +62,8 @@ function ScreenTile({
       className="glass-card group relative overflow-hidden rounded-[28px] border border-white/10 p-4"
     >
       <div className={`pointer-events-none absolute inset-x-10 top-10 h-40 rounded-full bg-gradient-to-b ${accent} blur-3xl opacity-90 transition-transform duration-500 group-hover:scale-110`} />
-      <div className="relative z-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,#dbe1e8_0%,#edf2f6_100%)] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)]">
-        <div className="overflow-hidden rounded-[22px] border border-black/5 bg-white">
+      <div className="relative z-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,#171b2a_0%,#0d1019_100%)] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)]">
+        <div className="overflow-hidden rounded-[22px] border border-white/6 bg-[#090b12]">
           <Image src={src} alt={alt} width={768} height={1536} className="h-auto w-full" />
         </div>
       </div>
