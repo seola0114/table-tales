@@ -128,6 +128,104 @@ const supportTonalPalettes = [
   },
 ];
 
+const tonalPalettes = [
+  {
+    name: "Primary",
+    role: "브랜드 메인 인터랙션과 강조 요소",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#190A2E" },
+      { tone: 20, value: "#2C1250" },
+      { tone: 30, value: "#441F76" },
+      { tone: 40, value: "#5C2DA0" },
+      { tone: 50, value: "#7444C8" },
+      { tone: 60, value: "#8B5CF6" },
+      { tone: 70, value: "#A78BFA" },
+      { tone: 80, value: "#C4B4FD" },
+      { tone: 90, value: "#E9DDFF" },
+      { tone: 95, value: "#F5EEFF" },
+      { tone: 99, value: "#FEFBFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Secondary",
+    role: "primary와 함께 붙는 보조 브랜드 톤",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#151427" },
+      { tone: 20, value: "#24233D" },
+      { tone: 30, value: "#393857" },
+      { tone: 40, value: "#504E73" },
+      { tone: 50, value: "#686590" },
+      { tone: 60, value: "#817EAD" },
+      { tone: 70, value: "#9B98CA" },
+      { tone: 80, value: "#B6B2E8" },
+      { tone: 90, value: "#E1DEFF" },
+      { tone: 95, value: "#F2EEFF" },
+      { tone: 99, value: "#FEFBFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Tertiary",
+    role: "시각적 변주와 데이터 강조에 쓰는 블루 축",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#001A38" },
+      { tone: 20, value: "#002E60" },
+      { tone: 30, value: "#0B4789" },
+      { tone: 40, value: "#2862B3" },
+      { tone: 50, value: "#4A7BD6" },
+      { tone: 60, value: "#6D95F3" },
+      { tone: 70, value: "#8FB1FF" },
+      { tone: 80, value: "#B7CCFF" },
+      { tone: 90, value: "#DCE5FF" },
+      { tone: 95, value: "#EEF2FF" },
+      { tone: 99, value: "#FCFCFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Neutral",
+    role: "배경과 기본 surface를 만드는 중성 축",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#070711" },
+      { tone: 20, value: "#141425" },
+      { tone: 30, value: "#2A2A3A" },
+      { tone: 40, value: "#424252" },
+      { tone: 50, value: "#5B5B6B" },
+      { tone: 60, value: "#757585" },
+      { tone: 70, value: "#9090A0" },
+      { tone: 80, value: "#ABABBB" },
+      { tone: 90, value: "#C7C6D7" },
+      { tone: 95, value: "#E4E2F3" },
+      { tone: 99, value: "#FCF8FF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Neutral Variant",
+    role: "outline과 surface variant에 쓰는 살짝 색이 도는 중성 축",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#0D0C16" },
+      { tone: 20, value: "#1B1A2A" },
+      { tone: 30, value: "#323043" },
+      { tone: 40, value: "#49475B" },
+      { tone: 50, value: "#626075" },
+      { tone: 60, value: "#7B788E" },
+      { tone: 70, value: "#9591A8" },
+      { tone: 80, value: "#B0ACC4" },
+      { tone: 90, value: "#CBC6E0" },
+      { tone: 95, value: "#E9E3F8" },
+      { tone: 99, value: "#FDF8FF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+];
+
 const spacing = [
   { token: "4", value: "0.25rem", usage: "아이콘과 텍스트 사이 미세 간격" },
   { token: "8", value: "0.5rem", usage: "badge, chip, 작은 버튼" },
@@ -379,6 +477,27 @@ function FoundationsContent() {
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           {supportTokens.map((token) => (
             <TokenRow key={token.label} {...token} />
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <div className="text-center">
+          <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Core Tonal Palettes</p>
+          <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-white sm:text-[36px]">
+            기본 구조로 쓰는
+            <br />
+            <span className="gradient-text">Material 3 tonal palette</span>
+          </h3>
+          <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-relaxed text-white/50">
+            브랜드 시스템의 뼈대가 되는 `Primary`, `Secondary`, `Tertiary`, `Neutral`, `Neutral Variant` 5개 tonal palette입니다.
+            이 팔레트가 전체 UI의 기본 역할을 나누고, 그 위에 support colors가 상태와 데이터 표현을 보강합니다.
+          </p>
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          {tonalPalettes.map((palette) => (
+            <TonalPaletteCard key={palette.name} {...palette} />
           ))}
         </div>
       </div>
