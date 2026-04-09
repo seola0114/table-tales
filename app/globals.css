@@ -87,6 +87,10 @@ html[data-theme="light"] #app-shell {
   filter: invert(1) hue-rotate(180deg);
 }
 
+html[data-theme="light"] .preserve-theme-color {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* Noise texture overlay */
 body::before {
   content: "";

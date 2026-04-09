@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import LogoMark from "@/components/ui/LogoMark";
 import ThemeToggle from "@/components/landing/ThemeToggle";
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -69,13 +70,17 @@ export default function Header() {
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
               <a
-                href="#waitlist"
+                href={EXTERNAL_LINKS.web}
+                target="_blank"
+                rel="noreferrer"
                 className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
               >
                 서비스 소식
               </a>
               <a
-                href="#waitlist"
+                href={EXTERNAL_LINKS.web}
+                target="_blank"
+                rel="noreferrer"
                 className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(139,92,246,0.34)] hover:shadow-[0_0_28px_rgba(125,162,255,0.18)]"
               >
                 앱 시작하기
@@ -120,14 +125,18 @@ export default function Header() {
                   <ThemeToggle />
                 </div>
                 <a
-                  href="#waitlist"
+                  href={EXTERNAL_LINKS.web}
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="py-2.5 text-center text-[14px] font-medium text-white/60 border border-white/[0.1] rounded-lg"
                 >
                   서비스 소식 받기
                 </a>
                 <a
-                  href="#waitlist"
+                  href={EXTERNAL_LINKS.web}
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] text-white rounded-lg"
                 >

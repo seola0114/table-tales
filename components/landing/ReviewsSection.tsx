@@ -56,7 +56,7 @@ const reviews = [
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="preserve-theme-color flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
         <Star key={i} size={12} className="text-amber-400 fill-amber-400" />
       ))}

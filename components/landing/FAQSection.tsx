@@ -1,5 +1,6 @@
 "use client";
 
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
@@ -19,7 +20,7 @@ const faqs = [
   },
   {
     q: "어디에서 사용할 수 있나요?",
-    a: "TableTales는 iOS, Android, Web 환경에서 사용할 수 있도록 준비되어 있습니다. 서비스 소식을 통해 주요 업데이트도 계속 안내드릴 예정입니다.",
+    a: "TableTales는 iOS, Android, Web에서 사용할 수 있습니다. App Store, Google Play, 웹에서 바로 시작할 수 있어요.",
   },
   {
     q: "데이터는 안전하게 보관되나요?",
@@ -119,7 +120,11 @@ export default function FAQSection() {
           <a href="mailto:hello@tabletales.app" className="text-[#A78BFA] hover:text-[#C3B2FF] transition-colors">
             hello@tabletales.app
           </a>
-          으로 연락해 주세요.
+          으로 연락해 주세요. 앱은{" "}
+          <a href={EXTERNAL_LINKS.web} target="_blank" rel="noreferrer" className="text-[#A78BFA] hover:text-[#C3B2FF] transition-colors">
+            tabletales.co.kr
+          </a>
+          에서도 바로 이용할 수 있습니다.
         </motion.p>
       </div>
     </section>

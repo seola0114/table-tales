@@ -1,24 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 
 export default function CTASection() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 800);
-  };
-
   return (
     <section id="waitlist" className="relative py-40 overflow-hidden">
       {/* Background */}
@@ -48,65 +34,74 @@ export default function CTASection() {
           </h2>
 
           <p className="text-[16px] text-white/45 leading-relaxed mb-12 max-w-md mx-auto">
-            이메일을 남겨두시면 서비스 업데이트와 새로운 소식을 가장 먼저 받아볼 수 있습니다.
             TableTales와 함께 보드게임의 순간을 더 오래 남겨보세요.
+            웹과 앱에서 바로 플레이 기록을 시작할 수 있습니다.
           </p>
 
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="이메일을 입력하세요"
-                required
-                className="flex-1 px-4 py-3.5 bg-white/[0.05] border border-white/[0.1] focus:border-[#8B5CF6]/60 focus:bg-white/[0.07] rounded-xl text-white placeholder:text-white/25 text-[14px] outline-none transition-all duration-200"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] disabled:opacity-60 text-white font-semibold text-[14px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(139,92,246,0.34)] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)] whitespace-nowrap"
+          <div className="mx-auto grid max-w-3xl gap-3 sm:grid-cols-3">
+            {[
+              {
+                href: EXTERNAL_LINKS.web,
+                label: "Web에서 시작하기",
+                variant:
+                  "bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]",
+                icon: ArrowRight,
+              },
+              {
+                href: EXTERNAL_LINKS.appStore,
+                label: "App Store",
+                variant:
+                  "border border-white/[0.1] bg-white/[0.04] text-white/80 hover:border-[#A78BFA]/45 hover:bg-white/[0.06] hover:text-white",
+                icon: ExternalLink,
+              },
+              {
+                href: EXTERNAL_LINKS.playStore,
+                label: "Google Play",
+                variant:
+                  "border border-white/[0.1] bg-white/[0.04] text-white/80 hover:border-[#A78BFA]/45 hover:bg-white/[0.06] hover:text-white",
+                icon: ExternalLink,
+              },
+            ].map(({ href, label, variant, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className={`group inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[14px] font-semibold transition-all duration-200 ${variant}`}
               >
-                {loading ? (
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                ) : (
-                  <>
-                    알림 받기
-                    <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-                  </>
-                )}
-              </button>
-            </form>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-md mx-auto flex items-center justify-center gap-3 py-4 px-6 glass-card border-[#8B5CF6]/30 bg-[#8B5CF6]/10"
-            >
-              <div className="w-6 h-6 rounded-full bg-[#A78BFA]/18 border border-[#A78BFA]/32 flex items-center justify-center">
-                <Check size={12} className="text-[#A78BFA]" />
-              </div>
-              <p className="text-[14px] text-white/70">
-                등록 완료! 새로운 소식을 가장 먼저 전해드릴게요.
-              </p>
-            </motion.div>
-          )}
+                <span>{label}</span>
+                <Icon size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              </a>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 px-6 py-4 text-white/70"
+          >
+            <div className="w-2 h-2 rounded-full bg-[#A78BFA]" />
+            <p className="text-[14px]">
+              원하는 환경에서 바로 시작할 수 있어요.
+            </p>
+          </motion.div>
 
           <p className="mt-6 text-[12px] text-white/25">
-            스팸 메일은 보내지 않아요. 필요한 소식만 전해드릴게요.
+            웹, App Store, Google Play 링크로 바로 연결됩니다.
           </p>
 
           <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {[
-              "앱 시작하기",
-              "서비스 소식 받기",
-              "iOS · Android · Web 지원",
+              { href: EXTERNAL_LINKS.web, label: "Web 지원" },
+              { href: EXTERNAL_LINKS.appStore, label: "iOS 지원" },
+              { href: EXTERNAL_LINKS.playStore, label: "Android 지원" },
             ].map((badge) => (
-              <div key={badge} className="flex items-center gap-2">
+              <a key={badge.label} href={badge.href} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                 <div className="w-1 h-1 rounded-full bg-[#A78BFA]" />
-                <span className="text-[12px] text-white/30 font-medium">{badge}</span>
-              </div>
+                <span className="text-[12px] text-white/30 font-medium">{badge.label}</span>
+              </a>
             ))}
           </div>
         </motion.div>

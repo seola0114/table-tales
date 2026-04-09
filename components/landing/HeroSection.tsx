@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Clock3, Search, Sparkles, Trophy, Users2 } from "lucide-react";
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 import PhoneScreenPreview from "./PhoneScreenPreview";
 
 function FloatingNote({
@@ -197,17 +198,21 @@ export default function HeroSection() {
               className="flex flex-col gap-3 sm:flex-row lg:justify-start"
             >
               <a
-                href="#waitlist"
+                href={EXTERNAL_LINKS.web}
+                target="_blank"
+                rel="noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] transition-all duration-200 hover:from-[#7C4DED] hover:to-[#7DA2FF] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]"
               >
                 앱 시작하기
                 <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#waitlist"
+                href={EXTERNAL_LINKS.appStore}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white"
               >
-                서비스 소식 받기
+                App Store에서 보기
               </a>
             </motion.div>
 
