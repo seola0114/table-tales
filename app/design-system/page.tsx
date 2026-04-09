@@ -222,89 +222,131 @@ const typography = [
   {
     label: "display-xl",
     element: "h1",
-    sample: "플레이한 게임부터,",
+    samples: [{ text: "플레이한 게임부터,", weightClass: "font-bold" }],
     className: "text-[40px] leading-[1.02] tracking-[-0.05em] sm:text-[58px]",
     mobileSize: "40px",
     desktopSize: "58px",
     lineHeight: "1.02",
-    weight: "700",
+    weights: ["700"],
     usage: "메인 히어로 H1, 가장 강한 첫 인상",
   },
   {
     label: "display-lg",
     element: "h2",
-    sample: "실제 서비스 화면 기준으로",
+    samples: [{ text: "실제 서비스 화면 기준으로", weightClass: "font-bold" }],
     className: "text-[36px] leading-[1.05] tracking-[-0.03em] sm:text-[44px]",
     mobileSize: "36px",
     desktopSize: "44px",
     lineHeight: "1.05",
-    weight: "700",
+    weights: ["700"],
     usage: "섹션 메인 타이틀",
   },
   {
     label: "heading-md",
-    element: "h3 / h4",
-    sample: "토큰 기준으로 다시 본 UI 패턴",
+    element: "h3",
+    samples: [{ text: "토큰 기준으로 다시 본 UI 패턴", weightClass: "font-bold" }],
     className: "text-[28px] leading-[1.15] tracking-[-0.025em] sm:text-[34px]",
     mobileSize: "28px",
     desktopSize: "34px",
     lineHeight: "1.15",
-    weight: "700",
+    weights: ["700"],
     usage: "카드/블록 제목, 서브 섹션 타이틀",
+  },
+  {
+    label: "heading-sm",
+    element: "h4",
+    samples: [{ text: "최근 기록과 주요 흐름", weightClass: "font-bold" }],
+    className: "text-[24px] leading-[1.2] tracking-[-0.02em] sm:text-[28px]",
+    mobileSize: "24px",
+    desktopSize: "28px",
+    lineHeight: "1.2",
+    weights: ["700"],
+    usage: "하위 섹션 제목, 강조 카드 제목",
+  },
+  {
+    label: "heading-xs",
+    element: "h5",
+    samples: [{ text: "플레이어 선택 흐름", weightClass: "font-semibold" }],
+    className: "text-[20px] leading-[1.25] tracking-[-0.02em] sm:text-[22px]",
+    mobileSize: "20px",
+    desktopSize: "22px",
+    lineHeight: "1.25",
+    weights: ["600"],
+    usage: "모듈 제목, 그룹 타이틀",
+  },
+  {
+    label: "title-lg",
+    element: "h6",
+    samples: [{ text: "검색 결과가 없어요", weightClass: "font-semibold" }],
+    className: "text-[18px] leading-[1.3] tracking-[-0.015em]",
+    mobileSize: "18px",
+    desktopSize: "18px",
+    lineHeight: "1.3",
+    weights: ["600"],
+    usage: "컴포넌트 제목, 작은 카드 타이틀",
   },
   {
     label: "body-lg",
     element: "p",
-    sample: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다.",
+    samples: [
+      { text: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다. (Regular)", weightClass: "font-normal" },
+      { text: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다. (Medium)", weightClass: "font-medium" },
+    ],
     className: "text-[16px] leading-relaxed tracking-[-0.01em]",
     mobileSize: "16px",
     desktopSize: "16px",
     lineHeight: "1.625",
-    weight: "400/500",
+    weights: ["400", "500"],
     usage: "본문, 설명문, 랜딩의 주요 카피",
   },
   {
     label: "body-sm",
     element: "p / li",
-    sample: "카드 안쪽 보조 설명과 부가 문장에 사용합니다.",
+    samples: [
+      { text: "카드 안쪽 보조 설명과 부가 문장에 사용합니다. (Regular)", weightClass: "font-normal" },
+      { text: "카드 안쪽 보조 설명과 부가 문장에 사용합니다. (Medium)", weightClass: "font-medium" },
+    ],
     className: "text-[14px] leading-relaxed",
     mobileSize: "14px",
     desktopSize: "14px",
     lineHeight: "1.625",
-    weight: "400/500",
+    weights: ["400", "500"],
     usage: "카드 설명, 보조 문장",
   },
   {
     label: "label",
     element: "label / button",
-    sample: "Product Flow",
+    samples: [{ text: "Product Flow", weightClass: "font-semibold" }],
     className: "text-[12px] uppercase tracking-[0.16em]",
     mobileSize: "12px",
     desktopSize: "12px",
     lineHeight: "1.4",
-    weight: "600",
+    weights: ["600"],
     usage: "토큰 제목, 카드 라벨, 스탯 라벨",
   },
   {
     label: "eyebrow",
     element: "p / span",
-    sample: "Foundations",
+    samples: [{ text: "Foundations", weightClass: "font-semibold" }],
     className: "font-display-italic text-[14px] tracking-wide",
     mobileSize: "14px",
     desktopSize: "14px",
     lineHeight: "1.4",
-    weight: "600",
+    weights: ["600"],
     usage: "섹션 위 작은 보라 라벨",
   },
   {
     label: "caption",
     element: "span / small",
-    sample: "surface-container-high",
+    samples: [
+      { text: "surface-container-high (Medium)", weightClass: "font-medium" },
+      { text: "surface-container-high (Semibold)", weightClass: "font-semibold" },
+    ],
     className: "text-[11px] uppercase tracking-[0.16em]",
     mobileSize: "11px",
     desktopSize: "11px",
     lineHeight: "1.35",
-    weight: "500/600",
+    weights: ["500", "600"],
     usage: "캡션, 상태 라벨, 메타 정보",
   },
 ];
@@ -376,22 +418,22 @@ function SectionTitle({
 function TypeRow({
   label,
   element,
-  sample,
+  samples,
   className,
   mobileSize,
   desktopSize,
   lineHeight,
-  weight,
+  weights,
   usage,
 }: {
   label: string;
   element: string;
-  sample: string;
+  samples: { text: string; weightClass: string }[];
   className: string;
   mobileSize: string;
   desktopSize: string;
   lineHeight: string;
-  weight: string;
+  weights: string[];
   usage: string;
 }) {
   return (
@@ -406,7 +448,13 @@ function TypeRow({
       </div>
       <div className="mb-3 lg:mb-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Weight</p>
-        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{weight}</p>
+        <div className="mt-1 space-y-1 lg:mt-0">
+          {weights.map((weight) => (
+            <p key={weight} className="text-[13px] text-white/65">
+              {weight}
+            </p>
+          ))}
+        </div>
       </div>
       <div className="mb-3 lg:mb-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Mobile</p>
@@ -426,7 +474,13 @@ function TypeRow({
       </div>
       <div className="min-w-0 border-t border-white/8 pt-3 lg:border-t-0 lg:pt-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Sample</p>
-        <p className={`${className} mt-2 break-keep text-white lg:mt-0`}>{sample}</p>
+        <div className="mt-2 space-y-2 lg:mt-0">
+          {samples.map((sample) => (
+            <p key={sample.text} className={`${className} ${sample.weightClass} break-keep text-white`}>
+              {sample.text}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -908,8 +962,36 @@ export default function DesignSystemPage() {
           </div>
         </section>
 
-        <div className="grid gap-6 lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)]">
-          <aside className="lg:sticky lg:top-28 lg:self-start">
+        <div className="lg:pl-[280px]">
+          <aside className="hidden lg:fixed lg:left-6 lg:top-28 lg:block lg:w-[240px] xl:left-10 xl:w-[260px]">
+            <section className="glass-card p-3">
+              <div className="mb-3 px-3 pt-2">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Contents</p>
+              </div>
+              <div className="space-y-2">
+                {tabs.map((tab) => {
+                  const active = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`w-full rounded-2xl px-4 py-3 text-left transition-all duration-200 ${
+                        active
+                          ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
+                          : "bg-white/[0.02] text-white/55 hover:bg-white/[0.04] hover:text-white"
+                      }`}
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.16em]">Section</p>
+                      <p className="mt-1 text-[14px] font-semibold">{tab.label}</p>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          </aside>
+
+          <aside className="lg:hidden">
             <section className="glass-card p-3">
               <div className="mb-3 px-3 pt-2">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Contents</p>
