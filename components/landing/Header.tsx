@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import LogoMark from "@/components/ui/LogoMark";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -37,12 +38,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-[0_0_12px_rgba(124,58,237,0.4)] group-hover:shadow-[0_0_20px_rgba(124,58,237,0.6)] transition-all duration-300">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <rect x="1" y="5" width="5" height="8" rx="1" fill="white" opacity="0.9" />
-                <rect x="8" y="1" width="5" height="12" rx="1" fill="white" />
-              </svg>
-            </div>
+            <LogoMark
+              width={28}
+              height={32}
+              className="drop-shadow-[0_0_8px_rgba(13,212,192,0.45)] group-hover:drop-shadow-[0_0_14px_rgba(13,212,192,0.65)] transition-all duration-300"
+            />
             <span className="text-[15px] font-semibold tracking-tight text-white">
               Table<span className="text-violet-400">Tales</span>
             </span>
