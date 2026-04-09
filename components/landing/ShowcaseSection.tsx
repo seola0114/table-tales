@@ -97,7 +97,7 @@ export default function ShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[36px] font-bold tracking-[-0.03em] text-white sm:text-[44px]"
+            className="text-[36px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[44px]"
           >
             기록의 시작부터 선택까지,
             <br />
@@ -157,7 +157,7 @@ export default function ShowcaseSection() {
             className="glass-card flex flex-col justify-center rounded-[28px] border border-white/10 p-7"
           >
             <p className="text-[12px] uppercase tracking-[0.18em] text-[#A78BFA]">Why this matters</p>
-            <h3 className="mt-4 text-[28px] font-bold leading-[1.15] tracking-[-0.03em] text-white">
+            <h3 className="mt-4 text-[28px] font-bold leading-[1.3] tracking-[-0.03em] text-white">
               결과가 없는 순간까지도
               <br />
               서비스 경험으로 설계했습니다

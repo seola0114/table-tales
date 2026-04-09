@@ -94,7 +94,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[36px] sm:text-[40px] font-bold tracking-[-0.03em] text-white"
+            className="text-[36px] sm:text-[40px] font-bold leading-[1.2] tracking-[-0.03em] text-white"
           >
             자주 묻는 질문
           </motion.h2>

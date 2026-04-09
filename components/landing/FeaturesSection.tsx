@@ -125,7 +125,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-5 text-[36px] font-bold tracking-[-0.03em] text-white sm:text-[44px]"
+            className="mb-5 text-[36px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[44px]"
           >
             실제 서비스 화면 기준으로,
             <br />
@@ -166,7 +166,7 @@ export default function FeaturesSection() {
                       {feature.tag}
                     </span>
                   </div>
-                  <h3 className="mt-6 whitespace-pre-line text-[28px] font-bold leading-[1.15] tracking-[-0.025em] text-white sm:text-[34px]">
+                  <h3 className="mt-6 whitespace-pre-line text-[28px] font-bold leading-[1.3] tracking-[-0.025em] text-white sm:text-[34px]">
                     {feature.headline}
                   </h3>
                   <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-white/45">{feature.desc}</p>

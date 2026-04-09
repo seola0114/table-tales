@@ -45,7 +45,7 @@ export default function CTASection() {
             Your Table, Your Tale
           </p>
 
-          <h2 className="text-[40px] sm:text-[52px] lg:text-[60px] font-bold tracking-[-0.03em] text-white leading-[1.05] mb-6">
+          <h2 className="text-[40px] sm:text-[52px] lg:text-[60px] font-bold tracking-[-0.03em] text-white leading-[1.2] mb-6">
             다음 게임이
             <br />
             <span className="gradient-text-warm">이야기가 될 준비</span>
