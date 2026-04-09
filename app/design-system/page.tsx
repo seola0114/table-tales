@@ -37,6 +37,53 @@ const supportTokens = [
   { label: "brand-blue", value: "#7DA2FF", note: "보조 하이라이트와 그라디언트 확장" },
 ];
 
+const primaryPalettes = [
+  {
+    name: "Signature Dark",
+    usage: "현재 랜딩의 기본 조합. 가장 브랜드답고 안정적인 세트",
+    chips: [
+      { label: "primary", value: "#8B5CF6" },
+      { label: "primary-fixed-dim", value: "#A78BFA" },
+      { label: "brand-blue", value: "#7DA2FF" },
+      { label: "surface", value: "#070711" },
+      { label: "surface-container", value: "#141425" },
+    ],
+  },
+  {
+    name: "Editorial Glow",
+    usage: "히어로, 섹션 헤더, 강조 배너처럼 시선 집중이 필요한 조합",
+    chips: [
+      { label: "primary", value: "#8B5CF6" },
+      { label: "primary-fixed", value: "#CDB7FF" },
+      { label: "on-primary-container", value: "#E9DDFF" },
+      { label: "surface-container-high", value: "#1B1B31" },
+      { label: "outline", value: "#FFFFFF1F" },
+    ],
+  },
+  {
+    name: "Product UI",
+    usage: "실제 앱 화면 옆 카드, 설명 블록, 데이터 요약 모듈에 적합한 세트",
+    chips: [
+      { label: "primary-container", value: "#24163F" },
+      { label: "primary", value: "#8B5CF6" },
+      { label: "data-mint", value: "#19C8A6" },
+      { label: "surface-container-highest", value: "#242440" },
+      { label: "on-surface-variant", value: "#B8B8C7" },
+    ],
+  },
+  {
+    name: "Warm Accent",
+    usage: "배지, 성취, 리뷰, 통계 포인트처럼 감정선을 주고 싶을 때",
+    chips: [
+      { label: "primary", value: "#8B5CF6" },
+      { label: "data-amber", value: "#FFBF47" },
+      { label: "primary-fixed-dim", value: "#A78BFA" },
+      { label: "surface-container", value: "#141425" },
+      { label: "on-surface", value: "#FFFFFF" },
+    ],
+  },
+];
+
 const spacing = [
   { token: "4", value: "0.25rem", usage: "아이콘과 텍스트 사이 미세 간격" },
   { token: "8", value: "0.5rem", usage: "badge, chip, 작은 버튼" },
@@ -221,6 +268,41 @@ function TypeRow({
   );
 }
 
+function PaletteCard({
+  name,
+  usage,
+  chips,
+}: {
+  name: string;
+  usage: string;
+  chips: { label: string; value: string }[];
+}) {
+  return (
+    <div className="glass-card p-6">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{name}</p>
+      <p className="mt-2 text-[14px] leading-relaxed text-white/50">{usage}</p>
+      <div className="mt-5 overflow-hidden rounded-[20px] border border-white/8">
+        <div className="grid grid-cols-5">
+          {chips.map((chip) => (
+            <div key={chip.label} className="h-24" style={{ background: chip.value }} />
+          ))}
+        </div>
+      </div>
+      <div className="mt-4 grid gap-2">
+        {chips.map((chip) => (
+          <div key={chip.label} className="flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.02] px-3 py-2">
+            <div className="flex items-center gap-2">
+              <div className="h-4 w-4 rounded-full border border-white/10" style={{ background: chip.value }} />
+              <span className="text-[13px] font-medium text-white/75">{chip.label}</span>
+            </div>
+            <span className="text-[12px] text-white/45">{chip.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DesignSystemPage() {
   return (
     <main className="min-h-screen bg-[#070711] text-white">
@@ -318,6 +400,26 @@ export default function DesignSystemPage() {
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               {supportTokens.map((token) => (
                 <TokenRow key={token.label} {...token} />
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="text-center">
+              <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Palette Sets</p>
+              <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-white sm:text-[36px]">
+                primary와 가장 잘 어울리는
+                <br />
+                <span className="gradient-text">컬러 팔레트 조합</span>
+              </h3>
+              <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-white/50">
+                새 화면을 만들 때 `primary`를 단독으로 보지 말고, 함께 붙는 surface와 support 색까지 세트로 선택하면 훨씬 안정적으로 확장됩니다.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {primaryPalettes.map((palette) => (
+                <PaletteCard key={palette.name} {...palette} />
               ))}
             </div>
           </div>
