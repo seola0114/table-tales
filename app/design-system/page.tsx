@@ -962,7 +962,7 @@ export default function DesignSystemPage() {
           </div>
         </section>
 
-        <div className="lg:pl-[280px]">
+        <div>
           <aside className="hidden lg:fixed lg:left-6 lg:top-28 lg:block lg:w-[240px] xl:left-10 xl:w-[260px]">
             <section className="glass-card p-3">
               <div className="mb-3 px-3 pt-2">
