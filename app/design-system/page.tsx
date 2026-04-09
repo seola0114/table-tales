@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { ArrowRight, Check, Clock3, Sparkles, Trophy, Users } from "lucide-react";
+import LogoMark from "@/components/ui/LogoMark";
+import ThemeToggle from "@/components/landing/ThemeToggle";
 
 const tabs = [
   { id: "foundations", label: "Foundations" },
@@ -747,6 +749,48 @@ export default function DesignSystemPage() {
 
   return (
     <main className="min-h-screen bg-[#070711] text-white">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/[0.08] bg-black/84 backdrop-blur-xl shadow-[0_1px_0_0_rgba(255,255,255,0.04)]">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
+            <a href="/" className="flex items-center gap-2.5 group">
+              <LogoMark
+                width={28}
+                height={28}
+                className="drop-shadow-[0_0_10px_rgba(139,92,246,0.42)] group-hover:drop-shadow-[0_0_18px_rgba(125,162,255,0.32)] transition-all duration-300"
+              />
+              <span className="text-[15px] font-semibold tracking-tight text-white">
+                Table<span className="text-[#A78BFA]">Tales</span>
+              </span>
+            </a>
+
+            <nav className="hidden md:flex items-center gap-1">
+              <a
+                href="/"
+                className="px-4 py-2 text-[13px] font-medium text-white/52 transition-colors duration-200 rounded-lg hover:bg-white/[0.04] hover:text-[#A78BFA]"
+              >
+                Home
+              </a>
+              <a
+                href="/design-system"
+                className="px-4 py-2 text-[13px] font-medium rounded-lg bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
+              >
+                Design System
+              </a>
+            </nav>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="/"
+              className="hidden sm:inline-flex rounded-lg border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-white/60 transition-colors duration-200 hover:text-[#A78BFA]"
+            >
+              홈으로 돌아가기
+            </a>
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
       <div className="absolute inset-0 -z-10">
         <div
           className="absolute inset-0 opacity-[0.028]"
@@ -761,7 +805,7 @@ export default function DesignSystemPage() {
         <div className="absolute right-0 top-[20%] h-[520px] w-[520px] rounded-full bg-[#7DA2FF]/8 blur-3xl" />
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 py-12 lg:px-10 lg:py-16">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
         <section className="glass-card-strong overflow-hidden rounded-[32px] border border-white/[0.12] px-6 py-8 lg:px-10 lg:py-12">
           <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
