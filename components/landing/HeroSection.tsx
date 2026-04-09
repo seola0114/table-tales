@@ -187,7 +187,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 w-full">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 w-full flex flex-col justify-center">
         {/* ── 텍스트 영역 — 중앙 정렬 ── */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.div

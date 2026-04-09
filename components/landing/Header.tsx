@@ -34,8 +34,8 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
+        <div className="flex flex-col justify-center h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <LogoMark
