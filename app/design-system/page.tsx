@@ -224,7 +224,8 @@ const typography = [
     element: "h1",
     sample: "플레이한 게임부터,",
     className: "text-[40px] leading-[1.02] tracking-[-0.05em] sm:text-[58px]",
-    spec: "40px (mobile) / 58px (desktop)",
+    mobileSize: "40px",
+    desktopSize: "58px",
     lineHeight: "1.02",
     weight: "700",
     usage: "메인 히어로 H1, 가장 강한 첫 인상",
@@ -234,7 +235,8 @@ const typography = [
     element: "h2",
     sample: "실제 서비스 화면 기준으로",
     className: "text-[36px] leading-[1.05] tracking-[-0.03em] sm:text-[44px]",
-    spec: "36px (mobile) / 44px (desktop)",
+    mobileSize: "36px",
+    desktopSize: "44px",
     lineHeight: "1.05",
     weight: "700",
     usage: "섹션 메인 타이틀",
@@ -244,7 +246,8 @@ const typography = [
     element: "h3 / h4",
     sample: "토큰 기준으로 다시 본 UI 패턴",
     className: "text-[28px] leading-[1.15] tracking-[-0.025em] sm:text-[34px]",
-    spec: "28px (mobile) / 34px (desktop)",
+    mobileSize: "28px",
+    desktopSize: "34px",
     lineHeight: "1.15",
     weight: "700",
     usage: "카드/블록 제목, 서브 섹션 타이틀",
@@ -254,7 +257,8 @@ const typography = [
     element: "p",
     sample: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다.",
     className: "text-[16px] leading-relaxed tracking-[-0.01em]",
-    spec: "16px",
+    mobileSize: "16px",
+    desktopSize: "16px",
     lineHeight: "1.625",
     weight: "400/500",
     usage: "본문, 설명문, 랜딩의 주요 카피",
@@ -264,7 +268,8 @@ const typography = [
     element: "p / li",
     sample: "카드 안쪽 보조 설명과 부가 문장에 사용합니다.",
     className: "text-[14px] leading-relaxed",
-    spec: "14px",
+    mobileSize: "14px",
+    desktopSize: "14px",
     lineHeight: "1.625",
     weight: "400/500",
     usage: "카드 설명, 보조 문장",
@@ -274,7 +279,8 @@ const typography = [
     element: "label / button",
     sample: "Product Flow",
     className: "text-[12px] uppercase tracking-[0.16em]",
-    spec: "12px",
+    mobileSize: "12px",
+    desktopSize: "12px",
     lineHeight: "1.4",
     weight: "600",
     usage: "토큰 제목, 카드 라벨, 스탯 라벨",
@@ -284,7 +290,8 @@ const typography = [
     element: "p / span",
     sample: "Foundations",
     className: "font-display-italic text-[14px] tracking-wide",
-    spec: "14px",
+    mobileSize: "14px",
+    desktopSize: "14px",
     lineHeight: "1.4",
     weight: "600",
     usage: "섹션 위 작은 보라 라벨",
@@ -294,7 +301,8 @@ const typography = [
     element: "span / small",
     sample: "surface-container-high",
     className: "text-[11px] uppercase tracking-[0.16em]",
-    spec: "11px",
+    mobileSize: "11px",
+    desktopSize: "11px",
     lineHeight: "1.35",
     weight: "500/600",
     usage: "캡션, 상태 라벨, 메타 정보",
@@ -370,7 +378,8 @@ function TypeRow({
   element,
   sample,
   className,
-  spec,
+  mobileSize,
+  desktopSize,
   lineHeight,
   weight,
   usage,
@@ -379,13 +388,14 @@ function TypeRow({
   element: string;
   sample: string;
   className: string;
-  spec: string;
+  mobileSize: string;
+  desktopSize: string;
   lineHeight: string;
   weight: string;
   usage: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:items-center lg:gap-4">
+    <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,0.75fr)_minmax(0,0.8fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:items-center lg:gap-4">
       <div className="mb-3 lg:mb-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Style</p>
         <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/75 lg:mt-0">{label}</p>
@@ -399,8 +409,12 @@ function TypeRow({
         <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{weight}</p>
       </div>
       <div className="mb-3 lg:mb-0">
-        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Size</p>
-        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{spec}</p>
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Mobile</p>
+        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{mobileSize}</p>
+      </div>
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Desktop</p>
+        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{desktopSize}</p>
       </div>
       <div className="mb-3 lg:mb-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Line-height</p>
@@ -545,8 +559,8 @@ function TypographyContent() {
 
       <div className="glass-card p-6">
         <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Type Scale</p>
-        <div className="mt-5 hidden rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:gap-4">
-          {["Style", "Element", "Weight", "Size", "Line-height", "Usage", "Sample"].map((heading) => (
+        <div className="mt-5 hidden rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,0.75fr)_minmax(0,0.8fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:gap-4">
+          {["Style", "Element", "Weight", "Mobile", "Desktop", "Line-height", "Usage", "Sample"].map((heading) => (
             <p key={heading} className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">
               {heading}
             </p>
