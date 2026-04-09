@@ -10,7 +10,7 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex flex-col items-center [&>*]:w-full">
       <Header />
       <HeroSection />
       <SocialProofSection />
