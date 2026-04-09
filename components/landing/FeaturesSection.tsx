@@ -84,8 +84,8 @@ const features = [
 
 function RecordVisual() {
   return (
-    <div className="p-5 space-y-3">
-      <div className="flex items-center justify-between mb-4">
+    <div className="p-5 space-y-3 text-center">
+      <div className="flex items-center justify-center gap-3 flex-wrap mb-4">
         <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">새 세션 기록</p>
         <div className="px-2.5 py-1 bg-emerald-500/15 rounded-full">
           <span className="text-[10px] text-emerald-300 font-medium">저장됨</span>
@@ -94,7 +94,7 @@ function RecordVisual() {
       <div className="space-y-2.5">
         <div>
           <p className="text-[9px] text-white/30 mb-1 font-medium">게임</p>
-          <div className="flex items-center gap-2 bg-white/[0.04] rounded-lg px-3 py-2 border border-white/[0.07]">
+          <div className="flex items-center justify-center gap-2 bg-white/[0.04] rounded-lg px-3 py-2 border border-white/[0.07]">
             <span className="text-[13px] font-semibold text-white">Arclight Traders</span>
           </div>
         </div>
@@ -106,7 +106,7 @@ function RecordVisual() {
               { name: "Juno", score: 35, width: "66%", gold: false },
               { name: "Alex", score: 28, width: "53%", gold: false },
             ].map((p) => (
-              <div key={p.name} className="flex items-center gap-2.5">
+              <div key={p.name} className="flex items-center justify-center gap-2.5 max-w-xs mx-auto w-full">
                 <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-[9px] font-bold text-emerald-300">
                   {p.name[0]}
                 </div>
@@ -125,7 +125,7 @@ function RecordVisual() {
         </div>
         <div>
           <p className="text-[9px] text-white/30 mb-1 font-medium">메모</p>
-          <div className="bg-white/[0.03] rounded-lg px-3 py-2 border border-white/[0.06]">
+          <div className="bg-white/[0.03] rounded-lg px-3 py-2 border border-white/[0.06] text-center">
             <p className="text-[11px] text-white/40 italic leading-relaxed">
               "마지막 라운드 역전승 🎉 알렉스가 항구 독점했음"
             </p>
@@ -147,13 +147,13 @@ function AnalyzeVisual() {
   ];
 
   return (
-    <div className="p-5 space-y-4">
-      <div className="flex items-center justify-between">
+    <div className="p-5 space-y-4 text-center">
+      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center">
         <div>
           <p className="text-[11px] text-white/30 font-medium">Monthly Plays</p>
           <p className="text-[22px] font-bold text-white">47 <span className="text-[14px] text-emerald-400 font-medium">+12%</span></p>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] text-white/30">
+        <div className="flex items-center justify-center gap-1.5 text-[10px] text-white/30">
           <TrendingUp size={12} className="text-emerald-400" />
           <span>6개월 기준</span>
         </div>
@@ -179,8 +179,8 @@ function AnalyzeVisual() {
           { label: "Win Rate", value: "61%", icon: TrendingUp, color: "text-emerald-400" },
           { label: "Fav Game", value: "Arclight", icon: Star, color: "text-amber-400" },
         ].map((s) => (
-          <div key={s.label} className="bg-white/[0.03] rounded-lg p-2.5 border border-white/[0.05]">
-            <div className="flex items-center gap-1.5 mb-1">
+          <div key={s.label} className="bg-white/[0.03] rounded-lg p-2.5 border border-white/[0.05] text-center">
+            <div className="flex items-center justify-center gap-1.5 mb-1">
               <s.icon size={10} className={s.color} />
               <span className="text-[9px] text-white/30 font-medium">{s.label}</span>
             </div>
@@ -195,7 +195,7 @@ function AnalyzeVisual() {
 function StoryVisual() {
   return (
     <div className="p-5 space-y-3">
-      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-4">Session Notes</p>
+      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-4 text-center">Session Notes</p>
       {[
         {
           date: "2024.12.14",
@@ -216,8 +216,8 @@ function StoryVisual() {
           tag: "기록",
         },
       ].map((entry) => (
-        <div key={entry.date} className="glass-card p-3 hover:border-white/[0.1] transition-all duration-200">
-          <div className="flex items-start justify-between gap-2 mb-1.5">
+        <div key={entry.date} className="glass-card p-3 hover:border-white/[0.1] transition-all duration-200 text-center">
+          <div className="flex flex-col items-center gap-2 mb-1.5">
             <div>
               <p className="text-[11px] font-semibold text-white leading-tight">{entry.game}</p>
               <p className="text-[9px] text-white/30">{entry.date}</p>
@@ -242,10 +242,10 @@ function GroupVisual() {
   ];
 
   return (
-    <div className="p-5 space-y-3">
-      <div className="flex items-center justify-between mb-4">
+    <div className="p-5 space-y-3 text-center">
+      <div className="flex items-center justify-center gap-4 flex-wrap mb-4">
         <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Group Leaderboard</p>
-        <div className="flex -space-x-2">
+        <div className="flex -space-x-2 justify-center">
           {members.map((m) => (
             <div
               key={m.name}
@@ -257,15 +257,15 @@ function GroupVisual() {
         </div>
       </div>
       {members.map((member, i) => (
-        <div key={member.name} className="flex items-center gap-3">
-          <span className="text-[11px] font-bold text-white/20 w-4">{i + 1}</span>
+        <div key={member.name} className="flex items-center gap-3 max-w-md mx-auto w-full">
+          <span className="text-[11px] font-bold text-white/20 w-4 text-center shrink-0">{i + 1}</span>
           <div
             className={`w-7 h-7 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-[10px] font-bold text-white shrink-0`}
           >
             {member.name[0]}
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between mb-1">
+            <div className="flex items-center justify-center gap-3 mb-1 flex-wrap">
               <span className="text-[12px] font-semibold text-white">{member.name}</span>
               <span className="text-[11px] text-white/50 font-medium">
                 {Math.round((member.wins / member.plays) * 100)}% WR
@@ -340,7 +340,7 @@ export default function FeaturesSection() {
                 className={`grid lg:grid-cols-2 gap-6 items-center ${!isEven ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 {/* Copy */}
-                <div className="space-y-6 py-6 px-2 lg:px-8">
+                <div className="space-y-6 py-6 px-2 lg:px-8 flex flex-col items-center text-center">
                   <div className="inline-flex items-center gap-2.5">
                     <div className={`p-2 rounded-lg ${feature.glowColor} border ${feature.borderColor}`}>
                       <Icon size={16} className={feature.iconColor} />
@@ -352,8 +352,8 @@ export default function FeaturesSection() {
                   <h3 className="text-[28px] sm:text-[34px] font-bold tracking-[-0.025em] text-white leading-[1.15] whitespace-pre-line">
                     {feature.headline}
                   </h3>
-                  <p className="text-[15px] text-white/45 leading-relaxed">{feature.desc}</p>
-                  <ul className="space-y-3">
+                  <p className="text-[15px] text-white/45 leading-relaxed max-w-xl mx-auto">{feature.desc}</p>
+                  <ul className="space-y-3 w-full max-w-md mx-auto text-left">
                     {feature.bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-3">
                         <div className={`mt-0.5 p-0.5 rounded-full ${feature.glowColor} border ${feature.borderColor} shrink-0`}>
