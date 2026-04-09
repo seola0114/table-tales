@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock3, Search, Sparkles, Trophy, Users2 } from "lucide-react";
+import PhoneScreenPreview from "./PhoneScreenPreview";
 
 function FloatingNote({
   icon: Icon,
@@ -41,29 +41,28 @@ function FloatingNote({
 function DeviceFrame({
   src,
   alt,
+  width,
+  height,
   className = "",
   priority = false,
 }: {
   src: string;
   alt: string;
+  width: number;
+  height: number;
   className?: string;
   priority?: boolean;
 }) {
   return (
-    <div
-      className={`relative rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,#171b2a_0%,#0d1019_100%)] p-3 shadow-[0_26px_80px_rgba(0,0,0,0.55)] ${className}`}
-    >
-      <div className="overflow-hidden rounded-[26px] border border-white/6 bg-[#090b12]">
-        <Image
-          src={src}
-          alt={alt}
-          width={768}
-          height={1536}
-          priority={priority}
-          className="h-auto w-full"
-        />
-      </div>
-    </div>
+    <PhoneScreenPreview
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      priority={priority}
+      className={className}
+      frameClassName="shadow-[0_26px_80px_rgba(0,0,0,0.55)]"
+    />
   );
 }
 
@@ -112,14 +111,22 @@ function ServicePreviewCollage() {
         <div className="absolute inset-x-12 top-12 h-[68%] rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.34),_rgba(125,162,255,0.12)_55%,_transparent_75%)] blur-3xl" />
         <div className="relative flex w-full items-center justify-center">
           <div className="absolute left-0 top-[22%] hidden w-[210px] lg:block">
-            <DeviceFrame src="/service-previews/home-rich.png" alt="홈 화면" className="rotate-[-10deg] scale-[0.88]" />
+            <DeviceFrame src="/service-previews/home-rich.png" alt="홈 화면" width={720} height={2880} className="rotate-[-10deg] scale-[0.88]" />
           </div>
           <div className="absolute right-0 top-[18%] hidden w-[210px] lg:block">
-            <DeviceFrame src="/service-previews/search-results-rich.png" alt="게임 검색 결과 화면" className="rotate-[10deg] scale-[0.88]" />
+            <DeviceFrame
+              src="/service-previews/search-results-rich.png"
+              alt="게임 검색 결과 화면"
+              width={720}
+              height={1560}
+              className="rotate-[10deg] scale-[0.88]"
+            />
           </div>
           <DeviceFrame
             src="/service-previews/record-rich.png"
             alt="게임 기록 화면"
+            width={720}
+            height={1898}
             priority
             className="relative z-10 w-[260px] sm:w-[300px] lg:w-[340px]"
           />
@@ -165,7 +172,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-6 text-[44px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[58px] lg:text-[66px]"
+              className="mb-6 text-[40px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[48px] lg:text-[56px]"
             >
               플레이한 게임부터,
               <br />
@@ -182,7 +189,7 @@ export default function HeroSection() {
             >
               홈에서 최근 기록을 보고, 기록 화면에서 별점과 메모를 남기고,
               <br className="hidden lg:block" />
-              검색 결과 유무와 플레이어 선택까지 자연스럽게 이어지는 실제 서비스 흐름을
+              검색 결과를 살펴보고 플레이어를 고르는 실제 서비스 흐름을
               <br className="hidden lg:block" />
               랜딩에서도 그대로 느낄 수 있게 바꿨습니다.
             </motion.p>
@@ -199,18 +206,6 @@ export default function HeroSection() {
               >
                 Waitlist 참여하기
                 <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="#features"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white"
-              >
-                서비스 흐름 보기
-              </a>
-              <a
-                href="/design-system"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#7DA2FF]/35 hover:bg-white/[0.05] hover:text-white"
-              >
-                디자인 시스템 보기
               </a>
             </motion.div>
 

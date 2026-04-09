@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { BarChart2, Clock, Trophy, Users, Zap } from "lucide-react";
+import PhoneScreenPreview from "./PhoneScreenPreview";
 
 function StatCard({
   icon: Icon,
@@ -45,6 +45,8 @@ function ScreenTile({
   desc,
   accent,
   delay,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
@@ -52,6 +54,8 @@ function ScreenTile({
   desc: string;
   accent: string;
   delay: number;
+  width: number;
+  height: number;
 }) {
   return (
     <motion.div
@@ -62,11 +66,15 @@ function ScreenTile({
       className="glass-card group relative overflow-hidden rounded-[28px] border border-white/10 p-4"
     >
       <div className={`pointer-events-none absolute inset-x-10 top-10 h-40 rounded-full bg-gradient-to-b ${accent} blur-3xl opacity-90 transition-transform duration-500 group-hover:scale-110`} />
-      <div className="relative z-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,#171b2a_0%,#0d1019_100%)] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)]">
-        <div className="overflow-hidden rounded-[22px] border border-white/6 bg-[#090b12]">
-          <Image src={src} alt={alt} width={768} height={1536} className="h-auto w-full" />
-        </div>
-      </div>
+      <PhoneScreenPreview
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="relative z-10"
+        frameClassName="rounded-[26px] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)]"
+        viewportClassName="rounded-[22px]"
+      />
       <div className="relative z-10 px-1 pb-1 pt-5 text-center">
         <p className="text-[18px] font-semibold text-white">{title}</p>
         <p className="mt-2 text-[14px] leading-relaxed text-white/45">{desc}</p>
@@ -113,6 +121,8 @@ export default function ShowcaseSection() {
             desc="최근 플레이, 통계, 최근 한 게임과 인기 게임까지 보여주는 출발점"
             accent="from-[#8B5CF6]/35 to-transparent"
             delay={0}
+            width={720}
+            height={2880}
           />
           <ScreenTile
             src="/service-previews/record-rich.png"
@@ -121,6 +131,8 @@ export default function ShowcaseSection() {
             desc="별점, 시간, 장소, 후기까지 자연스럽게 쌓이는 입력 경험"
             accent="from-[#19c8a6]/35 to-transparent"
             delay={0.08}
+            width={720}
+            height={1898}
           />
           <ScreenTile
             src="/service-previews/search-results-rich.png"
@@ -129,6 +141,8 @@ export default function ShowcaseSection() {
             desc="박스아트와 핵심 정보를 빠르게 비교하고 바로 선택하는 단계"
             accent="from-[#7DA2FF]/35 to-transparent"
             delay={0.16}
+            width={720}
+            height={1560}
           />
           <ScreenTile
             src="/service-previews/players-rich.png"
@@ -137,46 +151,9 @@ export default function ShowcaseSection() {
             desc="누가 함께했는지 선명하게 남기는 마지막 정리"
             accent="from-[#A78BFA]/35 to-transparent"
             delay={0.24}
+            width={720}
+            height={1560}
           />
-        </div>
-
-        <div className="mt-6 grid gap-6 md:grid-cols-1 xl:grid-cols-[1.1fr_0.9fr]">
-          <ScreenTile
-            src="/service-previews/search-empty.png"
-            alt="게임 검색 결과 없음 화면"
-            title="검색 결과 없음"
-            desc="원하는 게임이 아직 없어도 직접 입력과 인기 게임 추천으로 흐름이 끊기지 않게 설계했습니다."
-            accent="from-[#19c8a6]/26 to-transparent"
-            delay={0.28}
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.34, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-card flex flex-col justify-center rounded-[28px] border border-white/10 p-7"
-          >
-            <p className="text-[12px] uppercase tracking-[0.18em] text-[#A78BFA]">Why this matters</p>
-            <h3 className="mt-4 text-[28px] font-bold leading-[1.3] tracking-[-0.03em] text-white">
-              결과가 없는 순간까지도
-              <br />
-              서비스 경험으로 설계했습니다
-            </h3>
-            <p className="mt-4 text-[15px] leading-relaxed text-white/45">
-              실제 사용성은 성공 상태에서만 결정되지 않습니다. 검색 실패, 데이터 없음, 직접 입력 같은 예외 흐름까지 정리되어 있을 때 제품은 더 믿음직하게 느껴집니다.
-            </p>
-            <div className="mt-6 grid gap-3">
-              {[
-                "홈과 추천 게임 카드로 첫 화면 완성도 강화",
-                "결과 있음 / 없음 모두 설명력 있는 검색 흐름",
-                "입력과 선택 과정 전체를 랜딩에서 그대로 보여주기",
-              ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 text-[14px] text-white/60">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -207,8 +184,8 @@ export default function ShowcaseSection() {
           <StatCard
             icon={BarChart2}
             label="Outcome"
-            value="예외 흐름"
-            sub="결과 없음까지 설계된 탐색 경험"
+            value="검색 선택"
+            sub="정보를 보고 바로 다음 행동으로 이어지는 구조"
             accent="bg-gradient-to-br from-[#19c8a6] to-[#18e2bd]"
             delay={0.24}
           />

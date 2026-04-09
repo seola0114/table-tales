@@ -1,8 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { CalendarDays, Check, PenLine, Search, Trophy, Users2 } from "lucide-react";
+import { CalendarDays, Check, PenLine, Users2 } from "lucide-react";
+import PhoneScreenPreview from "./PhoneScreenPreview";
+
+const previewSizes = {
+  home: { width: 720, height: 2880 },
+  record: { width: 720, height: 1898 },
+  players: { width: 720, height: 1560 },
+} as const;
 
 const features = [
   {
@@ -44,25 +50,6 @@ const features = [
     alt: "Table Tales 기록 입력 화면",
   },
   {
-    id: "search",
-    tag: "Game Search",
-    headline: "검색 결과가 없을 때도,\n다음 행동이 보이게",
-    desc: "검색 결과가 없는 상태에서도 안내 문구와 직접 입력 액션이 명확하게 보여, 사용자가 막히지 않고 계속 기록을 이어갈 수 있습니다.",
-    icon: Search,
-    accentColor: "from-[#7DA2FF]/16 to-[#8B5CF6]/8",
-    borderColor: "border-[#7DA2FF]/24",
-    iconColor: "text-[#7DA2FF]",
-    glowColor: "bg-[#7DA2FF]/12",
-    bullets: [
-      "검색 실패 상태에서도 이탈하지 않게 돕는 안내",
-      "게임 직접 입력 버튼으로 즉시 다음 단계 제안",
-      "아래 인기 게임 카드로 탐색 흐름 유지",
-      "결과 없음도 서비스 경험처럼 다듬은 UI",
-    ],
-    screen: "/service-previews/search-empty.png",
-    alt: "Table Tales 게임 검색 결과 없음 화면",
-  },
-  {
     id: "players",
     tag: "Players",
     headline: "누가 함께했는지,\n선명하게 남기는 구조",
@@ -87,19 +74,19 @@ function AppScreenVisual({
   src,
   alt,
   accent,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   accent: string;
+  width: number;
+  height: number;
 }) {
   return (
     <div className="relative mx-auto max-w-[320px]">
       <div className={`absolute inset-x-8 top-10 h-[78%] rounded-full bg-gradient-to-b ${accent} blur-3xl opacity-90`} />
-      <div className="relative rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,#171b2a_0%,#0d1019_100%)] p-3 shadow-[0_26px_80px_rgba(0,0,0,0.48)]">
-        <div className="overflow-hidden rounded-[26px] border border-white/6 bg-[#090b12]">
-          <Image src={src} alt={alt} width={768} height={1536} className="h-auto w-full" />
-        </div>
-      </div>
+      <PhoneScreenPreview src={src} alt={alt} width={width} height={height} />
     </div>
   );
 }
@@ -138,7 +125,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto max-w-xl text-[16px] leading-relaxed text-white/40"
           >
-            랜딩의 무드만 예쁜 것이 아니라, 실제 앱의 홈, 기록, 검색 결과 유무, 플레이어 선택 경험이 자연스럽게 이어지도록 섹션 구성도 맞췄습니다.
+            랜딩의 무드만 예쁜 것이 아니라, 실제 앱의 홈, 기록, 검색, 플레이어 선택 경험이 자연스럽게 이어지도록 섹션 구성도 맞췄습니다.
           </motion.p>
         </div>
 
@@ -146,11 +133,12 @@ export default function FeaturesSection() {
           {features.map((feature, i) => {
             const Icon = feature.icon;
             const isEven = i % 2 === 0;
+            const previewSize = previewSizes[feature.id as keyof typeof previewSizes];
 
             return (
               <motion.div
                 key={feature.id}
-                id={feature.id === "search" ? "stats" : undefined}
+                id={feature.id === "players" ? "stats" : undefined}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -185,7 +173,13 @@ export default function FeaturesSection() {
                 <div className={`glass-card relative overflow-hidden border ${feature.borderColor} shadow-[0_16px_48px_rgba(0,0,0,0.32)]`}>
                   <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${feature.accentColor}`} />
                   <div className="relative z-10 px-6 py-8">
-                    <AppScreenVisual src={feature.screen} alt={feature.alt} accent={feature.accentColor} />
+                    <AppScreenVisual
+                      src={feature.screen}
+                      alt={feature.alt}
+                      accent={feature.accentColor}
+                      width={previewSize.width}
+                      height={previewSize.height}
+                    />
                   </div>
                 </div>
               </motion.div>
@@ -202,7 +196,7 @@ export default function FeaturesSection() {
         >
           {[
             { label: "Session Memory", value: "별점, 메모, 장소까지" },
-            { label: "Clear Empty State", value: "결과가 없어도 다음 행동이 보이게" },
+            { label: "Game Search", value: "핵심 정보 비교 후 바로 선택" },
             { label: "Social Context", value: "누구와 했는지 선명하게" },
           ].map((item) => (
             <div key={item.label} className="glass-card-strong rounded-2xl p-5 text-center">
