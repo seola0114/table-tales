@@ -204,6 +204,12 @@ export default function HeroSection() {
               >
                 서비스 흐름 보기
               </a>
+              <a
+                href="/design-system"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#7DA2FF]/35 hover:bg-white/[0.05] hover:text-white"
+              >
+                디자인 시스템 보기
+              </a>
             </motion.div>
 
             <motion.p

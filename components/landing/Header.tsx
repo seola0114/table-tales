@@ -12,6 +12,7 @@ const navLinks = [
   { href: "#story", label: "Story" },
   { href: "#reviews", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
+  { href: "/design-system", label: "Design System" },
 ];
 
 export default function Header() {
@@ -70,6 +71,12 @@ export default function Header() {
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
               <a
+                href="/design-system"
+                className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
+              >
+                디자인 시스템
+              </a>
+              <a
                 href="#waitlist"
                 className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
               >
@@ -120,6 +127,13 @@ export default function Header() {
                 <div className="flex justify-start">
                   <ThemeToggle />
                 </div>
+                <a
+                  href="/design-system"
+                  onClick={() => setMobileOpen(false)}
+                  className="py-2.5 text-center text-[14px] font-medium text-white/60 border border-white/[0.1] rounded-lg"
+                >
+                  디자인 시스템 보기
+                </a>
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
