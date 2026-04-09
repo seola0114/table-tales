@@ -1,6 +1,5 @@
 import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
-import SocialProofSection from "@/components/landing/SocialProofSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import ReviewsSection from "@/components/landing/ReviewsSection";
 import FAQSection from "@/components/landing/FAQSection";
@@ -12,7 +11,6 @@ export default function Home() {
     <main className="flex flex-col items-center [&>*]:w-full">
       <Header />
       <HeroSection />
-      <SocialProofSection />
       <FeaturesSection />
       <ReviewsSection />
       <FAQSection />
