@@ -29,9 +29,9 @@ function FloatingCard({
 
 function MockupDashboard() {
   return (
-    <div className="relative w-full max-w-[440px] mx-auto">
+    <div className="relative w-full max-w-[440px] mx-auto lg:max-w-[620px]">
       {/* Floating cards — hidden on small screens to avoid overflow */}
-      <FloatingCard className="hidden sm:block w-[148px] -left-16 top-14 z-20" delay={0.8} duration={7}>
+      <FloatingCard className="hidden sm:block w-[148px] -left-16 top-14 z-20 lg:w-[172px] lg:-left-10 lg:top-16" delay={0.8} duration={7}>
         <div className="flex items-center gap-2 mb-2">
           <Trophy size={12} className="text-amber-400" />
           <span className="text-[10px] font-semibold text-white/80">Win Rate</span>
@@ -43,7 +43,7 @@ function MockupDashboard() {
         </p>
       </FloatingCard>
 
-      <FloatingCard className="hidden sm:block w-[156px] -right-14 top-10 z-20" delay={1.0} duration={5.5}>
+      <FloatingCard className="hidden sm:block w-[156px] -right-14 top-10 z-20 lg:w-[188px] lg:-right-8 lg:top-14" delay={1.0} duration={5.5}>
         <div className="flex items-center gap-2 mb-2">
           <Sparkles size={12} className="text-emerald-400" />
           <span className="text-[10px] font-semibold text-white/80">Favorite Game</span>
@@ -52,7 +52,7 @@ function MockupDashboard() {
         <p className="text-[9px] text-white/40 mt-0.5">12 plays this year</p>
       </FloatingCard>
 
-      <FloatingCard className="hidden sm:block w-[144px] -right-12 bottom-24 z-20" delay={1.2} duration={6.5}>
+      <FloatingCard className="hidden sm:block w-[144px] -right-12 bottom-24 z-20 lg:w-[176px] lg:-right-6 lg:bottom-28" delay={1.2} duration={6.5}>
         <div className="flex items-center gap-2 mb-2">
           <Users size={12} className="text-blue-400" />
           <span className="text-[10px] font-semibold text-white/80">Group Sessions</span>
@@ -67,7 +67,7 @@ function MockupDashboard() {
         </div>
       </FloatingCard>
 
-      <FloatingCard className="hidden sm:block w-[148px] -left-14 bottom-20 z-20" delay={0.6} duration={8}>
+      <FloatingCard className="hidden sm:block w-[148px] -left-14 bottom-20 z-20 lg:w-[176px] lg:-left-8 lg:bottom-24" delay={0.6} duration={8}>
         <div className="flex items-center gap-2 mb-2">
           <Clock size={12} className="text-teal-400" />
           <span className="text-[10px] font-semibold text-white/80">Last Session</span>
@@ -84,7 +84,7 @@ function MockupDashboard() {
         initial={{ opacity: 0, y: 40, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 glass-card-strong overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.08)] rounded-2xl"
+        className="relative z-10 glass-card-strong overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.08)] lg:rounded-[28px]"
       >
         {/* Browser chrome */}
         <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/[0.06]">
@@ -96,7 +96,7 @@ function MockupDashboard() {
           </div>
         </div>
 
-        <div className="p-5 space-y-4">
+        <div className="p-5 space-y-4 lg:p-6 lg:space-y-5">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[10px] text-white/30 font-medium uppercase tracking-widest mb-0.5">Today</p>
@@ -164,7 +164,7 @@ function MockupDashboard() {
       </motion.div>
 
       {/* Glow behind mockup */}
-      <div className="absolute inset-0 -z-10 blur-3xl opacity-35 rounded-full bg-gradient-to-br from-emerald-600/60 via-teal-600/40 to-blue-600/25" />
+      <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-emerald-600/60 via-teal-600/40 to-blue-600/25 opacity-35 blur-3xl lg:scale-125" />
     </div>
   );
 }
@@ -188,14 +188,14 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
-        {/* ── 텍스트 영역 — 중앙 정렬 ── */}
-        <div className="flex flex-col items-center text-center mb-16">
+      <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 xl:gap-14">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:pr-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full border border-emerald-500/25 bg-emerald-500/8"
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/8 px-3.5 py-1.5 mb-8"
           >
             <Sparkles size={12} className="text-emerald-400" />
             <span className="font-display-italic text-[13px] text-emerald-300 tracking-wide">
@@ -207,7 +207,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[44px] sm:text-[58px] lg:text-[68px] font-bold leading-[1.06] tracking-[-0.03em] text-white mb-6"
+            className="mb-6 text-[44px] font-bold leading-[1.06] tracking-[-0.03em] text-white sm:text-[58px] lg:text-[66px] xl:text-[74px]"
           >
             당신의 플레이를,
             <br />
@@ -220,12 +220,12 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
-            className="text-[16px] leading-relaxed text-white/50 mb-10 max-w-[520px]"
+            className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-white/50 lg:text-[17px]"
           >
             플레이한 게임, 점수, 승패, 함께한 사람들, 그리고 그날의 분위기까지.
-            <br className="hidden sm:block" />
+            <br className="hidden lg:block" />
             Table Tales는 보드게임 기록을 통계와 스토리로 쌓아가는
-            <br className="hidden sm:block" />
+            <br className="hidden lg:block" />
             가장 감각적인 방법입니다.
           </motion.p>
 
@@ -233,7 +233,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center"
+            className="flex flex-col gap-3 sm:flex-row lg:justify-start"
           >
             <a
               href="#waitlist"
@@ -258,13 +258,17 @@ export default function HeroSection() {
           >
             이미 <span className="text-white/50 font-medium">2,400+</span>명이 대기 중 · 무료로 시작
           </motion.p>
-        </div>
+          </div>
 
-        {/* ── 목업 — 중앙 정렬, 플로팅 카드 여백 확보 ── */}
-        <div className="flex justify-center">
-          {/* sm 이상에서 플로팅 카드가 튀어나올 수 있도록 수평 패딩 추가 */}
-          <div className="relative w-full max-w-[440px] sm:mx-20">
-            <MockupDashboard />
+          <div className="flex justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, x: 36 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.25, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[440px] sm:mx-20 lg:mx-0 lg:max-w-[620px]"
+            >
+              <MockupDashboard />
+            </motion.div>
           </div>
         </div>
       </div>
