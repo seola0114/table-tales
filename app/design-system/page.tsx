@@ -13,8 +13,8 @@ const tabs = [
 const primaryTokens = [
   { label: "primary", value: "#8B5CF6", note: "브랜드 메인 액션, CTA, 핵심 하이라이트" },
   { label: "on-primary", value: "#FFFFFF", note: "Primary 위 텍스트와 아이콘" },
-  { label: "primary-container", value: "#24163F", note: "Primary를 담는 딥 컨테이너" },
-  { label: "on-primary-container", value: "#E9DDFF", note: "Primary Container 위 텍스트" },
+  { label: "primary-container", value: "#24163F", note: "primary를 배경색처럼 직접 쓰기엔 너무 강할 때, 그 색감을 유지한 채 한 단계 눌러 담아내는 보조 컨테이너입니다. tonal button, 강조 배지, 선택 상태 카드처럼 '강조는 필요하지만 메인 CTA까지는 아닌' 영역에 씁니다." },
+  { label: "on-primary-container", value: "#E9DDFF", note: "Primary Container 위에서 쓰는 텍스트/아이콘 컬러입니다. 흰색보다 더 부드럽게 브랜드 톤을 유지하면서도 충분한 대비를 확보합니다." },
   { label: "primary-fixed", value: "#CDB7FF", note: "고정된 브랜드 라이트 톤" },
   { label: "primary-fixed-dim", value: "#A78BFA", note: "고정 브랜드 보조 톤" },
   { label: "on-primary-fixed", value: "#1F1235", note: "Primary Fixed 위 짙은 텍스트" },
@@ -28,13 +28,13 @@ const surfaceTokens = [
   { label: "on-surface-variant", value: "#B8B8C7", note: "본문, 보조 정보" },
   { label: "inverse-surface", value: "#F4F1FF", note: "밝은 역전 배경" },
   { label: "inverse-on-surface", value: "#171221", note: "밝은 표면 위 텍스트" },
-  { label: "surface-dim", value: "#05050C", note: "가장 눌린 배경 레이어" },
-  { label: "surface-bright", value: "#161629", note: "조금 더 떠오른 표면" },
-  { label: "surface-container-lowest", value: "#030308", note: "가장 낮은 레이어" },
-  { label: "surface-container-low", value: "#0B0B17", note: "섹션 안쪽 배경" },
-  { label: "surface-container", value: "#141425", note: "기본 카드 배경" },
-  { label: "surface-container-high", value: "#1B1B31", note: "강조 카드 배경" },
-  { label: "surface-container-highest", value: "#242440", note: "가장 강한 카드/패널" },
+  { label: "surface-dim", value: "#05050C", note: "기본 `surface`보다 더 눌린 바닥 레이어입니다. 화면의 가장 깊은 배경, 글로우 뒤쪽, 혹은 다른 모든 요소를 뒤로 물려야 할 때 씁니다." },
+  { label: "surface-bright", value: "#161629", note: "기본 `surface`보다 살짝 떠오른 면입니다. 너무 강한 카드까지는 아니지만 배경과는 구분되어야 하는 얕은 강조 영역에 적합합니다." },
+  { label: "surface-container-lowest", value: "#030308", note: "컨테이너 계열 중 가장 낮은 단계입니다. 거의 배경처럼 느껴져야 하는 래퍼나 가장 바깥쪽 패널에 사용합니다." },
+  { label: "surface-container-low", value: "#0B0B17", note: "배경과 카드 사이를 연결하는 중간 레이어입니다. 섹션 안쪽 래퍼, 모듈 그룹 배경, 카드들을 감싸는 영역에 잘 맞습니다." },
+  { label: "surface-container", value: "#141425", note: "가장 기본이 되는 카드 표면입니다. 일반 정보 카드, 설명 블록, 기본 모듈 패널은 우선 이 단계에서 시작합니다." },
+  { label: "surface-container-high", value: "#1B1B31", note: "기본 카드보다 한 단계 더 존재감 있는 표면입니다. 강조 카드, 핵심 정보 패널, 인터랙션이 더 많은 블록에 사용합니다." },
+  { label: "surface-container-highest", value: "#242440", note: "컨테이너 단계 중 가장 강하게 떠오르는 표면입니다. 현재 뷰에서 가장 중요한 패널, 포커스된 상태, 상단 요약 카드처럼 시선을 먼저 받아야 하는 곳에 씁니다." },
   { label: "outline", value: "#FFFFFF1F", note: "기본 보더와 디바이더" },
   { label: "outline-variant", value: "#FFFFFF12", note: "더 약한 보더" },
 ];
@@ -43,6 +43,10 @@ const supportTokens = [
   { label: "data-mint", value: "#19C8A6", note: "상태, 활성, 긍정 피드백" },
   { label: "data-amber", value: "#FFBF47", note: "랭크, 배지, 성취" },
   { label: "brand-blue", value: "#7DA2FF", note: "보조 하이라이트와 그라디언트 확장" },
+  { label: "error", value: "#FF5A6B", note: "에러, 경고성 실패 상태, destructive 액션" },
+  { label: "on-error", value: "#FFFFFF", note: "Error 위 텍스트와 아이콘" },
+  { label: "error-container", value: "#3A1018", note: "다크 배경에서 쓰는 에러 컨테이너" },
+  { label: "on-error-container", value: "#FFD9DE", note: "Error Container 위 텍스트" },
 ];
 
 const supportTonalPalettes = [
@@ -100,6 +104,25 @@ const supportTonalPalettes = [
       { tone: 90, value: "#DCE5FF" },
       { tone: 95, value: "#EEF2FF" },
       { tone: 99, value: "#FCFCFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Error",
+    role: "실패 상태, 폼 오류, destructive 액션, 위험 경고",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#41000A" },
+      { tone: 20, value: "#690014" },
+      { tone: 30, value: "#93001F" },
+      { tone: 40, value: "#B81F36" },
+      { tone: 50, value: "#D73B4E" },
+      { tone: 60, value: "#F15867" },
+      { tone: 70, value: "#FF8791" },
+      { tone: 80, value: "#FFB3B8" },
+      { tone: 90, value: "#FFD9DE" },
+      { tone: 95, value: "#FFECEE" },
+      { tone: 99, value: "#FFFBFF" },
       { tone: 100, value: "#FFFFFF" },
     ],
   },
@@ -418,6 +441,10 @@ function TypographyContent() {
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Line Height</p>
               <p className="mt-2 text-[14px] leading-relaxed text-white/50">디스플레이는 `1.02 ~ 1.15`로 타이트하게, 본문은 `1.625`, 라벨과 캡션은 `1.35 ~ 1.4`로 정리합니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Display vs Heading</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">`display`는 페이지에서 가장 먼저 시선을 잡는 큰 메시지용 타입입니다. 히어로 H1이나 섹션 메인 카피처럼 감정과 인상을 만드는 역할에 씁니다. 반대로 `heading`은 정보 구조를 나누는 제목입니다. 카드 제목, 서브 섹션 타이틀처럼 읽는 흐름을 정리하는 역할에 더 가깝습니다.</p>
             </div>
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Color Roles</p>
