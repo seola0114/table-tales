@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import LogoMark from "@/components/ui/LogoMark";
+import ThemeToggle from "@/components/landing/ThemeToggle";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -36,6 +37,10 @@ export default function Header() {
     >
       <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
         <div className="relative flex items-center justify-center h-16">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2">
+            <ThemeToggle />
+          </div>
+
           <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2.5 group">
@@ -112,6 +117,9 @@ export default function Header() {
                 </a>
               ))}
               <div className="pt-4 flex flex-col gap-3">
+                <div className="flex justify-start">
+                  <ThemeToggle />
+                </div>
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}

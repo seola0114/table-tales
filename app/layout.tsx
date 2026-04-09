@@ -18,9 +18,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const themeScript = `
+    (() => {
+      const storageKey = "table-tales-theme";
+      const storedTheme = localStorage.getItem(storageKey);
+      const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.dataset.theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : systemTheme;
+    })();
+  `;
+
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <div id="app-shell">{children}</div>
+      </body>
     </html>
   );
 }
