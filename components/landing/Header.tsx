@@ -47,10 +47,10 @@ export default function Header() {
               <LogoMark
                 width={28}
                 height={28}
-                className="drop-shadow-[0_0_10px_rgba(125,57,235,0.45)] group-hover:drop-shadow-[0_0_18px_rgba(198,255,51,0.42)] transition-all duration-300"
+                className="drop-shadow-[0_0_10px_rgba(139,92,246,0.42)] group-hover:drop-shadow-[0_0_18px_rgba(125,162,255,0.32)] transition-all duration-300"
               />
               <span className="text-[15px] font-semibold tracking-tight text-white">
-                Table<span className="text-[#C6FF33]">Tales</span>
+                Table<span className="text-[#A78BFA]">Tales</span>
               </span>
             </a>
 
@@ -60,7 +60,7 @@ export default function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-[13px] font-medium text-white/52 hover:text-[#C6FF33] transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
+                  className="px-4 py-2 text-[13px] font-medium text-white/52 hover:text-[#A78BFA] transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
                 >
                   {link.label}
                 </a>
@@ -71,13 +71,13 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-3">
               <a
                 href="#waitlist"
-                className="text-[13px] font-medium text-white/60 hover:text-[#C6FF33] transition-colors duration-200"
+                className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
               >
                 앱 출시 알림
               </a>
               <a
                 href="#waitlist"
-                className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-[#7D39EB] to-[#A566FF] hover:from-[#6A2FE0] hover:to-[#C6FF33] text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(125,57,235,0.34)] hover:shadow-[0_0_28px_rgba(198,255,51,0.28)]"
+                className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(139,92,246,0.34)] hover:shadow-[0_0_28px_rgba(125,162,255,0.18)]"
               >
                 Waitlist 참여
               </a>
@@ -86,7 +86,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden p-2 text-white/60 hover:text-[#C6FF33] transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden p-2 text-white/60 hover:text-[#A78BFA] transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="메뉴 열기"
           >
@@ -111,7 +111,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-3 text-[14px] font-medium text-white/60 hover:text-[#C6FF33] transition-colors border-b border-white/[0.04] last:border-0"
+                  className="py-3 text-[14px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors border-b border-white/[0.04] last:border-0"
                 >
                   {link.label}
                 </a>
@@ -130,7 +130,7 @@ export default function Header() {
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
-                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-[#7D39EB] to-[#A566FF] text-white rounded-lg"
+                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] text-white rounded-lg"
                 >
                   Waitlist 참여
                 </a>

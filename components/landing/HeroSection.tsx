@@ -33,11 +33,11 @@ function MockupDashboard() {
       {/* Floating cards — hidden on small screens to avoid overflow */}
       <FloatingCard className="hidden sm:block w-[148px] -left-16 top-14 z-20 lg:w-[172px] lg:-left-10 lg:top-16" delay={0.8} duration={7}>
         <div className="flex items-center gap-2 mb-2">
-          <Trophy size={12} className="text-[#C6FF33]" />
+          <Trophy size={12} className="text-[#ffbf47]" />
           <span className="text-[10px] font-semibold text-white/80">Win Rate</span>
         </div>
         <p className="text-[22px] font-bold text-white leading-none">61%</p>
-        <p className="text-[9px] text-[#C6FF33] mt-1 flex items-center gap-0.5">
+        <p className="text-[9px] text-[#19e2bd] mt-1 flex items-center gap-0.5">
           <TrendingUp size={8} />
           +8% this month
         </p>
@@ -45,7 +45,7 @@ function MockupDashboard() {
 
       <FloatingCard className="hidden sm:block w-[156px] -right-14 top-10 z-20 lg:w-[188px] lg:-right-8 lg:top-14" delay={1.0} duration={5.5}>
         <div className="flex items-center gap-2 mb-2">
-          <Sparkles size={12} className="text-[#C6FF33]" />
+          <Sparkles size={12} className="text-[#A78BFA]" />
           <span className="text-[10px] font-semibold text-white/80">Favorite Game</span>
         </div>
         <p className="text-[13px] font-bold text-white leading-tight">Arclight Traders</p>
@@ -54,13 +54,13 @@ function MockupDashboard() {
 
       <FloatingCard className="hidden sm:block w-[144px] -right-12 bottom-24 z-20 lg:w-[176px] lg:-right-6 lg:bottom-28" delay={1.2} duration={6.5}>
         <div className="flex items-center gap-2 mb-2">
-          <Users size={12} className="text-[#A566FF]" />
+          <Users size={12} className="text-[#3aa1ff]" />
           <span className="text-[10px] font-semibold text-white/80">Group Sessions</span>
         </div>
         <p className="text-[22px] font-bold text-white leading-none">24</p>
         <div className="flex gap-1 mt-1.5">
           {["M", "J", "A", "Y"].map((i) => (
-            <div key={i} className="w-5 h-5 rounded-full bg-gradient-to-br from-[#7D39EB]/80 to-[#C6FF33]/45 flex items-center justify-center text-[8px] font-bold text-white/80">
+            <div key={i} className="w-5 h-5 rounded-full bg-gradient-to-br from-[#8B5CF6]/80 to-[#5666FF]/55 flex items-center justify-center text-[8px] font-bold text-white/80">
               {i}
             </div>
           ))}
@@ -69,13 +69,13 @@ function MockupDashboard() {
 
       <FloatingCard className="hidden sm:block w-[148px] -left-14 bottom-20 z-20 lg:w-[176px] lg:-left-8 lg:bottom-24" delay={0.6} duration={8}>
         <div className="flex items-center gap-2 mb-2">
-          <Clock size={12} className="text-[#A566FF]" />
+          <Clock size={12} className="text-[#8DA9FF]" />
           <span className="text-[10px] font-semibold text-white/80">Last Session</span>
         </div>
         <p className="text-[12px] font-bold text-white">Moon Harbor</p>
         <p className="text-[9px] text-white/40 mt-0.5">with Juno · 3 days ago</p>
-        <div className="mt-1.5 px-2 py-0.5 bg-[#7D39EB]/14 rounded-full inline-block">
-          <span className="text-[9px] text-[#C6FF33]">2nd place</span>
+        <div className="mt-1.5 px-2 py-0.5 bg-[#8B5CF6]/14 rounded-full inline-block">
+          <span className="text-[9px] text-[#C3B2FF]">2nd place</span>
         </div>
       </FloatingCard>
 
@@ -102,16 +102,16 @@ function MockupDashboard() {
               <p className="text-[10px] text-white/30 font-medium uppercase tracking-widest mb-0.5">Today</p>
               <h3 className="text-[15px] font-semibold text-white">Mina의 게임 기록</h3>
             </div>
-            <div className="px-2.5 py-1 bg-[#7D39EB]/18 border border-[#7D39EB]/30 rounded-full">
-              <span className="text-[10px] font-medium text-[#C6FF33]">기록 중</span>
+            <div className="px-2.5 py-1 bg-[#8B5CF6]/18 border border-[#8B5CF6]/30 rounded-full">
+              <span className="text-[10px] font-medium text-[#C3B2FF]">기록 중</span>
             </div>
           </div>
 
           <div className="space-y-2">
             {[
-              { game: "Arclight Traders", players: "Mina, Juno, Alex", score: "42 pts", rank: "1st", color: "from-[#7D39EB]/30 to-[#A566FF]/12" },
-              { game: "Moon Harbor", players: "Mina, Yuna", score: "31 pts", rank: "2nd", color: "from-[#C6FF33]/18 to-[#C6FF33]/6" },
-              { game: "Forest Signal", players: "Mina, Juno, Alex, Yuna", score: "58 pts", rank: "1st", color: "from-[#7D39EB]/24 to-[#C6FF33]/10" },
+              { game: "Arclight Traders", players: "Mina, Juno, Alex", score: "42 pts", rank: "1st", color: "from-[#ff8f4c]/18 to-[#ff8f4c]/8" },
+              { game: "Moon Harbor", players: "Mina, Yuna", score: "31 pts", rank: "2nd", color: "from-[#5677ff]/18 to-[#5677ff]/8" },
+              { game: "Forest Signal", players: "Mina, Juno, Alex, Yuna", score: "58 pts", rank: "1st", color: "from-[#19c8a6]/18 to-[#19c8a6]/8" },
             ].map((session, i) => (
               <div key={i} className={`flex items-center justify-between p-3 rounded-xl bg-gradient-to-r ${session.color} border border-white/[0.05]`}>
                 <div className="flex items-center gap-3">
@@ -149,11 +149,11 @@ function MockupDashboard() {
             <div className="space-y-1.5">
               {["Mina", "Juno", "Alex"].map((name, i) => (
                 <div key={name} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#7D39EB]/70 to-[#C6FF33]/36 flex items-center justify-center text-[8px] font-bold text-white/70">
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#8B5CF6]/70 to-[#5666FF]/40 flex items-center justify-center text-[8px] font-bold text-white/70">
                     {name[0]}
                   </div>
                   <div className="flex-1 h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#7D39EB] to-[#C6FF33] rounded-full" style={{ width: `${[85, 60, 45][i]}%` }} />
+                    <div className="h-full bg-gradient-to-r from-[#8B5CF6] to-[#6C82FF] rounded-full" style={{ width: `${[85, 60, 45][i]}%` }} />
                   </div>
                   <span className="text-[10px] font-semibold text-white/70 w-6 text-right">{[42, 31, 24][i]}</span>
                 </div>
@@ -164,7 +164,7 @@ function MockupDashboard() {
       </motion.div>
 
       {/* Glow behind mockup */}
-      <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-[#7D39EB]/60 via-[#7D39EB]/32 to-[#C6FF33]/18 opacity-45 blur-3xl lg:scale-125" />
+      <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-[#8B5CF6]/48 via-[#8B5CF6]/24 to-[#7DA2FF]/14 opacity-45 blur-3xl lg:scale-125" />
     </div>
   );
 }
@@ -174,10 +174,10 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-hidden">
       {/* Backgrounds */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-gradient-to-b from-[#7D39EB]/22 via-[#7D39EB]/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#7D39EB]/12 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-32 w-[600px] h-[600px] bg-[#C6FF33]/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#C6FF33]/5 rounded-full blur-2xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-gradient-to-b from-[#8B5CF6]/20 via-[#8B5CF6]/8 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#8B5CF6]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 -right-32 w-[600px] h-[600px] bg-[#1D1A38] rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#7DA2FF]/4 rounded-full blur-2xl" />
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -195,10 +195,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#7D39EB]/28 bg-[#7D39EB]/10 px-3.5 py-1.5 mb-8"
+            className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#8B5CF6]/10 px-3.5 py-1.5 mb-8"
           >
-            <Sparkles size={12} className="text-[#C6FF33]" />
-            <span className="font-display-italic text-[13px] text-[#D5C6FF] tracking-wide">
+            <Sparkles size={12} className="text-[#A78BFA]" />
+            <span className="font-display-italic text-[13px] text-[#C3B2FF] tracking-wide">
               Board game sessions, beautifully remembered
             </span>
           </motion.div>
@@ -237,14 +237,14 @@ export default function HeroSection() {
           >
             <a
               href="#waitlist"
-              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#7D39EB] to-[#A566FF] hover:from-[#6729D4] hover:to-[#C6FF33] text-white font-semibold text-[15px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(125,57,235,0.38)] hover:shadow-[0_0_36px_rgba(198,255,51,0.18)]"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white font-semibold text-[15px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(139,92,246,0.34)] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]"
             >
               Waitlist 참여하기
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
             <a
               href="#features"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#7D39EB]/28 hover:border-[#C6FF33]/55 text-white/70 hover:text-white font-medium text-[15px] rounded-xl transition-all duration-200 hover:bg-white/[0.04]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#8B5CF6]/28 hover:border-[#A78BFA]/55 text-white/70 hover:text-white font-medium text-[15px] rounded-xl transition-all duration-200 hover:bg-white/[0.04]"
             >
               기능 살펴보기
             </a>

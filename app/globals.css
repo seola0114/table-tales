@@ -2,14 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #7d39eb;
-  --color-brand-indigo: #c6ff33;
-  --color-brand-blue: #9e72f2;
-  --color-brand-glow: #c6ff33;
+  --color-brand-purple: #8b5cf6;
+  --color-brand-indigo: #a78bfa;
+  --color-brand-blue: #7da2ff;
+  --color-brand-glow: #8b5cf6;
 
-  --color-surface-0: #000000;
-  --color-surface-1: #090909;
-  --color-surface-2: #121212;
+  --color-surface-0: #070711;
+  --color-surface-1: #0b0b17;
+  --color-surface-2: #141425;
   --color-surface-card: rgba(255, 255, 255, 0.04);
   --color-surface-card-hover: rgba(255, 255, 255, 0.08);
 
@@ -66,7 +66,7 @@ html[data-theme="light"] {
 }
 
 body {
-  background-color: #000000;
+  background-color: #070711;
   color: #ffffff;
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -109,14 +109,14 @@ html[data-theme="light"] body::before {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #070711;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(198, 255, 51, 0.35);
+  background: rgba(139, 92, 246, 0.38);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(198, 255, 51, 0.58);
+  background: rgba(139, 92, 246, 0.55);
 }
 
 html[data-theme="light"] ::-webkit-scrollbar-track {
@@ -156,14 +156,14 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #7d39eb 0%, #a566ff 48%, #c6ff33 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #9b87ff 42%, #7da2ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-warm {
-  background: linear-gradient(135deg, #ffffff 0%, #c8b2ff 48%, #c6ff33 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #cabdff 44%, #8da9ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -171,14 +171,14 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb {
 
 /* Glow effects */
 .glow-purple {
-  box-shadow: 0 0 40px rgba(125, 57, 235, 0.2), 0 0 80px rgba(198, 255, 51, 0.08);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.18), 0 0 80px rgba(125, 162, 255, 0.07);
 }
 
 .glow-subtle {
-  box-shadow: 0 0 20px rgba(125, 57, 235, 0.12);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.12);
 }
 
 /* Section divider glow */
 .section-glow {
-  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(125, 57, 235, 0.2) 0%, rgba(198, 255, 51, 0.06) 42%, transparent 72%);
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139, 92, 246, 0.2) 0%, rgba(125, 162, 255, 0.05) 44%, transparent 72%);
 }

@@ -14,10 +14,10 @@ const features = [
     headline: "기록은 빠르게,\n기억은 오래",
     desc: "게임 제목, 플레이어, 점수, 날짜, 메모까지. 번거로운 입력 없이 한 흐름으로 기록하고 바로 다음 게임으로.",
     icon: PenLine,
-    accentColor: "from-[#7D39EB]/24 to-[#7D39EB]/8",
-    borderColor: "border-[#7D39EB]/25",
-    iconColor: "text-[#C6FF33]",
-    glowColor: "bg-[#7D39EB]/14",
+    accentColor: "from-[#8B5CF6]/22 to-[#8B5CF6]/8",
+    borderColor: "border-[#8B5CF6]/25",
+    iconColor: "text-[#A78BFA]",
+    glowColor: "bg-[#8B5CF6]/14",
     bullets: [
       "플레이어 이름 자동완성",
       "점수 방식 자유 설정 (합산 / 최고점 / 팀전)",
@@ -32,10 +32,10 @@ const features = [
     headline: "숫자가 말해주는\n당신의 플레이",
     desc: "승률, 자주 한 게임, 자주 만나는 상대, 플레이 빈도, 선호 장르. 쌓인 기록이 패턴이 되고 패턴이 통찰이 됩니다.",
     icon: BarChart2,
-    accentColor: "from-[#C6FF33]/18 to-[#C6FF33]/6",
-    borderColor: "border-[#C6FF33]/24",
-    iconColor: "text-[#C6FF33]",
-    glowColor: "bg-[#C6FF33]/10",
+    accentColor: "from-[#7DA2FF]/16 to-[#7DA2FF]/6",
+    borderColor: "border-[#7DA2FF]/24",
+    iconColor: "text-[#7DA2FF]",
+    glowColor: "bg-[#7DA2FF]/10",
     bullets: [
       "게임별 / 플레이어별 통계",
       "월별 플레이 트렌드 차트",
@@ -50,10 +50,10 @@ const features = [
     headline: "점수 너머,\n테이블의 이야기",
     desc: "플레이 메모, 기억에 남는 순간, 모임의 흐름. 기록이 쌓일수록 테이블 위의 시간이 하나의 이야기가 됩니다.",
     icon: BookOpen,
-    accentColor: "from-[#A566FF]/20 to-[#7D39EB]/6",
-    borderColor: "border-[#A566FF]/25",
-    iconColor: "text-[#A566FF]",
-    glowColor: "bg-[#A566FF]/12",
+    accentColor: "from-[#8B5CF6]/20 to-[#7DA2FF]/6",
+    borderColor: "border-[#8B5CF6]/22",
+    iconColor: "text-[#8DA9FF]",
+    glowColor: "bg-[#8B5CF6]/12",
     bullets: [
       "세션별 한 줄 기억 남기기",
       "플레이어별 명장면 태그",
@@ -68,10 +68,10 @@ const features = [
     headline: "함께하는 시간이\n더 선명해집니다",
     desc: "정기 모임, 캠페인 플레이, 친구들과의 전적 비교. 함께한 사람들과의 기록이 그룹의 역사가 됩니다.",
     icon: Users2,
-    accentColor: "from-[#7D39EB]/24 to-[#C6FF33]/8",
-    borderColor: "border-[#7D39EB]/24",
-    iconColor: "text-[#C6FF33]",
-    glowColor: "bg-[#7D39EB]/14",
+    accentColor: "from-[#19c8a6]/14 to-[#7DA2FF]/6",
+    borderColor: "border-[#19c8a6]/24",
+    iconColor: "text-[#19c8a6]",
+    glowColor: "bg-[#19c8a6]/10",
     bullets: [
       "그룹 공유 및 함께 기록",
       "멤버별 전적 비교 대시보드",
@@ -297,7 +297,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
-            className="font-display-italic text-[14px] text-[#C6FF33] tracking-wide mb-4"
+            className="font-display-italic text-[14px] text-[#A78BFA] tracking-wide mb-4"
           >
             Everything you need
           </motion.p>

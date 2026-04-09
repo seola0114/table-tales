@@ -8,7 +8,7 @@ const reviews = [
     name: "준호",
     handle: "@junho_plays",
     avatar: "J",
-    color: "from-[#7D39EB] to-[#A566FF]",
+    color: "from-[#3aa1ff] to-[#6c7dff]",
     text: "모임 끝나고 결과 사진만 찍어두다 기억을 못 했는데, 이제는 그 자리에서 바로 입력하게 됐어요. 기록이 쌓이니까 몇 달 전 게임도 돌아보게 되더라고요.",
     game: "Arclight Traders 팬",
     rating: 5,
@@ -17,7 +17,7 @@ const reviews = [
     name: "수아",
     handle: "@sua.board",
     avatar: "S",
-    color: "from-[#C6FF33] to-[#96C91D]",
+    color: "from-[#9b6dff] to-[#7d59ff]",
     text: "승률 통계 보고 나서 '아, 나 이 게임 생각보다 많이 졌구나' 알게 됐어요. 막연하게 잘 한다고 생각했는데 데이터가 현실을 알려주는 느낌.",
     game: "전략 게임 유저",
     rating: 5,
@@ -26,7 +26,7 @@ const reviews = [
     name: "다인",
     handle: "@dain.table",
     avatar: "D",
-    color: "from-[#7D39EB] to-[#C6FF33]",
+    color: "from-[#18c8a6] to-[#4a74ff]",
     text: "연말에 '우리 올해 뭐 많이 했지?' 하고 기록 돌아봤는데 진짜 뿌듯했어요. 총 47판, 그중에 16판이 Moon Harbor였다는 게 웃기기도 하고.",
     game: "정기 모임 운영 중",
     rating: 5,
@@ -35,7 +35,7 @@ const reviews = [
     name: "재영",
     handle: "@jaeyoung.bg",
     avatar: "Jy",
-    color: "from-[#A566FF] to-[#7D39EB]",
+    color: "from-[#ff9f1a] to-[#ffbf47]",
     text: "친구들 전적 비교하는 게 재밌어서 모임 분위기가 더 살아났어요. '지난번에 네가 이겼잖아' 이런 말이 진짜 데이터로 나오니까.",
     game: "4인 정기 모임",
     rating: 5,
@@ -44,7 +44,7 @@ const reviews = [
     name: "민정",
     handle: "@minj.games",
     avatar: "M",
-    color: "from-[#C6FF33] to-[#A566FF]",
+    color: "from-[#ff2f7d] to-[#ff5fa8]",
     text: "입력이 진짜 빠른 게 핵심이에요. 게임 끝나고 정리하는 분위기에서 30초 안에 다 끝나니까 귀찮다는 생각이 없어졌어요.",
     game: "보드게임 카페 단골",
     rating: 5,
@@ -53,7 +53,7 @@ const reviews = [
     name: "현우",
     handle: "@hyunwoo_roll",
     avatar: "H",
-    color: "from-[#7D39EB] to-[#C6FF33]",
+    color: "from-[#5666ff] to-[#8b5cf6]",
     text: "혼자 솔로 게임도 기록할 수 있어서 좋아요. 클리어 여부, 점수, 난이도 메모까지. 같은 게임 여러 번 돌릴 때 비교하기 딱이에요.",
     game: "솔로 플레이어",
     rating: 5,
@@ -84,7 +84,7 @@ export default function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-display-italic text-[14px] text-[#C6FF33] tracking-wide mb-4"
+            className="font-display-italic text-[14px] text-[#A78BFA] tracking-wide mb-4"
           >
             From the community
           </motion.p>
