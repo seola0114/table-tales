@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 mb-4">
               <LogoMark
                 width={26}
-                height={30}
+                height={26}
                 className="opacity-80"
               />
               <span className="text-[15px] font-semibold tracking-tight text-white">

@@ -46,7 +46,7 @@ export default function Header() {
             <a href="#" className="flex items-center gap-2.5 group">
               <LogoMark
                 width={28}
-                height={32}
+                height={28}
                 className="drop-shadow-[0_0_8px_rgba(13,212,192,0.45)] group-hover:drop-shadow-[0_0_14px_rgba(13,212,192,0.65)] transition-all duration-300"
               />
               <span className="text-[15px] font-semibold tracking-tight text-white">

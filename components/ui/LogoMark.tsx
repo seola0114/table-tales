@@ -1,16 +1,10 @@
 /**
  * Table Tales 로고마크
  * Figma: VmCRyL3ntZQforhPzcn1Y7 / node 6351:7542
- *
- * 구조:
- * - 포인티-탑 육각형 링 (외부 r=39, 내부 r=31) — teal→green 그라디언트
- * - 링 안쪽 상단 중앙 원형 닷 — 동일 그라디언트
- *
- * 원본 사이즈: 67.55 × 78 px
  */
 export default function LogoMark({
   width = 36,
-  height = 41,
+  height = 36,
   className,
 }: {
   width?: number;
@@ -21,51 +15,30 @@ export default function LogoMark({
     <svg
       width={width}
       height={height}
-      viewBox="0 0 67.55 78"
+      viewBox="0 0 80 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
       <defs>
-        <linearGradient
-          id="logoGrad"
-          x1="0"
-          y1="0"
-          x2="67.55"
-          y2="78"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#0DD4C0" />
-          <stop offset="1" stopColor="#1FD96B" />
+        <linearGradient id="logoGradOuter" x1="6" y1="3.03595" x2="59.6705" y2="86.833" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#00B2FF" />
+          <stop offset="1" stopColor="#04C82F" />
+        </linearGradient>
+        <linearGradient id="logoGradDot" x1="34" y1="19.9595" x2="41.885" y2="33.6108" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#00B2FF" />
+          <stop offset="1" stopColor="#04C82F" />
         </linearGradient>
       </defs>
-
-      {/*
-        육각형 링: evenodd fill-rule 로 바깥 육각형에서 안쪽 육각형을 뚫어 링 형태 생성
-        외부 hexagon (pointy-top, r=39, cx=33.78, cy=39):
-          top(33.78,0) → top-right(67.55,19.5) → bot-right(67.55,58.5)
-          → bot(33.78,78) → bot-left(0,58.5) → top-left(0,19.5)
-        내부 hexagon (r=31, cx=33.78, cy=39):
-          top(33.78,8) → top-right(60.63,23.5) → bot-right(60.63,54.5)
-          → bot(33.78,70) → bot-left(6.93,54.5) → top-left(6.93,23.5)
-      */}
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        fill="url(#logoGrad)"
-        d="
-          M33.78 0 L67.55 19.5 L67.55 58.5 L33.78 78 L0 58.5 L0 19.5 Z
-          M33.78 8 L60.63 23.5 L60.63 54.5 L33.78 70 L6.93 54.5 L6.93 23.5 Z
-        "
+        d="M44.7759 4.33968C41.6819 2.55344 37.87 2.55344 34.7761 4.33968L11.0001 18.0663C7.90604 19.8527 6 23.154 6 26.7267V54.1795C6 57.7522 7.90604 61.0535 11.0001 62.8398L34.7761 76.5665C37.87 78.3527 41.6819 78.3527 44.7759 76.5665L68.5519 62.8398C71.6459 61.0535 73.552 57.7522 73.552 54.1795V26.7267C73.552 23.154 71.6459 19.8527 68.5519 18.0663L44.7759 4.33968ZM66.4856 49.4677C66.4856 52.9272 64.6975 56.1409 61.7579 57.9649L45.0483 68.3328C41.819 70.3366 37.733 70.3366 34.5036 68.3328L17.7941 57.9649C14.8545 56.1409 13.0664 52.9272 13.0664 49.4677V31.4441C13.0664 27.9846 14.8545 24.7709 17.7941 22.9469L34.5036 12.579C37.733 10.5752 41.819 10.5752 45.0483 12.579L61.7579 22.9469C64.6975 24.7709 66.4856 27.9846 66.4856 31.4441V49.4677Z"
+        fill="url(#logoGradOuter)"
       />
-
-      {/*
-        상단 중앙 원형 닷
-        Figma inset: top 24.3% × 78 = 18.95px, height = 11.55px
-        → cx=33.78, cy=24.7, r=5.78
-      */}
-      <circle cx="33.78" cy="24.7" r="5.78" fill="url(#logoGrad)" />
+      <path
+        d="M39.7701 31.4941C42.9568 31.4941 45.5401 28.9108 45.5401 25.724C45.5401 22.5373 42.9568 19.954 39.7701 19.954C36.5833 19.954 34 22.5373 34 25.724C34 28.9108 36.5833 31.4941 39.7701 31.4941Z"
+        fill="url(#logoGradDot)"
+      />
     </svg>
   );
 }
