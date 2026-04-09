@@ -21,7 +21,7 @@ const features = [
       "눈에 띄는 대표 기록 하이라이트",
       "가벼운 확인만으로도 리마인드 가능한 홈 구조",
     ],
-    screen: "/service-previews/home.png",
+    screen: "/service-previews/home-rich.png",
     alt: "Table Tales 홈 화면",
   },
   {
@@ -40,27 +40,27 @@ const features = [
       "장소와 후기까지 자연스럽게 이어지는 기록 흐름",
       "초록 포인트로 저장 액션이 명확한 인터페이스",
     ],
-    screen: "/service-previews/record.png",
+    screen: "/service-previews/record-rich.png",
     alt: "Table Tales 기록 입력 화면",
   },
   {
     id: "search",
     tag: "Game Search",
-    headline: "게임을 찾는 순간도,\n기록의 일부처럼",
-    desc: "검색 결과에서 박스아트와 기본 정보를 한 번에 확인하고, 지금 찾는 게임을 빠르게 골라 바로 세션 기록으로 넘어갈 수 있습니다.",
+    headline: "검색 결과가 없을 때도,\n다음 행동이 보이게",
+    desc: "검색 결과가 없는 상태에서도 안내 문구와 직접 입력 액션이 명확하게 보여, 사용자가 막히지 않고 계속 기록을 이어갈 수 있습니다.",
     icon: Search,
     accentColor: "from-[#7DA2FF]/16 to-[#8B5CF6]/8",
     borderColor: "border-[#7DA2FF]/24",
     iconColor: "text-[#7DA2FF]",
     glowColor: "bg-[#7DA2FF]/12",
     bullets: [
-      "검색창과 결과 리스트가 한 화면에 정리",
-      "박스아트, 인원, 제작자 등 핵심 정보 동시 노출",
-      "후보 게임을 빠르게 비교하기 좋은 리스트 구조",
-      "실제 플레이 전환까지 흐름이 끊기지 않는 탐색 경험",
+      "검색 실패 상태에서도 이탈하지 않게 돕는 안내",
+      "게임 직접 입력 버튼으로 즉시 다음 단계 제안",
+      "아래 인기 게임 카드로 탐색 흐름 유지",
+      "결과 없음도 서비스 경험처럼 다듬은 UI",
     ],
-    screen: "/service-previews/search.png",
-    alt: "Table Tales 게임 검색 화면",
+    screen: "/service-previews/search-empty.png",
+    alt: "Table Tales 게임 검색 결과 없음 화면",
   },
   {
     id: "players",
@@ -78,7 +78,7 @@ const features = [
       "나와 친구를 구분해 기록 맥락이 더 또렷해짐",
       "이후 상대 전적과 그룹 기록으로 확장하기 좋은 기반",
     ],
-    screen: "/service-previews/players.png",
+    screen: "/service-previews/players-rich.png",
     alt: "Table Tales 플레이어 선택 화면",
   },
 ];
@@ -138,7 +138,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto max-w-xl text-[16px] leading-relaxed text-white/40"
           >
-            랜딩의 무드만 예쁜 것이 아니라, 실제 앱의 홈, 기록, 검색, 플레이어 선택 경험이 자연스럽게 이어지도록 섹션 구성도 맞췄습니다.
+            랜딩의 무드만 예쁜 것이 아니라, 실제 앱의 홈, 기록, 검색 결과 유무, 플레이어 선택 경험이 자연스럽게 이어지도록 섹션 구성도 맞췄습니다.
           </motion.p>
         </div>
 
@@ -202,7 +202,7 @@ export default function FeaturesSection() {
         >
           {[
             { label: "Session Memory", value: "별점, 메모, 장소까지" },
-            { label: "Clean Search", value: "게임 탐색도 기록 흐름처럼" },
+            { label: "Clear Empty State", value: "결과가 없어도 다음 행동이 보이게" },
             { label: "Social Context", value: "누구와 했는지 선명하게" },
           ].map((item) => (
             <div key={item.label} className="glass-card-strong rounded-2xl p-5 text-center">

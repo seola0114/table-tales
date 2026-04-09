@@ -72,7 +72,7 @@ function ServicePreviewCollage() {
         icon={Trophy}
         title="최근 기록"
         value="센추리 3.5"
-        caption="별점과 플레이 메모까지 한 번에 남길 수 있어요."
+        caption="최근 한 게임과 통계, 추천 게임까지 홈에서 바로 이어집니다."
         className="-left-4 top-14"
         delay={0.65}
       />
@@ -80,7 +80,7 @@ function ServicePreviewCollage() {
         icon={Search}
         title="게임 탐색"
         value="브라스, 글룸헤이븐"
-        caption="검색 결과에서 바로 선택하고 기록 흐름으로 이어집니다."
+        caption="검색 결과가 있든 없든 다음 액션이 바로 보이도록 정리했습니다."
         className="-right-4 top-10"
         delay={0.8}
       />
@@ -88,7 +88,7 @@ function ServicePreviewCollage() {
         icon={Users2}
         title="플레이어"
         value="총 5명"
-        caption="누가 함께했는지 빠르게 선택하고 다음 기록으로 넘어가요."
+        caption="누가 함께했는지 빠르게 선택하고 기록 맥락까지 같이 쌓입니다."
         className="-right-2 bottom-16"
         delay={0.95}
       />
@@ -96,7 +96,7 @@ function ServicePreviewCollage() {
         icon={Clock3}
         title="기록 시간"
         value="1분 안쪽"
-        caption="날짜, 인원, 장소, 후기까지 한 흐름으로 저장됩니다."
+        caption="날짜, 인원, 장소, 후기까지 한 흐름으로 자연스럽게 저장됩니다."
         className="-left-2 bottom-20"
         delay={1.1}
       />
@@ -110,13 +110,13 @@ function ServicePreviewCollage() {
         <div className="absolute inset-x-12 top-12 h-[68%] rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.34),_rgba(125,162,255,0.12)_55%,_transparent_75%)] blur-3xl" />
         <div className="relative flex w-full items-center justify-center">
           <div className="absolute left-0 top-[22%] hidden w-[210px] lg:block">
-            <DeviceFrame src="/service-previews/home.png" alt="홈 화면" className="rotate-[-10deg] scale-[0.88]" />
+            <DeviceFrame src="/service-previews/home-rich.png" alt="홈 화면" className="rotate-[-10deg] scale-[0.88]" />
           </div>
           <div className="absolute right-0 top-[18%] hidden w-[210px] lg:block">
-            <DeviceFrame src="/service-previews/search.png" alt="게임 검색 화면" className="rotate-[10deg] scale-[0.88]" />
+            <DeviceFrame src="/service-previews/search-results-rich.png" alt="게임 검색 결과 화면" className="rotate-[10deg] scale-[0.88]" />
           </div>
           <DeviceFrame
-            src="/service-previews/record.png"
+            src="/service-previews/record-rich.png"
             alt="게임 기록 화면"
             priority
             className="relative z-10 w-[260px] sm:w-[300px] lg:w-[340px]"
@@ -169,7 +169,7 @@ export default function HeroSection() {
               <br />
               <span className="gradient-text">함께한 사람과</span>
               <br />
-              그날의 장면까지
+              그날의 흐름까지
             </motion.h1>
 
             <motion.p
@@ -180,7 +180,7 @@ export default function HeroSection() {
             >
               홈에서 최근 기록을 보고, 기록 화면에서 별점과 메모를 남기고,
               <br className="hidden lg:block" />
-              검색과 플레이어 선택까지 자연스럽게 이어지는 실제 서비스 흐름을
+              검색 결과 유무와 플레이어 선택까지 자연스럽게 이어지는 실제 서비스 흐름을
               <br className="hidden lg:block" />
               랜딩에서도 그대로 느낄 수 있게 바꿨습니다.
             </motion.p>
