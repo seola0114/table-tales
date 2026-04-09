@@ -34,7 +34,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
         <div className="relative flex items-center justify-center h-16">
           <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
             {/* Logo */}

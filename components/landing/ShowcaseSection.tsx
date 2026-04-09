@@ -203,7 +203,7 @@ export default function ShowcaseSection() {
       <div className="absolute inset-0 section-glow pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
           <motion.p
