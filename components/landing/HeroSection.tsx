@@ -163,7 +163,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-6 text-[44px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[58px] lg:text-[66px] xl:text-[74px]"
+              className="mb-6 text-[44px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[58px] lg:text-[66px]"
             >
               플레이한 게임부터,
               <br />
