@@ -37,6 +37,104 @@ const supportTokens = [
   { label: "brand-blue", value: "#7DA2FF", note: "보조 하이라이트와 그라디언트 확장" },
 ];
 
+const tonalPalettes = [
+  {
+    name: "Primary",
+    role: "브랜드 메인 인터랙션과 강조 요소",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#190A2E" },
+      { tone: 20, value: "#2C1250" },
+      { tone: 30, value: "#441F76" },
+      { tone: 40, value: "#5C2DA0" },
+      { tone: 50, value: "#7444C8" },
+      { tone: 60, value: "#8B5CF6" },
+      { tone: 70, value: "#A78BFA" },
+      { tone: 80, value: "#C4B4FD" },
+      { tone: 90, value: "#E9DDFF" },
+      { tone: 95, value: "#F5EEFF" },
+      { tone: 99, value: "#FEFBFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Secondary",
+    role: "primary와 함께 붙는 보조 브랜드 톤",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#151427" },
+      { tone: 20, value: "#24233D" },
+      { tone: 30, value: "#393857" },
+      { tone: 40, value: "#504E73" },
+      { tone: 50, value: "#686590" },
+      { tone: 60, value: "#817EAD" },
+      { tone: 70, value: "#9B98CA" },
+      { tone: 80, value: "#B6B2E8" },
+      { tone: 90, value: "#E1DEFF" },
+      { tone: 95, value: "#F2EEFF" },
+      { tone: 99, value: "#FEFBFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Tertiary",
+    role: "시각적 변주와 데이터 강조에 쓰는 블루 축",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#001A38" },
+      { tone: 20, value: "#002E60" },
+      { tone: 30, value: "#0B4789" },
+      { tone: 40, value: "#2862B3" },
+      { tone: 50, value: "#4A7BD6" },
+      { tone: 60, value: "#6D95F3" },
+      { tone: 70, value: "#8FB1FF" },
+      { tone: 80, value: "#B7CCFF" },
+      { tone: 90, value: "#DCE5FF" },
+      { tone: 95, value: "#EEF2FF" },
+      { tone: 99, value: "#FCFCFF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Neutral",
+    role: "배경과 기본 surface를 만드는 중성 축",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#070711" },
+      { tone: 20, value: "#141425" },
+      { tone: 30, value: "#2A2A3A" },
+      { tone: 40, value: "#424252" },
+      { tone: 50, value: "#5B5B6B" },
+      { tone: 60, value: "#757585" },
+      { tone: 70, value: "#9090A0" },
+      { tone: 80, value: "#ABABBB" },
+      { tone: 90, value: "#C7C6D7" },
+      { tone: 95, value: "#E4E2F3" },
+      { tone: 99, value: "#FCF8FF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+  {
+    name: "Neutral Variant",
+    role: "outline과 surface variant에 쓰는 살짝 색이 도는 중성 축",
+    tones: [
+      { tone: 0, value: "#000000" },
+      { tone: 10, value: "#0D0C16" },
+      { tone: 20, value: "#1B1A2A" },
+      { tone: 30, value: "#323043" },
+      { tone: 40, value: "#49475B" },
+      { tone: 50, value: "#626075" },
+      { tone: 60, value: "#7B788E" },
+      { tone: 70, value: "#9591A8" },
+      { tone: 80, value: "#B0ACC4" },
+      { tone: 90, value: "#CBC6E0" },
+      { tone: 95, value: "#E9E3F8" },
+      { tone: 99, value: "#FDF8FF" },
+      { tone: 100, value: "#FFFFFF" },
+    ],
+  },
+];
+
 const primaryPalettes = [
   {
     name: "Signature Dark",
@@ -314,6 +412,46 @@ function PaletteCard({
   );
 }
 
+function TonalPaletteCard({
+  name,
+  role,
+  tones,
+}: {
+  name: string;
+  role: string;
+  tones: { tone: number; value: string }[];
+}) {
+  return (
+    <div className="glass-card p-6">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{name}</p>
+      <p className="mt-2 text-[14px] leading-relaxed text-white/50">{role}</p>
+      <div className="mt-5 overflow-hidden rounded-[22px] border border-white/8">
+        {tones.map((item) => (
+          <div
+            key={item.tone}
+            className="grid grid-cols-[64px_1fr_110px] items-center border-b border-black/10 last:border-b-0"
+            style={{ background: item.value }}
+          >
+            <div
+              className={`border-r border-black/10 px-3 py-3 text-[12px] font-semibold ${item.tone <= 50 ? "text-white/80" : "text-black/75"}`}
+            >
+              {item.tone}
+            </div>
+            <div className={`px-4 py-3 text-[13px] font-medium ${item.tone <= 50 ? "text-white/85" : "text-black/80"}`}>
+              {name.toLowerCase()}
+            </div>
+            <div
+              className={`border-l border-black/10 px-3 py-3 text-right text-[12px] font-semibold ${item.tone <= 50 ? "text-white/75" : "text-black/70"}`}
+            >
+              {item.value}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DesignSystemPage() {
   return (
     <main className="min-h-screen bg-[#070711] text-white">
@@ -411,6 +549,28 @@ export default function DesignSystemPage() {
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               {supportTokens.map((token) => (
                 <TokenRow key={token.label} {...token} />
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="text-center">
+              <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Material 3 Tonal Palettes</p>
+              <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-white sm:text-[36px]">
+                M3 방식으로 정리한
+                <br />
+                <span className="gradient-text">브랜드 tonal palette</span>
+              </h3>
+              <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-relaxed text-white/50">
+                Material 3는 하나의 source color에서 `primary`, `secondary`, `tertiary`, `neutral`, `neutral variant`
+                팔레트를 만들고, 각 팔레트 안에서 `0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100`
+                톤을 사용합니다. 이 구조를 참고해 현재 Table Tales 브랜드에 맞는 tonal palette를 정리했습니다.
+              </p>
+            </div>
+
+            <div className="grid gap-6 xl:grid-cols-2">
+              {tonalPalettes.map((palette) => (
+                <TonalPaletteCard key={palette.name} {...palette} />
               ))}
             </div>
           </div>
