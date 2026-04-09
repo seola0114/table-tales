@@ -211,7 +211,7 @@ export default function ShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-display-italic text-[14px] text-emerald-400 tracking-wide mb-4"
+            className="font-display-italic text-[14px] text-[#C6FF33] tracking-wide mb-4"
           >
             Visual Showcase
           </motion.p>
@@ -252,7 +252,7 @@ export default function ShowcaseSection() {
             transition={{ delay: 0.1, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-20 scale-110 sm:scale-125"
           >
-            <div className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-b from-emerald-600/50 to-teal-600/30 rounded-full scale-150" />
+            <div className="absolute inset-0 -z-10 blur-3xl opacity-35 bg-gradient-to-b from-[#7D39EB]/55 to-[#C6FF33]/18 rounded-full scale-150" />
             <PhoneFrame>
               <MobileScreen variant="session" />
             </PhoneFrame>
@@ -280,7 +280,7 @@ export default function ShowcaseSection() {
             label="Best Win Streak"
             value="6"
             sub="Mina · Jan 2024"
-            accent="bg-gradient-to-br from-amber-500 to-orange-600"
+            accent="bg-gradient-to-br from-[#7D39EB] to-[#A566FF]"
             delay={0}
           />
           <StatCard
@@ -288,7 +288,7 @@ export default function ShowcaseSection() {
             label="Avg Session Length"
             value="2.4h"
             sub="주말 모임 기준"
-            accent="bg-gradient-to-br from-teal-500 to-emerald-600"
+            accent="bg-gradient-to-br from-[#C6FF33] to-[#7D39EB]"
             delay={0.1}
           />
           <StatCard
@@ -296,7 +296,7 @@ export default function ShowcaseSection() {
             label="Unique Players"
             value="12"
             sub="올해 함께한 사람들"
-            accent="bg-gradient-to-br from-blue-500 to-cyan-600"
+            accent="bg-gradient-to-br from-[#A566FF] to-[#7D39EB]"
             delay={0.2}
           />
           <StatCard
@@ -304,7 +304,7 @@ export default function ShowcaseSection() {
             label="Fastest Record"
             value="8s"
             sub="점수 입력 평균 시간"
-            accent="bg-gradient-to-br from-emerald-500 to-teal-600"
+            accent="bg-gradient-to-br from-[#7D39EB] to-[#C6FF33]"
             delay={0.3}
           />
         </div>

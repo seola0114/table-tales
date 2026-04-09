@@ -48,7 +48,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         <div
           className={`shrink-0 mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-200 ${
             open
-              ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-300"
+              ? "bg-[#7D39EB]/20 border-[#7D39EB]/40 text-[#C6FF33]"
               : "border-white/[0.1] text-white/30 group-hover:border-white/20 group-hover:text-white/50"
           }`}
         >
@@ -85,7 +85,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-display-italic text-[14px] text-emerald-400 tracking-wide mb-4"
+            className="font-display-italic text-[14px] text-[#C6FF33] tracking-wide mb-4"
           >
             FAQ
           </motion.p>
@@ -116,7 +116,7 @@ export default function FAQSection() {
           className="mt-12 text-center text-[14px] text-white/30"
         >
           다른 궁금한 점이 있으신가요?{" "}
-          <a href="mailto:hello@tabletales.app" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+          <a href="mailto:hello@tabletales.app" className="text-[#C6FF33] hover:text-[#D7FF74] transition-colors">
             hello@tabletales.app
           </a>
           으로 연락 주세요.

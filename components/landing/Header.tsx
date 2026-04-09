@@ -31,7 +31,7 @@ export default function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#06060f]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_1px_0_0_rgba(255,255,255,0.04)]"
+          ? "bg-black/84 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_1px_0_0_rgba(255,255,255,0.04)]"
           : "bg-transparent"
       }`}
     >
@@ -47,10 +47,10 @@ export default function Header() {
               <LogoMark
                 width={28}
                 height={28}
-                className="drop-shadow-[0_0_8px_rgba(13,212,192,0.45)] group-hover:drop-shadow-[0_0_14px_rgba(13,212,192,0.65)] transition-all duration-300"
+                className="drop-shadow-[0_0_10px_rgba(125,57,235,0.45)] group-hover:drop-shadow-[0_0_18px_rgba(198,255,51,0.42)] transition-all duration-300"
               />
               <span className="text-[15px] font-semibold tracking-tight text-white">
-                Table<span className="text-emerald-400">Tales</span>
+                Table<span className="text-[#C6FF33]">Tales</span>
               </span>
             </a>
 
@@ -60,7 +60,7 @@ export default function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-[13px] font-medium text-white/50 hover:text-white/90 transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
+                  className="px-4 py-2 text-[13px] font-medium text-white/52 hover:text-[#C6FF33] transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
                 >
                   {link.label}
                 </a>
@@ -71,13 +71,13 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-3">
               <a
                 href="#waitlist"
-                className="text-[13px] font-medium text-white/60 hover:text-white transition-colors duration-200"
+                className="text-[13px] font-medium text-white/60 hover:text-[#C6FF33] transition-colors duration-200"
               >
                 앱 출시 알림
               </a>
               <a
                 href="#waitlist"
-                className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg transition-all duration-200 shadow-[0_0_16px_rgba(16,185,129,0.3)] hover:shadow-[0_0_24px_rgba(16,185,129,0.45)]"
+                className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-[#7D39EB] to-[#A566FF] hover:from-[#6A2FE0] hover:to-[#C6FF33] text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(125,57,235,0.34)] hover:shadow-[0_0_28px_rgba(198,255,51,0.28)]"
               >
                 Waitlist 참여
               </a>
@@ -86,7 +86,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden p-2 text-white/60 hover:text-white transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden p-2 text-white/60 hover:text-[#C6FF33] transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="메뉴 열기"
           >
@@ -103,7 +103,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#06060f]/95 backdrop-blur-2xl border-b border-white/[0.06]"
+            className="md:hidden bg-black/95 backdrop-blur-2xl border-b border-white/[0.08]"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -111,7 +111,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-3 text-[14px] font-medium text-white/60 hover:text-white transition-colors border-b border-white/[0.04] last:border-0"
+                  className="py-3 text-[14px] font-medium text-white/60 hover:text-[#C6FF33] transition-colors border-b border-white/[0.04] last:border-0"
                 >
                   {link.label}
                 </a>
@@ -130,7 +130,7 @@ export default function Header() {
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
-                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg"
+                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-[#7D39EB] to-[#A566FF] text-white rounded-lg"
                 >
                   Waitlist 참여
                 </a>
