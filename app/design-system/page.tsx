@@ -461,47 +461,6 @@ function FoundationsContent() {
         </div>
       </div>
 
-      <div className="glass-card p-6">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Figma Variable Structure Guide</p>
-        <div className="mt-5 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-2xl border border-[#FF5A6B]/20 bg-[#3A1018]/50 p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#FFB3B8]">What Feels Off</p>
-            <ul className="mt-3 space-y-3 text-[14px] leading-relaxed text-white/70">
-              <li>{"`primitive > primary`"}가 현재 퍼플이 아니라 초록 tonal palette로 잡혀 있어서, semantic의 dark mode `primary` 값 `#8B5CF6`와 primitive source가 서로 다릅니다.</li>
-              <li>즉, semantic은 퍼플 브랜드를 쓰고 있는데 primitive는 다른 브랜드 축을 가리키고 있어서 나중에 토큰을 확장하거나 자동 매핑할 때 구조가 깨집니다.</li>
-              <li>`Brand Blue`처럼 역할과 색 이름이 섞인 support 변수는, semantic 역할과 primitive tonal palette를 분리해서 생각하기 어렵게 만듭니다.</li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-[#19C8A6]/18 bg-[#05231b]/50 p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#85FFD9]">How To Fix It</p>
-            <ul className="mt-3 space-y-3 text-[14px] leading-relaxed text-white/70">
-              <li>`primitive`는 반드시 실제 source palette 기준으로만 두세요. 지금 기준이면 `primary0~100`은 퍼플 축, `secondary0~100`, `tertiary0~100`, `neutral0~100`, `neutral-variant0~100`이 각각 일관된 톤이어야 합니다.</li>
-              <li>`semantic`은 그 primitive를 참조해서 light/dark mode 값을 조합하세요. 예: dark mode의 `primary = primary60`, `on-primary = primary100`, `primary-container = primary20` 같은 식입니다.</li>
-              <li>support 색은 `success`, `warning`, `error`처럼 역할 이름으로 두고, 각자 tonal palette를 따로 만든 뒤 semantic에서 필요한 상태 토큰으로 매핑하는 편이 더 안정적입니다.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-5 rounded-2xl border border-white/8 bg-white/[0.02] p-5">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Recommended Figma Collections</p>
-          <div className="mt-3 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-white/8 bg-[#141425] p-4">
-              <p className="text-[13px] font-semibold text-white">`primitive`</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/50">raw tonal palettes only: primary / secondary / tertiary / neutral / neutral-variant / success / warning / error</p>
-            </div>
-            <div className="rounded-xl border border-white/8 bg-[#141425] p-4">
-              <p className="text-[13px] font-semibold text-white">`semantic`</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/50">mode-aware tokens: primary, on-primary, surface, outline, error, button, text, icon</p>
-            </div>
-            <div className="rounded-xl border border-white/8 bg-[#141425] p-4">
-              <p className="text-[13px] font-semibold text-white">`number`</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/50">opacity, radius, spacing, elevation, blur처럼 색이 아닌 수치 토큰만 관리</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="space-y-6">
         <div className="text-center">
           <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Core Tonal Palettes</p>
