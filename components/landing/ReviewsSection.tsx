@@ -6,55 +6,49 @@ import { Star } from "lucide-react";
 const reviews = [
   {
     name: "준호",
-    handle: "@junho_plays",
     avatar: "J",
     color: "from-[#3aa1ff] to-[#6c7dff]",
-    text: "모임 끝나고 결과 사진만 찍어두다 기억을 못 했는데, 이제는 그 자리에서 바로 입력하게 됐어요. 기록이 쌓이니까 몇 달 전 게임도 돌아보게 되더라고요.",
-    game: "Arclight Traders 팬",
+    text: "게임 끝나고 사진만 남겨두면 나중엔 잘 기억이 안 났는데, 이제는 그 자리에서 바로 기록하게 됐어요. 몇 달 전 플레이도 다시 꺼내보게 되는 게 좋았습니다.",
+    game: "정기 모임 유저",
     rating: 5,
   },
   {
     name: "수아",
-    handle: "@sua.board",
     avatar: "S",
     color: "from-[#9b6dff] to-[#7d59ff]",
-    text: "승률 통계 보고 나서 '아, 나 이 게임 생각보다 많이 졌구나' 알게 됐어요. 막연하게 잘 한다고 생각했는데 데이터가 현실을 알려주는 느낌.",
+    text: "막연하게 기억하던 플레이가 기록으로 남으니까 다르게 보이더라고요. 통계를 보면 내가 자주 하는 게임이나 결과가 더 선명하게 보여요.",
     game: "전략 게임 유저",
     rating: 5,
   },
   {
     name: "다인",
-    handle: "@dain.table",
     avatar: "D",
     color: "from-[#18c8a6] to-[#4a74ff]",
-    text: "연말에 '우리 올해 뭐 많이 했지?' 하고 기록 돌아봤는데 진짜 뿌듯했어요. 총 47판, 그중에 16판이 Moon Harbor였다는 게 웃기기도 하고.",
+    text: "연말에 한 해 동안 어떤 게임을 많이 했는지 돌아보는 재미가 있어요. 모임의 흐름이 기록으로 남는다는 게 생각보다 꽤 뿌듯했습니다.",
     game: "정기 모임 운영 중",
     rating: 5,
   },
   {
     name: "재영",
-    handle: "@jaeyoung.bg",
     avatar: "Jy",
     color: "from-[#ff9f1a] to-[#ffbf47]",
-    text: "친구들 전적 비교하는 게 재밌어서 모임 분위기가 더 살아났어요. '지난번에 네가 이겼잖아' 이런 말이 진짜 데이터로 나오니까.",
+    text: "친구들이랑 했던 플레이를 다시 비교해보는 재미가 있어요. 같이 한 기록이 남으니까 모임 자체가 더 기억에 오래 남아요.",
     game: "4인 정기 모임",
     rating: 5,
   },
   {
     name: "민정",
-    handle: "@minj.games",
     avatar: "M",
     color: "from-[#ff2f7d] to-[#ff5fa8]",
-    text: "입력이 진짜 빠른 게 핵심이에요. 게임 끝나고 정리하는 분위기에서 30초 안에 다 끝나니까 귀찮다는 생각이 없어졌어요.",
+    text: "입력이 빠른 게 정말 좋았어요. 게임 끝나고 바로 정리해도 부담이 없어서 기록이 훨씬 잘 남습니다.",
     game: "보드게임 카페 단골",
     rating: 5,
   },
   {
     name: "현우",
-    handle: "@hyunwoo_roll",
     avatar: "H",
     color: "from-[#5666ff] to-[#8b5cf6]",
-    text: "혼자 솔로 게임도 기록할 수 있어서 좋아요. 클리어 여부, 점수, 난이도 메모까지. 같은 게임 여러 번 돌릴 때 비교하기 딱이에요.",
+    text: "혼자 하는 솔로 플레이도 기록할 수 있어서 좋아요. 같은 게임을 여러 번 했을 때 비교해서 보는 재미가 있습니다.",
     game: "솔로 플레이어",
     rating: 5,
   },
@@ -86,7 +80,7 @@ export default function ReviewsSection() {
             transition={{ duration: 0.5 }}
             className="font-display-italic text-[14px] text-[#A78BFA] tracking-wide mb-4"
           >
-            From the community
+            Reviews
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -95,9 +89,9 @@ export default function ReviewsSection() {
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-[36px] sm:text-[44px] font-bold leading-[1.2] tracking-[-0.03em] text-white mb-4"
           >
-            테이블에서 이미
+            테이블 위의 순간들이
             <br />
-            <span className="gradient-text">시작된 이야기들</span>
+            <span className="gradient-text">기록으로 이어지고 있습니다</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -106,7 +100,7 @@ export default function ReviewsSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-[15px] text-white/35"
           >
-            베타 유저들이 직접 남긴 말들입니다.
+            베타 유저들이 TableTales를 사용하며 남긴 이야기입니다.
           </motion.p>
         </div>
 
@@ -114,7 +108,7 @@ export default function ReviewsSection() {
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {reviews.map((review, i) => (
             <motion.div
-              key={review.handle}
+              key={review.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -134,7 +128,6 @@ export default function ReviewsSection() {
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold text-white leading-tight">{review.name}</p>
-                    <p className="text-[11px] text-white/30">{review.handle}</p>
                   </div>
                 </div>
                 <Stars count={review.rating} />

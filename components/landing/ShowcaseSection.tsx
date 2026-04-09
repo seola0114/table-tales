@@ -96,9 +96,9 @@ export default function ShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-4 font-display-italic text-[14px] tracking-wide text-[#A78BFA]"
-          >
-            Service Screens
+          className="mb-4 font-display-italic text-[14px] tracking-wide text-[#A78BFA]"
+        >
+            Story
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -107,10 +107,13 @@ export default function ShowcaseSection() {
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-[36px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[44px]"
           >
-            기록의 시작부터 선택까지,
+            보드게임 플레이를 기록하는
             <br />
-            <span className="gradient-text">실제 서비스 흐름을 그대로 담았습니다</span>
+            <span className="gradient-text">가장 자연스러운 방법</span>
           </motion.h2>
+          <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-white/42">
+            게임이 끝난 뒤의 기억은 생각보다 빨리 흐려집니다. TableTales는 플레이한 게임, 함께한 사람, 그날의 분위기와 감상을 쉽게 기록하고 다시 꺼내볼 수 있도록 돕습니다.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -118,7 +121,7 @@ export default function ShowcaseSection() {
             src="/service-previews/home-rich.png"
             alt="홈 화면"
             title="홈 요약"
-            desc="최근 플레이, 통계, 최근 한 게임과 인기 게임까지 보여주는 출발점"
+            desc="최근 플레이, 누적 기록, 다시 보고 싶은 게임을 확인하는 출발점"
             accent="from-[#8B5CF6]/35 to-transparent"
             delay={0}
             width={720}
@@ -128,7 +131,7 @@ export default function ShowcaseSection() {
             src="/service-previews/record-rich.png"
             alt="기록 입력 화면"
             title="세션 기록"
-            desc="별점, 시간, 장소, 후기까지 자연스럽게 쌓이는 입력 경험"
+            desc="별점, 시간, 장소, 메모까지 자연스럽게 이어지는 기록 경험"
             accent="from-[#19c8a6]/35 to-transparent"
             delay={0.08}
             width={720}
@@ -137,8 +140,8 @@ export default function ShowcaseSection() {
           <ScreenTile
             src="/service-previews/search-results-rich.png"
             alt="게임 검색 결과 화면"
-            title="검색 결과"
-            desc="박스아트와 핵심 정보를 빠르게 비교하고 바로 선택하는 단계"
+            title="게임 검색"
+            desc="찾고 싶은 게임을 빠르게 탐색하고 바로 선택하는 단계"
             accent="from-[#7DA2FF]/35 to-transparent"
             delay={0.16}
             width={720}
@@ -159,33 +162,33 @@ export default function ShowcaseSection() {
         <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4">
           <StatCard
             icon={Trophy}
-            label="Favorite Action"
-            value="별점 기록"
-            sub="기록의 감정선을 남기는 핵심"
+            label="기록"
+            value="플레이를 남기고"
+            sub="세션 하나하나를 놓치지 않고 저장"
             accent="bg-gradient-to-br from-[#ff9f1a] to-[#ffbf47]"
             delay={0}
           />
           <StatCard
             icon={Clock}
-            label="Flow"
-            value="빠른 입력"
-            sub="홈에서 기록까지 끊김 없는 구조"
+            label="통계"
+            value="쌓인 기록을 돌아보고"
+            sub="기록이 쌓일수록 흐름이 더 선명하게"
             accent="bg-gradient-to-br from-[#8B5CF6] to-[#A78BFA]"
             delay={0.08}
           />
           <StatCard
             icon={Users}
-            label="Context"
-            value="함께한 사람"
-            sub="플레이어 단위로 기억이 쌓이는 서비스"
+            label="사람"
+            value="함께한 플레이어를 기억하고"
+            sub="누구와 했는지도 기록의 중요한 일부"
             accent="bg-gradient-to-br from-[#2fa5ff] to-[#5666ff]"
             delay={0.16}
           />
           <StatCard
             icon={BarChart2}
-            label="Outcome"
-            value="검색 선택"
-            sub="정보를 보고 바로 다음 행동으로 이어지는 구조"
+            label="이야기"
+            value="하나의 세션을 나만의 이야기로 남깁니다"
+            sub="단순한 로그를 넘어 다시 꺼내보게 되는 아카이브"
             accent="bg-gradient-to-br from-[#19c8a6] to-[#18e2bd]"
             delay={0.24}
           />
@@ -200,10 +203,10 @@ export default function ShowcaseSection() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/25 bg-[#8B5CF6]/10 px-3 py-1 text-[12px] text-[#C3B2FF]">
             <Zap size={12} />
-            실서비스 기반 랜딩
+            플레이 아카이브
           </div>
           <p className="mt-4 text-[15px] leading-relaxed text-white/55">
-            이번 랜딩은 가상의 대시보드보다 실제 앱 UI를 중심으로 재구성했습니다. 그래서 방문자가 “예쁜 콘셉트”보다 “실제로 어떻게 쓰는 서비스인지”를 더 빠르게 이해할 수 있습니다.
+            기록은 단순한 로그가 아니라, 다시 꺼내보게 되는 플레이의 아카이브가 됩니다.
           </p>
         </motion.div>
       </div>

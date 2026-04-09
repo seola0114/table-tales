@@ -14,18 +14,18 @@ const features = [
   {
     id: "home",
     tag: "Home Overview",
-    headline: "홈에서 바로,\n최근 기록과 흐름을 확인",
-    desc: "최근 플레이와 누적 통계, 이번 주의 하이라이트가 한 화면에 정리됩니다. 앱을 켜는 순간 다시 기억이 이어집니다.",
+    headline: "홈에서 바로,\n최근 플레이와 기록의 흐름을 확인하세요",
+    desc: "최근 플레이한 게임, 누적 기록, 다시 보고 싶은 세션까지 앱을 열자마자 바로 확인할 수 있습니다.",
     icon: CalendarDays,
     accentColor: "from-[#8B5CF6]/20 to-[#7DA2FF]/8",
     borderColor: "border-[#8B5CF6]/24",
     iconColor: "text-[#A78BFA]",
     glowColor: "bg-[#8B5CF6]/14",
     bullets: [
-      "최근 세션 요약 카드",
-      "이번 주 플레이 통계 요약",
-      "눈에 띄는 대표 기록 하이라이트",
-      "가벼운 확인만으로도 리마인드 가능한 홈 구조",
+      "최근 플레이 요약 확인",
+      "누적 기록과 플레이 흐름 확인",
+      "다시 보고 싶은 게임 빠르게 진입",
+      "기록이 쌓일수록 더 유용해지는 홈 구조",
     ],
     screen: "/service-previews/home-rich.png",
     alt: "Table Tales 홈 화면",
@@ -33,18 +33,18 @@ const features = [
   {
     id: "record",
     tag: "Session Record",
-    headline: "입력은 빠르게,\n기록은 더 풍부하게",
-    desc: "게임, 날짜, 별점, 인원, 시간, 장소, 후기까지 하나의 흐름 안에서 입력할 수 있어 기록 자체가 끊기지 않습니다.",
+    headline: "입력은 간단하게,\n기록은 더 풍부하게",
+    desc: "게임, 날짜, 별점, 플레이 시간, 장소, 메모까지 필요한 정보를 한 흐름 안에서 자연스럽게 기록할 수 있습니다.",
     icon: PenLine,
     accentColor: "from-[#19c8a6]/16 to-[#8B5CF6]/8",
     borderColor: "border-[#19c8a6]/24",
     iconColor: "text-[#7AE7C7]",
     glowColor: "bg-[#19c8a6]/12",
     bullets: [
-      "필수 입력만 먼저 보이는 정돈된 폼",
-      "별점과 플레이 타임을 한 번에 입력",
-      "장소와 후기까지 자연스럽게 이어지는 기록 흐름",
-      "초록 포인트로 저장 액션이 명확한 인터페이스",
+      "필요한 정보부터 차근차근 입력",
+      "별점과 플레이 메모를 함께 기록",
+      "장소와 플레이 시간까지 정리 가능",
+      "빠르게 남기면서도 충분한 정보 보존",
     ],
     screen: "/service-previews/record-rich.png",
     alt: "Table Tales 기록 입력 화면",
@@ -52,18 +52,18 @@ const features = [
   {
     id: "players",
     tag: "Players",
-    headline: "누가 함께했는지,\n선명하게 남기는 구조",
-    desc: "플레이어 선택은 가볍고 빠르지만, 이후에는 전적과 관계의 맥락이 쌓일 수 있도록 설계되어 있습니다.",
+    headline: "누구와 함께했는지도\n기록의 중요한 일부니까",
+    desc: "플레이어를 선택해 그날의 모임을 더 또렷하게 남길 수 있습니다. 기록이 쌓일수록 사람과 게임의 관계도 함께 쌓여갑니다.",
     icon: Users2,
     accentColor: "from-[#8B5CF6]/20 to-[#19c8a6]/8",
     borderColor: "border-[#8B5CF6]/22",
     iconColor: "text-[#C3B2FF]",
     glowColor: "bg-[#8B5CF6]/12",
     bullets: [
-      "함께한 친구 검색과 선택을 빠르게 처리",
-      "현재 선택된 인원 수가 바로 보이는 구조",
-      "나와 친구를 구분해 기록 맥락이 더 또렷해짐",
-      "이후 상대 전적과 그룹 기록으로 확장하기 좋은 기반",
+      "함께한 플레이어를 빠르게 선택",
+      "인원 수를 직관적으로 확인",
+      "혼자 한 플레이도, 여럿이 한 플레이도 기록 가능",
+      "모임 단위 기록으로 확장하기 좋은 구조",
     ],
     screen: "/service-previews/players-rich.png",
     alt: "Table Tales 플레이어 선택 화면",
@@ -114,9 +114,9 @@ export default function FeaturesSection() {
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="mb-5 text-[36px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[44px]"
           >
-            실제 서비스 화면 기준으로,
+            실제 사용 흐름에 맞춰 만든
             <br />
-            <span className="gradient-text">더 또렷하게 정리한 경험</span>
+            <span className="gradient-text">기록 경험</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -125,7 +125,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto max-w-xl text-[16px] leading-relaxed text-white/40"
           >
-            랜딩의 무드만 예쁜 것이 아니라, 실제 앱의 홈, 기록, 검색, 플레이어 선택 경험이 자연스럽게 이어지도록 섹션 구성도 맞췄습니다.
+            예쁜 화면에 머무르지 않고, 홈에서 최근 기록을 확인하고 게임을 찾고 플레이어를 고르고 플레이를 기록하는 실제 사용 흐름이 자연스럽게 이어지도록 설계했습니다.
           </motion.p>
         </div>
 
@@ -195,9 +195,9 @@ export default function FeaturesSection() {
           className="mt-14 grid gap-4 md:grid-cols-3"
         >
           {[
-            { label: "Session Memory", value: "별점, 메모, 장소까지" },
-            { label: "Game Search", value: "핵심 정보 비교 후 바로 선택" },
-            { label: "Social Context", value: "누구와 했는지 선명하게" },
+            { label: "최근 기록", value: "최근 플레이를 한눈에" },
+            { label: "게임 탐색", value: "찾고 바로 기록하는 검색 경험" },
+            { label: "플레이어", value: "누구와 했는지 함께 남기기" },
           ].map((item) => (
             <div key={item.label} className="glass-card-strong rounded-2xl p-5 text-center">
               <p className="text-[11px] uppercase tracking-[0.18em] text-white/30">{item.label}</p>

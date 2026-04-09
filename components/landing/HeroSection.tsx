@@ -72,32 +72,32 @@ function ServicePreviewCollage() {
       <FloatingNote
         icon={Trophy}
         title="최근 기록"
-        value="센추리 3.5"
-        caption="최근 한 게임과 통계, 추천 게임까지 홈에서 바로 이어집니다."
+        value="최근 플레이 요약"
+        caption="최근 기록과 다시 보고 싶은 세션을 홈에서 바로 확인할 수 있습니다."
         className="-left-4 top-14"
         delay={0.65}
       />
       <FloatingNote
         icon={Search}
         title="게임 탐색"
-        value="브라스, 글룸헤이븐"
-        caption="검색 결과가 있든 없든 다음 액션이 바로 보이도록 정리했습니다."
+        value="찾고 바로 기록"
+        caption="게임을 찾고 필요한 정보를 본 뒤 바로 기록으로 이어갈 수 있습니다."
         className="-right-4 top-10"
         delay={0.8}
       />
       <FloatingNote
         icon={Users2}
         title="플레이어"
-        value="총 5명"
-        caption="누가 함께했는지 빠르게 선택하고 기록 맥락까지 같이 쌓입니다."
+        value="함께한 사람 저장"
+        caption="누구와 함께했는지 빠르게 선택하고 기록의 맥락까지 남길 수 있습니다."
         className="-right-2 bottom-16"
         delay={0.95}
       />
       <FloatingNote
         icon={Clock3}
-        title="기록 시간"
-        value="1분 안쪽"
-        caption="날짜, 인원, 장소, 후기까지 한 흐름으로 자연스럽게 저장됩니다."
+        title="빠른 기록"
+        value="한 흐름으로 입력"
+        caption="날짜, 인원, 장소, 별점, 메모까지 부담 없이 기록할 수 있습니다."
         className="-left-2 bottom-20"
         delay={1.1}
       />
@@ -164,7 +164,7 @@ export default function HeroSection() {
             >
               <Sparkles size={12} className="text-[#A78BFA]" />
               <span className="font-display-italic text-[13px] tracking-wide text-[#C3B2FF]">
-                From real sessions to lasting stories
+                보드게임 플레이 기록 앱
               </span>
             </motion.div>
 
@@ -174,11 +174,9 @@ export default function HeroSection() {
               transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="mb-6 text-[40px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[48px] lg:text-[56px]"
             >
-              플레이한 게임부터,
+              플레이한 게임을,
               <br />
-              <span className="gradient-text">함께한 사람과</span>
-              <br />
-              그날의 흐름까지
+              <span className="gradient-text">기억에 남는 이야기로</span>
             </motion.h1>
 
             <motion.p
@@ -187,11 +185,9 @@ export default function HeroSection() {
               transition={{ delay: 0.35, duration: 0.6 }}
               className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-white/50 lg:text-[17px]"
             >
-              홈에서 최근 기록을 보고, 기록 화면에서 별점과 메모를 남기고,
+              TableTales는 보드게임 플레이를 기록하고,
               <br className="hidden lg:block" />
-              검색 결과를 살펴보고 플레이어를 고르는 실제 서비스 흐름을
-              <br className="hidden lg:block" />
-              랜딩에서도 그대로 느낄 수 있게 바꿨습니다.
+              통계로 돌아보고, 함께한 사람과의 순간까지 남길 수 있는 기록 앱입니다.
             </motion.p>
 
             <motion.div
@@ -204,8 +200,14 @@ export default function HeroSection() {
                 href="#waitlist"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] transition-all duration-200 hover:from-[#7C4DED] hover:to-[#7DA2FF] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]"
               >
-                Waitlist 참여하기
+                앱 시작하기
                 <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="#waitlist"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white"
+              >
+                서비스 소식 받기
               </a>
             </motion.div>
 
@@ -215,7 +217,7 @@ export default function HeroSection() {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="mt-6 text-[12px] text-white/25"
             >
-              기록, 검색, 플레이어 관리까지 한 앱 안에서 매끄럽게 연결됩니다
+              iOS · Android · Web 지원
             </motion.p>
           </div>
 

@@ -9,10 +9,8 @@ import ThemeToggle from "@/components/landing/ThemeToggle";
 const navLinks = [
   { href: "#features", label: "Features" },
   { href: "#stats", label: "Stats" },
-  { href: "#story", label: "Story" },
   { href: "#reviews", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
-  { href: "/design-system", label: "Design System" },
 ];
 
 export default function Header() {
@@ -71,22 +69,16 @@ export default function Header() {
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
               <a
-                href="/design-system"
-                className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
-              >
-                디자인 시스템
-              </a>
-              <a
                 href="#waitlist"
                 className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
               >
-                앱 출시 알림
+                서비스 소식
               </a>
               <a
                 href="#waitlist"
                 className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(139,92,246,0.34)] hover:shadow-[0_0_28px_rgba(125,162,255,0.18)]"
               >
-                Waitlist 참여
+                앱 시작하기
               </a>
             </div>
           </div>
@@ -128,25 +120,18 @@ export default function Header() {
                   <ThemeToggle />
                 </div>
                 <a
-                  href="/design-system"
-                  onClick={() => setMobileOpen(false)}
-                  className="py-2.5 text-center text-[14px] font-medium text-white/60 border border-white/[0.1] rounded-lg"
-                >
-                  디자인 시스템 보기
-                </a>
-                <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
                   className="py-2.5 text-center text-[14px] font-medium text-white/60 border border-white/[0.1] rounded-lg"
                 >
-                  앱 출시 알림 받기
+                  서비스 소식 받기
                 </a>
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
                   className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] text-white rounded-lg"
                 >
-                  Waitlist 참여
+                  앱 시작하기
                 </a>
               </div>
             </div>

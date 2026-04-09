@@ -2,7 +2,6 @@ import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
 import SocialProofSection from "@/components/landing/SocialProofSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
-import ShowcaseSection from "@/components/landing/ShowcaseSection";
 import ReviewsSection from "@/components/landing/ReviewsSection";
 import FAQSection from "@/components/landing/FAQSection";
 import CTASection from "@/components/landing/CTASection";
@@ -15,7 +14,6 @@ export default function Home() {
       <HeroSection />
       <SocialProofSection />
       <FeaturesSection />
-      <ShowcaseSection />
       <ReviewsSection />
       <FAQSection />
       <CTASection />

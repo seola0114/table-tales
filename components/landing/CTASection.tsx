@@ -41,22 +41,15 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-display-italic text-[16px] text-[#A78BFA] tracking-wide mb-6">
-            Your Table, Your Tale
-          </p>
-
           <h2 className="text-[40px] sm:text-[52px] lg:text-[60px] font-bold tracking-[-0.03em] text-white leading-[1.2] mb-6">
-            다음 게임이
+            당신의 플레이를,
             <br />
-            <span className="gradient-text-warm">이야기가 될 준비</span>
-            <br />
-            됐나요?
+            <span className="gradient-text-warm">이야기로 남겨보세요</span>
           </h2>
 
           <p className="text-[16px] text-white/45 leading-relaxed mb-12 max-w-md mx-auto">
-            Waitlist에 등록하면 출시 즉시 알림을 받고,
-            <br />
-            얼리 어답터 혜택을 가장 먼저 누릴 수 있어요.
+            이메일을 남겨두시면 서비스 업데이트와 새로운 소식을 가장 먼저 받아볼 수 있습니다.
+            TableTales와 함께 보드게임의 순간을 더 오래 남겨보세요.
           </p>
 
           {!submitted ? (
@@ -95,21 +88,20 @@ export default function CTASection() {
                 <Check size={12} className="text-[#A78BFA]" />
               </div>
               <p className="text-[14px] text-white/70">
-                등록 완료! 출시되면 바로 알려드릴게요 🎲
+                등록 완료! 새로운 소식을 가장 먼저 전해드릴게요.
               </p>
             </motion.div>
           )}
 
           <p className="mt-6 text-[12px] text-white/25">
-            스팸은 보내지 않아요. 출시 알림 한 번만 보낼게요.
+            스팸 메일은 보내지 않아요. 필요한 소식만 전해드릴게요.
           </p>
 
-          {/* Trust badges */}
           <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {[
-              "무료로 시작",
-              "2,400+ 대기 중",
-              "iOS · Android · Web",
+              "앱 시작하기",
+              "서비스 소식 받기",
+              "iOS · Android · Web 지원",
             ].map((badge) => (
               <div key={badge} className="flex items-center gap-2">
                 <div className="w-1 h-1 rounded-full bg-[#A78BFA]" />
