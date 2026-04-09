@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { Trophy, BarChart2, Users, Calendar, Star, TrendingUp, Clock, Zap } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { BarChart2, Clock, Trophy, Users, Zap } from "lucide-react";
 
 function StatCard({
   icon: Icon,
@@ -26,288 +26,170 @@ function StatCard({
       whileHover={{ y: -4, scale: 1.02 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="glass-card-strong p-5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/[0.15] transition-all duration-300"
+      className="glass-card-strong rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-white/[0.15]"
     >
-      <div className={`w-9 h-9 rounded-xl mb-4 flex items-center justify-center ${accent}`}>
+      <div className={`mb-4 flex h-9 w-9 items-center justify-center rounded-xl ${accent}`}>
         <Icon size={16} className="text-white" />
       </div>
-      <p className="text-[11px] font-medium text-white/35 uppercase tracking-widest mb-1">{label}</p>
-      <p className="text-[28px] font-bold text-white tracking-tight leading-none">{value}</p>
-      {sub && <p className="text-[11px] text-white/30 mt-1.5">{sub}</p>}
+      <p className="mb-1 text-[11px] font-medium uppercase tracking-widest text-white/35">{label}</p>
+      <p className="text-[28px] font-bold leading-none tracking-tight text-white">{value}</p>
+      {sub && <p className="mt-1.5 text-[11px] text-white/30">{sub}</p>}
     </motion.div>
   );
 }
 
-function MobileScreen({ variant }: { variant: "home" | "session" | "stats" }) {
-  if (variant === "home") {
-    return (
-      <div className="p-4 space-y-3">
-        <div className="flex items-center justify-between mb-2">
-          <div>
-            <p className="text-[9px] text-white/30 font-medium">Good evening,</p>
-            <p className="text-[14px] font-bold text-white">Mina 👋</p>
-          </div>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-[12px] font-bold text-white">
-            M
-          </div>
-        </div>
-        <div className="bg-gradient-to-br from-emerald-500/20 to-teal-500/10 rounded-xl p-3 border border-emerald-500/15">
-          <p className="text-[9px] text-emerald-300 font-medium mb-0.5">최근 세션</p>
-          <p className="text-[12px] font-bold text-white">Arclight Traders</p>
-          <p className="text-[9px] text-white/40">3 players · 42 pts · 1st place</p>
-        </div>
-        <div className="grid grid-cols-2 gap-2">
-          {[
-            { label: "Total Plays", value: "47" },
-            { label: "This Month", value: "8" },
-            { label: "Win Rate", value: "61%" },
-            { label: "Games", value: "12" },
-          ].map((s) => (
-            <div key={s.label} className="bg-white/[0.04] rounded-xl p-2.5 border border-white/[0.05]">
-              <p className="text-[16px] font-bold text-white">{s.value}</p>
-              <p className="text-[8px] text-white/30 font-medium">{s.label}</p>
-            </div>
-          ))}
-        </div>
-        <div className="space-y-2">
-          <p className="text-[9px] text-white/30 font-medium uppercase tracking-wider">Recent Games</p>
-          {["Arclight Traders", "Moon Harbor", "Forest Signal"].map((game, i) => (
-            <div key={game} className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center text-[8px] font-bold text-white/40">
-                {i + 1}
-              </div>
-              <span className="text-[11px] text-white/60">{game}</span>
-              <div className="flex-1" />
-              <ChevronIcon />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (variant === "session") {
-    return (
-      <div className="p-4 space-y-3">
-        <p className="text-[10px] text-white/30 font-medium uppercase tracking-wider mb-3">세션 기록</p>
-        <div className="bg-white/[0.04] rounded-xl p-3 border border-white/[0.06]">
-          <p className="text-[9px] text-white/30 mb-1">게임</p>
-          <p className="text-[13px] font-bold text-white">Crimson Railway</p>
-        </div>
-        <div className="space-y-2">
-          {[
-            { name: "Mina", score: 78, first: true },
-            { name: "Juno", score: 65, first: false },
-            { name: "Alex", score: 54, first: false },
-            { name: "Yuna", score: 49, first: false },
-          ].map((p) => (
-            <div key={p.name} className="flex items-center gap-2.5">
-              <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold ${p.first ? "bg-amber-500/20 text-amber-300" : "bg-white/[0.06] text-white/40"}`}>
-                {p.name[0]}
-              </div>
-              <div className="flex-1">
-                <div className="flex justify-between mb-0.5">
-                  <span className="text-[10px] font-semibold text-white/70">{p.name}</span>
-                  <span className="text-[10px] font-bold text-white">{p.score}</span>
-                </div>
-                <div className="h-1 bg-white/[0.05] rounded-full">
-                  <div
-                    className={`h-full rounded-full ${p.first ? "bg-amber-400" : "bg-emerald-500/50"}`}
-                    style={{ width: `${(p.score / 78) * 100}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="bg-white/[0.03] rounded-xl p-2.5 border border-white/[0.04]">
-          <p className="text-[9px] text-white/25 italic">"Mina가 철도 독점으로 역대급 점수 기록"</p>
-        </div>
-      </div>
-    );
-  }
-
+function ScreenTile({
+  src,
+  alt,
+  title,
+  desc,
+  accent,
+  delay,
+}: {
+  src: string;
+  alt: string;
+  title: string;
+  desc: string;
+  accent: string;
+  delay: number;
+}) {
   return (
-    <div className="p-4 space-y-3">
-      <div className="flex items-center justify-between mb-2">
-        <p className="text-[13px] font-bold text-white">My Stats</p>
-        <span className="text-[10px] text-teal-300 font-medium">2024</span>
-      </div>
-      <div className="flex gap-2 h-16 items-end">
-        {[30, 50, 40, 70, 60, 85, 75, 90, 65, 80, 70, 60].map((h, i) => (
-          <div
-            key={i}
-            className={`flex-1 rounded-t-sm ${i === 11 ? "bg-teal-500" : "bg-white/[0.07]"}`}
-            style={{ height: `${h}%` }}
-          />
-        ))}
-      </div>
-      <div className="grid grid-cols-2 gap-2">
-        {[
-          { label: "Win Rate", value: "61%", up: true },
-          { label: "Fav Game", value: "Arclight", up: false },
-          { label: "Best Month", value: "Jun", up: false },
-          { label: "Streak", value: "8 plays", up: true },
-        ].map((s) => (
-          <div key={s.label} className="bg-white/[0.04] rounded-xl p-2.5 border border-white/[0.05]">
-            <p className="text-[8px] text-white/25 font-medium mb-0.5">{s.label}</p>
-            <p className="text-[12px] font-bold text-white">{s.value}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ChevronIcon() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-white/20">
-      <path d="M4.5 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function PhoneFrame({ children, className = "", tilt = 0 }: { children: React.ReactNode; className?: string; tilt?: number }) {
-  return (
-    <div
-      className={`relative w-[180px] sm:w-[210px] ${className}`}
-      style={{ transform: `rotate(${tilt}deg)` }}
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ delay, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className="glass-card group relative overflow-hidden rounded-[28px] border border-white/10 p-4"
     >
-      <div className="rounded-[28px] bg-[#0e0e24] border border-white/[0.12] shadow-[0_24px_60px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden">
-        {/* Notch */}
-        <div className="flex justify-center pt-2.5 pb-1.5 bg-[#0a0a1a]">
-          <div className="w-20 h-5 bg-black rounded-b-2xl" />
-        </div>
-        {/* Content */}
-        <div className="bg-[#06060f] pb-4">{children}</div>
-        {/* Home indicator */}
-        <div className="flex justify-center py-2 bg-[#06060f]">
-          <div className="w-24 h-1 bg-white/10 rounded-full" />
+      <div className={`pointer-events-none absolute inset-x-10 top-10 h-40 rounded-full bg-gradient-to-b ${accent} blur-3xl opacity-90 transition-transform duration-500 group-hover:scale-110`} />
+      <div className="relative z-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,#dbe1e8_0%,#edf2f6_100%)] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)]">
+        <div className="overflow-hidden rounded-[22px] border border-black/5 bg-white">
+          <Image src={src} alt={alt} width={768} height={1536} className="h-auto w-full" />
         </div>
       </div>
-    </div>
+      <div className="relative z-10 px-1 pb-1 pt-5 text-center">
+        <p className="text-[18px] font-semibold text-white">{title}</p>
+        <p className="mt-2 text-[14px] leading-relaxed text-white/45">{desc}</p>
+      </div>
+    </motion.div>
   );
 }
 
 export default function ShowcaseSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-  const y1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [-20, 20]);
-
   return (
-    <section ref={containerRef} className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 section-glow pointer-events-none" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+    <section className="relative overflow-hidden py-32">
+      <div className="pointer-events-none absolute inset-0 section-glow" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-      <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-20">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <div className="mb-20 text-center">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-display-italic text-[14px] text-[#A78BFA] tracking-wide mb-4"
+            className="mb-4 font-display-italic text-[14px] tracking-wide text-[#A78BFA]"
           >
-            Visual Showcase
+            Service Screens
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[36px] sm:text-[44px] font-bold tracking-[-0.03em] text-white"
+            className="text-[36px] font-bold tracking-[-0.03em] text-white sm:text-[44px]"
           >
-            테이블 위의 모든 순간,
+            기록의 시작부터 선택까지,
             <br />
-            <span className="gradient-text">한 곳에서 선명하게</span>
+            <span className="gradient-text">실제 서비스 흐름을 그대로 담았습니다</span>
           </motion.h2>
         </div>
 
-        {/* Phone mockups + stat cards */}
-        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0 min-h-[520px]">
-          {/* Left phone */}
-          <motion.div
-            style={{ y: y1 }}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:absolute lg:left-[4%] xl:left-[8%] z-10"
-          >
-            <PhoneFrame tilt={-4}>
-              <MobileScreen variant="home" />
-            </PhoneFrame>
-          </motion.div>
-
-          {/* Center phone (larger, prominent) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-20 scale-110 sm:scale-125"
-          >
-            <div className="absolute inset-0 -z-10 blur-3xl opacity-35 bg-gradient-to-b from-[#8B5CF6]/52 to-[#7DA2FF]/14 rounded-full scale-150" />
-            <PhoneFrame>
-              <MobileScreen variant="session" />
-            </PhoneFrame>
-          </motion.div>
-
-          {/* Right phone */}
-          <motion.div
-            style={{ y: y2 }}
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:absolute lg:right-[4%] xl:right-[8%] z-10"
-          >
-            <PhoneFrame tilt={4}>
-              <MobileScreen variant="stats" />
-            </PhoneFrame>
-          </motion.div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <ScreenTile
+            src="/service-previews/home.png"
+            alt="홈 화면"
+            title="홈 요약"
+            desc="최근 플레이와 통계를 가장 먼저 확인하는 출발점"
+            accent="from-[#8B5CF6]/35 to-transparent"
+            delay={0}
+          />
+          <ScreenTile
+            src="/service-previews/record.png"
+            alt="기록 입력 화면"
+            title="세션 기록"
+            desc="별점, 시간, 장소, 후기까지 자연스럽게 쌓이는 입력 경험"
+            accent="from-[#19c8a6]/35 to-transparent"
+            delay={0.08}
+          />
+          <ScreenTile
+            src="/service-previews/search.png"
+            alt="게임 검색 화면"
+            title="게임 검색"
+            desc="찾고 싶은 게임을 빠르게 골라 기록 흐름을 이어가는 단계"
+            accent="from-[#7DA2FF]/35 to-transparent"
+            delay={0.16}
+          />
+          <ScreenTile
+            src="/service-previews/players.png"
+            alt="플레이어 선택 화면"
+            title="플레이어 선택"
+            desc="누가 함께했는지 선명하게 남기는 마지막 정리"
+            accent="from-[#A78BFA]/35 to-transparent"
+            delay={0.24}
+          />
         </div>
 
-        {/* Stat cards below */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
+        <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4">
           <StatCard
             icon={Trophy}
-            label="Best Win Streak"
-            value="6"
-            sub="Mina · Jan 2024"
+            label="Favorite Action"
+            value="별점 기록"
+            sub="기록의 감정선을 남기는 핵심"
             accent="bg-gradient-to-br from-[#ff9f1a] to-[#ffbf47]"
             delay={0}
           />
           <StatCard
-            icon={BarChart2}
-            label="Avg Session Length"
-            value="2.4h"
-            sub="주말 모임 기준"
+            icon={Clock}
+            label="Flow"
+            value="빠른 입력"
+            sub="홈에서 기록까지 끊김 없는 구조"
             accent="bg-gradient-to-br from-[#8B5CF6] to-[#A78BFA]"
-            delay={0.1}
+            delay={0.08}
           />
           <StatCard
             icon={Users}
-            label="Unique Players"
-            value="12"
-            sub="올해 함께한 사람들"
+            label="Context"
+            value="함께한 사람"
+            sub="플레이어 단위로 기억이 쌓이는 서비스"
             accent="bg-gradient-to-br from-[#2fa5ff] to-[#5666ff]"
-            delay={0.2}
+            delay={0.16}
           />
           <StatCard
-            icon={Zap}
-            label="Fastest Record"
-            value="8s"
-            sub="점수 입력 평균 시간"
+            icon={BarChart2}
+            label="Outcome"
+            value="통계 확장"
+            sub="쌓인 기록이 다시 인사이트가 되는 구조"
             accent="bg-gradient-to-br from-[#19c8a6] to-[#18e2bd]"
-            delay={0.3}
+            delay={0.24}
           />
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ delay: 0.15, duration: 0.6 }}
+          className="mx-auto mt-12 max-w-3xl rounded-[28px] border border-white/10 bg-white/[0.03] px-6 py-5 text-center backdrop-blur-sm"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/25 bg-[#8B5CF6]/10 px-3 py-1 text-[12px] text-[#C3B2FF]">
+            <Zap size={12} />
+            실서비스 기반 랜딩
+          </div>
+          <p className="mt-4 text-[15px] leading-relaxed text-white/55">
+            이번 랜딩은 가상의 대시보드보다 실제 앱 UI를 중심으로 재구성했습니다. 그래서 방문자가 “예쁜 콘셉트”보다 “실제로 어떻게 쓰는 서비스인지”를 더 빠르게 이해할 수 있습니다.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
