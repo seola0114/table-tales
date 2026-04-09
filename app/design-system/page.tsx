@@ -524,7 +524,7 @@ function TonalPaletteCard({
 
 function FoundationsContent() {
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-6 lg:px-10">
       <SectionTitle
         eyebrow="Foundations"
         title="새 기준으로 정리한"
@@ -603,7 +603,7 @@ function FoundationsContent() {
 
 function TypographyContent() {
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-6 lg:px-10">
       <SectionTitle
         eyebrow="Typography"
         title="랜딩에서 실제로 쓰는"
@@ -690,7 +690,7 @@ function TypographyContent() {
 
 function ComponentsContent() {
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-6 lg:px-10">
       <SectionTitle
         eyebrow="Components"
         title="토큰 기준으로 다시 본"
@@ -793,7 +793,7 @@ function ComponentsContent() {
 
 function CompositionContent() {
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-6 lg:px-10">
       <SectionTitle
         eyebrow="Composition"
         title="레이아웃을 조립할 때의"
