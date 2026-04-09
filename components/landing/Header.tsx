@@ -29,7 +29,7 @@ export default function Header() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-black/84 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_1px_0_0_rgba(255,255,255,0.04)]"
           : "bg-transparent"
@@ -76,14 +76,6 @@ export default function Header() {
                 className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
               >
                 서비스 소식
-              </a>
-              <a
-                href={EXTERNAL_LINKS.web}
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white rounded-lg transition-all duration-200 shadow-[0_0_18px_rgba(139,92,246,0.34)] hover:shadow-[0_0_28px_rgba(125,162,255,0.18)]"
-              >
-                앱 시작하기
               </a>
             </div>
           </div>
@@ -132,15 +124,6 @@ export default function Header() {
                   className="py-2.5 text-center text-[14px] font-medium text-white/60 border border-white/[0.1] rounded-lg"
                 >
                   서비스 소식 받기
-                </a>
-                <a
-                  href={EXTERNAL_LINKS.web}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] text-white rounded-lg"
-                >
-                  앱 시작하기
                 </a>
               </div>
             </div>
