@@ -223,10 +223,10 @@ const typography = [
     label: "display-xl",
     element: "h1",
     samples: [{ text: "플레이한 게임부터,", weightClass: "font-bold" }],
-    className: "text-[40px] leading-[1.5] tracking-[-0.05em] sm:text-[58px]",
+    className: "text-[40px] leading-[1.2] tracking-[-0.05em] sm:text-[58px]",
     mobileSize: "40px",
     desktopSize: "58px",
-    lineHeight: "1.5",
+    lineHeight: "1.2",
     weights: ["700"],
     usage: "메인 히어로 H1, 가장 강한 첫 인상",
   },
@@ -234,10 +234,10 @@ const typography = [
     label: "display-lg",
     element: "h2",
     samples: [{ text: "실제 서비스 화면 기준으로", weightClass: "font-bold" }],
-    className: "text-[36px] leading-[1.5] tracking-[-0.03em] sm:text-[44px]",
+    className: "text-[36px] leading-[1.2] tracking-[-0.03em] sm:text-[44px]",
     mobileSize: "36px",
     desktopSize: "44px",
-    lineHeight: "1.5",
+    lineHeight: "1.2",
     weights: ["700"],
     usage: "섹션 메인 타이틀",
   },
@@ -245,10 +245,10 @@ const typography = [
     label: "heading-md",
     element: "h3",
     samples: [{ text: "토큰 기준으로 다시 본 UI 패턴", weightClass: "font-bold" }],
-    className: "text-[28px] leading-[1.5] tracking-[-0.025em] sm:text-[34px]",
+    className: "text-[28px] leading-[1.3] tracking-[-0.025em] sm:text-[34px]",
     mobileSize: "28px",
     desktopSize: "34px",
-    lineHeight: "1.5",
+    lineHeight: "1.3",
     weights: ["700"],
     usage: "카드/블록 제목, 서브 섹션 타이틀",
   },
@@ -256,10 +256,10 @@ const typography = [
     label: "heading-sm",
     element: "h4",
     samples: [{ text: "최근 기록과 주요 흐름", weightClass: "font-bold" }],
-    className: "text-[24px] leading-[1.5] tracking-[-0.02em] sm:text-[28px]",
+    className: "text-[24px] leading-[1.3] tracking-[-0.02em] sm:text-[28px]",
     mobileSize: "24px",
     desktopSize: "28px",
-    lineHeight: "1.5",
+    lineHeight: "1.3",
     weights: ["700"],
     usage: "하위 섹션 제목, 강조 카드 제목",
   },
@@ -267,10 +267,10 @@ const typography = [
     label: "heading-xs",
     element: "h5",
     samples: [{ text: "플레이어 선택 흐름", weightClass: "font-semibold" }],
-    className: "text-[20px] leading-[1.5] tracking-[-0.02em] sm:text-[22px]",
+    className: "text-[20px] leading-[1.3] tracking-[-0.02em] sm:text-[22px]",
     mobileSize: "20px",
     desktopSize: "22px",
-    lineHeight: "1.5",
+    lineHeight: "1.3",
     weights: ["600"],
     usage: "모듈 제목, 그룹 타이틀",
   },
@@ -278,10 +278,10 @@ const typography = [
     label: "title-lg",
     element: "h6",
     samples: [{ text: "검색 결과가 없어요", weightClass: "font-semibold" }],
-    className: "text-[18px] leading-[1.5] tracking-[-0.015em]",
+    className: "text-[18px] leading-[1.3] tracking-[-0.015em]",
     mobileSize: "18px",
     desktopSize: "18px",
-    lineHeight: "1.5",
+    lineHeight: "1.3",
     weights: ["600"],
     usage: "컴포넌트 제목, 작은 카드 타이틀",
   },
@@ -631,11 +631,11 @@ function TypographyContent() {
             </div>
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Line Height</p>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/50">이번 기준에서는 타입 스케일 전반을 `1.5`로 통일합니다. 디스플레이, 헤딩, 본문, 라벨, 캡션 모두 같은 line-height 기준으로 관리합니다.</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">`display`는 `1.2`, `heading`은 `1.3`, 본문과 라벨, 캡션은 `1.5`를 사용합니다. 큰 제목은 조금 더 조밀하게, 정보성 텍스트는 안정적으로 읽히도록 나눈 기준입니다.</p>
             </div>
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Display vs Heading</p>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/50">`display`는 페이지에서 가장 먼저 시선을 잡는 큰 메시지용 타입입니다. 히어로 H1이나 섹션 메인 카피처럼 감정과 인상을 만드는 역할에 씁니다. 반대로 `heading`은 정보 구조를 나누는 제목입니다. 카드 제목, 서브 섹션 타이틀처럼 읽는 흐름을 정리하는 역할에 더 가깝습니다.</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">`display`는 페이지에서 가장 먼저 시선을 잡는 큰 메시지용 타입입니다. 히어로 H1이나 섹션 메인 카피처럼 감정과 인상을 만드는 역할에 쓰고, line-height는 `1.2`를 사용합니다. 반대로 `heading`은 정보 구조를 나누는 제목입니다. 카드 제목, 서브 섹션 타이틀처럼 읽는 흐름을 정리하는 역할에 더 가깝고, line-height는 `1.3`을 사용합니다.</p>
             </div>
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">HTML Mapping</p>
@@ -652,7 +652,7 @@ function TypographyContent() {
           <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Live Composition Sample</p>
           <div className="mt-5 rounded-[28px] border border-white/10 bg-[#141425] p-6">
             <p className="font-display-italic text-[14px] tracking-wide text-[#A78BFA]">Product Flow</p>
-            <h2 className="mt-3 text-[36px] font-bold leading-[1.5] tracking-[-0.03em] text-white sm:text-[44px]">
+            <h2 className="mt-3 text-[36px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[44px]">
               실제 서비스 화면 기준으로
               <br />
               <span className="gradient-text">더 또렷하게 정리한 경험</span>
@@ -907,7 +907,7 @@ export default function DesignSystemPage() {
                 <Sparkles size={12} className="text-[#A78BFA]" />
                 <span className="text-[12px] font-semibold text-[#C3B2FF]">Table Tales Design System</span>
               </div>
-              <h1 className="mt-6 text-[40px] font-bold leading-[1.02] tracking-[-0.05em] text-white sm:text-[58px]">
+              <h1 className="mt-6 text-[40px] font-bold leading-[1.2] tracking-[-0.05em] text-white sm:text-[58px]">
                 홈페이지 기준으로
                 <br />
                 <span className="gradient-text">콘텐츠별로 나눈</span>
