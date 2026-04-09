@@ -23,8 +23,13 @@ export default function CTASection() {
     <section id="waitlist" className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/20 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-radial from-emerald-600/12 via-teal-600/6 to-transparent rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/30 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full blur-3xl"
+          style={{ background: "radial-gradient(ellipse, rgba(16,185,129,0.14) 0%, rgba(20,184,166,0.07) 50%, transparent 70%)" }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-2xl"
+          style={{ background: "radial-gradient(ellipse, rgba(16,185,129,0.08) 0%, transparent 70%)" }}
+        />
       </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
@@ -36,7 +41,7 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.18em] mb-6">
+          <p className="font-display-italic text-[16px] text-emerald-400 tracking-wide mb-6">
             Your Table, Your Tale
           </p>
 

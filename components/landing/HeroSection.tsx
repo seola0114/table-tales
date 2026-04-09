@@ -164,7 +164,7 @@ function MockupDashboard() {
       </motion.div>
 
       {/* Glow behind mockup */}
-      <div className="absolute inset-0 -z-10 blur-3xl opacity-25 rounded-full bg-gradient-to-br from-emerald-600/50 via-teal-600/30 to-blue-600/20" />
+      <div className="absolute inset-0 -z-10 blur-3xl opacity-35 rounded-full bg-gradient-to-br from-emerald-600/60 via-teal-600/40 to-blue-600/25" />
     </div>
   );
 }
@@ -174,11 +174,12 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-hidden">
       {/* Backgrounds */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-b from-emerald-600/8 via-teal-600/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-emerald-700/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] bg-teal-700/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-gradient-to-b from-emerald-600/14 via-teal-600/7 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-emerald-700/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 -right-32 w-[600px] h-[600px] bg-teal-700/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-emerald-500/4 rounded-full blur-2xl" />
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -197,7 +198,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full border border-emerald-500/25 bg-emerald-500/8"
           >
             <Sparkles size={12} className="text-emerald-400" />
-            <span className="text-[12px] font-medium text-emerald-300 tracking-wide">
+            <span className="font-display-italic text-[13px] text-emerald-300 tracking-wide">
               Board game sessions, beautifully remembered
             </span>
           </motion.div>

@@ -203,7 +203,7 @@ export default function ShowcaseSection() {
       <div className="absolute inset-0 section-glow pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
           <motion.p
@@ -211,7 +211,7 @@ export default function ShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.15em] mb-4"
+            className="font-display-italic text-[14px] text-emerald-400 tracking-wide mb-4"
           >
             Visual Showcase
           </motion.p>

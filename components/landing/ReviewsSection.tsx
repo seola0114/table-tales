@@ -76,7 +76,7 @@ export default function ReviewsSection() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px blur-sm bg-emerald-500/15" />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.p
@@ -84,7 +84,7 @@ export default function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.15em] mb-4"
+            className="font-display-italic text-[14px] text-emerald-400 tracking-wide mb-4"
           >
             From the community
           </motion.p>

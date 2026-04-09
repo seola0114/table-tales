@@ -17,6 +17,7 @@
   --color-border-strong: rgba(255, 255, 255, 0.18);
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-delayed: float 6s ease-in-out 2s infinite;
@@ -71,7 +72,7 @@ body::before {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   background-size: 200px 200px;
-  opacity: 0.018;
+  opacity: 0.025;
   pointer-events: none;
   z-index: 1;
 }
@@ -91,33 +92,43 @@ body::before {
   background: rgba(16, 185, 129, 0.5);
 }
 
+/* Display font */
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+.font-display-italic {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
 /* Glass card base */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 16px;
 }
 
 .glass-card-strong {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.055);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 16px;
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #6ee7b7 0%, #34d399 50%, #2dd4bf 100%);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 45%, #14b8a6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-warm {
-  background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 60%, #99f6e4 100%);
+  background: linear-gradient(135deg, #6ee7b7 0%, #34d399 50%, #5eead4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

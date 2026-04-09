@@ -289,7 +289,7 @@ export default function FeaturesSection() {
     <section id="features" className="relative py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-20">
           <motion.p
@@ -297,7 +297,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
-            className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.15em] mb-4"
+            className="font-display-italic text-[14px] text-emerald-400 tracking-wide mb-4"
           >
             Everything you need
           </motion.p>
@@ -345,7 +345,7 @@ export default function FeaturesSection() {
                     <div className={`p-2 rounded-lg ${feature.glowColor} border ${feature.borderColor}`}>
                       <Icon size={16} className={feature.iconColor} />
                     </div>
-                    <span className={`text-[12px] font-semibold uppercase tracking-widest ${feature.iconColor}`}>
+                    <span className={`font-display-italic text-[13px] tracking-wide ${feature.iconColor}`}>
                       {feature.tag}
                     </span>
                   </div>
