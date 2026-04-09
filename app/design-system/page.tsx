@@ -224,7 +224,7 @@ const typography = [
     element: "h1",
     sample: "플레이한 게임부터,",
     className: "text-[40px] leading-[1.02] tracking-[-0.05em] sm:text-[58px]",
-    spec: "40 / 58",
+    spec: "40px (mobile) / 58px (desktop)",
     lineHeight: "1.02",
     weight: "700",
     usage: "메인 히어로 H1, 가장 강한 첫 인상",
@@ -234,7 +234,7 @@ const typography = [
     element: "h2",
     sample: "실제 서비스 화면 기준으로",
     className: "text-[36px] leading-[1.05] tracking-[-0.03em] sm:text-[44px]",
-    spec: "36 / 44",
+    spec: "36px (mobile) / 44px (desktop)",
     lineHeight: "1.05",
     weight: "700",
     usage: "섹션 메인 타이틀",
@@ -244,7 +244,7 @@ const typography = [
     element: "h3 / h4",
     sample: "토큰 기준으로 다시 본 UI 패턴",
     className: "text-[28px] leading-[1.15] tracking-[-0.025em] sm:text-[34px]",
-    spec: "28 / 34",
+    spec: "28px (mobile) / 34px (desktop)",
     lineHeight: "1.15",
     weight: "700",
     usage: "카드/블록 제목, 서브 섹션 타이틀",
@@ -254,7 +254,7 @@ const typography = [
     element: "p",
     sample: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다.",
     className: "text-[16px] leading-relaxed tracking-[-0.01em]",
-    spec: "16",
+    spec: "16px",
     lineHeight: "1.625",
     weight: "400/500",
     usage: "본문, 설명문, 랜딩의 주요 카피",
@@ -264,7 +264,7 @@ const typography = [
     element: "p / li",
     sample: "카드 안쪽 보조 설명과 부가 문장에 사용합니다.",
     className: "text-[14px] leading-relaxed",
-    spec: "14",
+    spec: "14px",
     lineHeight: "1.625",
     weight: "400/500",
     usage: "카드 설명, 보조 문장",
@@ -274,7 +274,7 @@ const typography = [
     element: "label / button",
     sample: "Product Flow",
     className: "text-[12px] uppercase tracking-[0.16em]",
-    spec: "12",
+    spec: "12px",
     lineHeight: "1.4",
     weight: "600",
     usage: "토큰 제목, 카드 라벨, 스탯 라벨",
@@ -284,7 +284,7 @@ const typography = [
     element: "p / span",
     sample: "Foundations",
     className: "font-display-italic text-[14px] tracking-wide",
-    spec: "14",
+    spec: "14px",
     lineHeight: "1.4",
     weight: "600",
     usage: "섹션 위 작은 보라 라벨",
@@ -294,7 +294,7 @@ const typography = [
     element: "span / small",
     sample: "surface-container-high",
     className: "text-[11px] uppercase tracking-[0.16em]",
-    spec: "11",
+    spec: "11px",
     lineHeight: "1.35",
     weight: "500/600",
     usage: "캡션, 상태 라벨, 메타 정보",
@@ -385,19 +385,34 @@ function TypeRow({
   usage: string;
 }) {
   return (
-    <div className="grid gap-4 rounded-2xl border border-white/8 bg-white/[0.02] p-4 lg:grid-cols-[minmax(0,0.28fr)_minmax(0,1fr)_minmax(0,0.4fr)]">
-      <div>
-        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/30">{label}</p>
-        <p className="mt-2 text-[13px] text-white/45">Weight {weight}</p>
-        <p className="text-[13px] text-white/45">Size {spec}</p>
-        <p className="text-[13px] text-white/45">Line-height {lineHeight}</p>
-        <p className="text-[13px] text-white/45">Element {element}</p>
+    <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:items-center lg:gap-4">
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Style</p>
+        <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/75 lg:mt-0">{label}</p>
       </div>
-      <div className="min-w-0">
-        <p className={`${className} break-keep text-white`}>{sample}</p>
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Element</p>
+        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{element}</p>
       </div>
-      <div>
-        <p className="text-[13px] leading-relaxed text-white/50">{usage}</p>
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Weight</p>
+        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{weight}</p>
+      </div>
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Size</p>
+        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{spec}</p>
+      </div>
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Line-height</p>
+        <p className="mt-1 text-[13px] text-white/65 lg:mt-0">{lineHeight}</p>
+      </div>
+      <div className="mb-3 lg:mb-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Usage</p>
+        <p className="mt-1 text-[13px] leading-relaxed text-white/50 lg:mt-0">{usage}</p>
+      </div>
+      <div className="min-w-0 border-t border-white/8 pt-3 lg:border-t-0 lg:pt-0">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Sample</p>
+        <p className={`${className} mt-2 break-keep text-white lg:mt-0`}>{sample}</p>
       </div>
     </div>
   );
@@ -530,6 +545,13 @@ function TypographyContent() {
 
       <div className="glass-card p-6">
         <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Type Scale</p>
+        <div className="mt-5 hidden rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:gap-4">
+          {["Style", "Element", "Weight", "Size", "Line-height", "Usage", "Sample"].map((heading) => (
+            <p key={heading} className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">
+              {heading}
+            </p>
+          ))}
+        </div>
         <div className="mt-5 space-y-3">
           {typography.map((item) => (
             <TypeRow key={item.label} {...item} />
