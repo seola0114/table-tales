@@ -221,6 +221,7 @@ const spacing = [
 const typography = [
   {
     label: "display-xl",
+    element: "h1",
     sample: "플레이한 게임부터,",
     className: "text-[40px] leading-[1.02] tracking-[-0.05em] sm:text-[58px]",
     spec: "40 / 58",
@@ -230,6 +231,7 @@ const typography = [
   },
   {
     label: "display-lg",
+    element: "h2",
     sample: "실제 서비스 화면 기준으로",
     className: "text-[36px] leading-[1.05] tracking-[-0.03em] sm:text-[44px]",
     spec: "36 / 44",
@@ -239,6 +241,7 @@ const typography = [
   },
   {
     label: "heading-md",
+    element: "h3 / h4",
     sample: "토큰 기준으로 다시 본 UI 패턴",
     className: "text-[28px] leading-[1.15] tracking-[-0.025em] sm:text-[34px]",
     spec: "28 / 34",
@@ -248,6 +251,7 @@ const typography = [
   },
   {
     label: "body-lg",
+    element: "p",
     sample: "Pretendard 기반의 선명한 본문 텍스트를 사용합니다.",
     className: "text-[16px] leading-relaxed tracking-[-0.01em]",
     spec: "16",
@@ -257,6 +261,7 @@ const typography = [
   },
   {
     label: "body-sm",
+    element: "p / li",
     sample: "카드 안쪽 보조 설명과 부가 문장에 사용합니다.",
     className: "text-[14px] leading-relaxed",
     spec: "14",
@@ -266,6 +271,7 @@ const typography = [
   },
   {
     label: "label",
+    element: "label / button",
     sample: "Product Flow",
     className: "text-[12px] uppercase tracking-[0.16em]",
     spec: "12",
@@ -275,6 +281,7 @@ const typography = [
   },
   {
     label: "eyebrow",
+    element: "p / span",
     sample: "Foundations",
     className: "font-display-italic text-[14px] tracking-wide",
     spec: "14",
@@ -284,6 +291,7 @@ const typography = [
   },
   {
     label: "caption",
+    element: "span / small",
     sample: "surface-container-high",
     className: "text-[11px] uppercase tracking-[0.16em]",
     spec: "11",
@@ -359,6 +367,7 @@ function SectionTitle({
 
 function TypeRow({
   label,
+  element,
   sample,
   className,
   spec,
@@ -367,6 +376,7 @@ function TypeRow({
   usage,
 }: {
   label: string;
+  element: string;
   sample: string;
   className: string;
   spec: string;
@@ -381,6 +391,7 @@ function TypeRow({
         <p className="mt-2 text-[13px] text-white/45">Weight {weight}</p>
         <p className="text-[13px] text-white/45">Size {spec}</p>
         <p className="text-[13px] text-white/45">Line-height {lineHeight}</p>
+        <p className="text-[13px] text-white/45">Element {element}</p>
       </div>
       <div className="min-w-0">
         <p className={`${className} break-keep text-white`}>{sample}</p>
@@ -546,6 +557,10 @@ function TypographyContent() {
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Display vs Heading</p>
               <p className="mt-2 text-[14px] leading-relaxed text-white/50">`display`는 페이지에서 가장 먼저 시선을 잡는 큰 메시지용 타입입니다. 히어로 H1이나 섹션 메인 카피처럼 감정과 인상을 만드는 역할에 씁니다. 반대로 `heading`은 정보 구조를 나누는 제목입니다. 카드 제목, 서브 섹션 타이틀처럼 읽는 흐름을 정리하는 역할에 더 가깝습니다.</p>
+            </div>
+            <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">HTML Mapping</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">페이지 기준으로 `display-xl`은 `h1`, `display-lg`는 `h2`, `heading-md`는 `h3~h4`, `body`는 `p`, `label`은 `label/button`, `caption`은 `span/small`에 우선 대응합니다. 즉, 스타일 이름과 태그 의미를 같이 맞추는 방식입니다.</p>
             </div>
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Color Roles</p>
