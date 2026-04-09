@@ -40,9 +40,8 @@ const surfaceTokens = [
 ];
 
 const supportTokens = [
-  { label: "data-mint", value: "#19C8A6", note: "상태, 활성, 긍정 피드백" },
-  { label: "data-amber", value: "#FFBF47", note: "랭크, 배지, 성취" },
-  { label: "brand-blue", value: "#7DA2FF", note: "보조 하이라이트와 그라디언트 확장" },
+  { label: "success", value: "#19C8A6", note: "성공, 활성, 완료, 긍정 상태 피드백" },
+  { label: "warning", value: "#FFBF47", note: "주의, 랭크, 배지, 성취 하이라이트" },
   { label: "error", value: "#FF5A6B", note: "에러, 경고성 실패 상태, destructive 액션" },
   { label: "on-error", value: "#FFFFFF", note: "Error 위 텍스트와 아이콘" },
   { label: "error-container", value: "#3A1018", note: "다크 배경에서 쓰는 에러 컨테이너" },
@@ -51,7 +50,7 @@ const supportTokens = [
 
 const supportTonalPalettes = [
   {
-    name: "Data Mint",
+    name: "Success",
     role: "상태, 활성, 성공 메시지, 진행 상태",
     tones: [
       { tone: 0, value: "#000000" },
@@ -70,7 +69,7 @@ const supportTonalPalettes = [
     ],
   },
   {
-    name: "Data Amber",
+    name: "Warning",
     role: "랭크, 배지, 포인트, 성취 하이라이트",
     tones: [
       { tone: 0, value: "#000000" },
@@ -85,25 +84,6 @@ const supportTonalPalettes = [
       { tone: 90, value: "#FFE08E" },
       { tone: 95, value: "#FFF0C4" },
       { tone: 99, value: "#FFFBEF" },
-      { tone: 100, value: "#FFFFFF" },
-    ],
-  },
-  {
-    name: "Brand Blue",
-    role: "차트, 링크 강조, 보조 하이라이트, 정보성 포인트",
-    tones: [
-      { tone: 0, value: "#000000" },
-      { tone: 10, value: "#001A38" },
-      { tone: 20, value: "#002E60" },
-      { tone: 30, value: "#0B4789" },
-      { tone: 40, value: "#2862B3" },
-      { tone: 50, value: "#4A7BD6" },
-      { tone: 60, value: "#6D95F3" },
-      { tone: 70, value: "#7DA2FF" },
-      { tone: 80, value: "#B7CCFF" },
-      { tone: 90, value: "#DCE5FF" },
-      { tone: 95, value: "#EEF2FF" },
-      { tone: 99, value: "#FCFCFF" },
       { tone: 100, value: "#FFFFFF" },
     ],
   },
@@ -511,7 +491,7 @@ function FoundationsContent() {
             <span className="gradient-text">Material 3 tonal palette</span>
           </h3>
           <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-relaxed text-white/50">
-            `data-mint`, `data-amber`, `brand-blue`는 단일 컬러로만 쓰기보다, Material 3 방식처럼 tone 단위로 확장해두면 상태, 배지, 데이터 시각화에 더 안정적으로 적용할 수 있습니다.
+            support colors는 상태 역할 중심으로 `Success`, `Warning`, `Error`만 남겼습니다. 블루 축은 support에서 빼고 위의 `Tertiary` tonal palette 하나로 통일해서, 역할이 겹치지 않도록 정리했습니다.
           </p>
         </div>
 
