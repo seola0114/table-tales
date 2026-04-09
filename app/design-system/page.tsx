@@ -325,17 +325,6 @@ const typography = [
     usage: "토큰 제목, 카드 라벨, 스탯 라벨",
   },
   {
-    label: "eyebrow",
-    element: "p / span",
-    samples: [{ text: "Foundations", weightClass: "font-semibold" }],
-    className: "font-display-italic text-[14px] tracking-wide",
-    mobileSize: "14px",
-    desktopSize: "14px",
-    lineHeight: "1.4",
-    weights: ["600"],
-    usage: "섹션 위 작은 보라 라벨",
-  },
-  {
     label: "caption",
     element: "span / small",
     samples: [
@@ -654,7 +643,7 @@ function TypographyContent() {
             </div>
             <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
               <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Color Roles</p>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/50">제목은 `on-surface`, 본문은 `on-surface-variant`, eyebrow와 강조 라벨은 `primary-fixed-dim`을 우선 사용합니다.</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/50">제목은 `on-surface`, 본문은 `on-surface-variant`, 강조 라벨과 캡션은 `primary-fixed-dim`을 우선 사용합니다.</p>
             </div>
           </div>
         </div>
@@ -674,7 +663,7 @@ function TypographyContent() {
             <div className="mt-6 flex flex-wrap gap-3">
               <div className="inline-flex items-center gap-2 rounded-full bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
                 <Sparkles size={12} />
-                Eyebrow
+                Accent Label
               </div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[#19c8a6]/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#43e0c1]">
                 <Check size={12} />
