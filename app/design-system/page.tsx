@@ -857,32 +857,42 @@ export default function DesignSystemPage() {
           </div>
         </section>
 
-        <section className="glass-card p-3">
-          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-            {tabs.map((tab) => {
-              const active = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`rounded-2xl px-4 py-3 text-left transition-all duration-200 ${
-                    active
-                      ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
-                      : "bg-white/[0.02] text-white/55 hover:bg-white/[0.04] hover:text-white"
-                  }`}
-                >
-                  <p className="text-[11px] uppercase tracking-[0.16em]">{tab.label}</p>
-                </button>
-              );
-            })}
-          </div>
-        </section>
+        <div className="grid gap-6 lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)]">
+          <aside className="lg:sticky lg:top-28 lg:self-start">
+            <section className="glass-card p-3">
+              <div className="mb-3 px-3 pt-2">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Contents</p>
+              </div>
+              <div className="space-y-2">
+                {tabs.map((tab) => {
+                  const active = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`w-full rounded-2xl px-4 py-3 text-left transition-all duration-200 ${
+                        active
+                          ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
+                          : "bg-white/[0.02] text-white/55 hover:bg-white/[0.04] hover:text-white"
+                      }`}
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.16em]">Section</p>
+                      <p className="mt-1 text-[14px] font-semibold">{tab.label}</p>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          </aside>
 
-        {activeTab === "foundations" && <FoundationsContent />}
-        {activeTab === "typography" && <TypographyContent />}
-        {activeTab === "components" && <ComponentsContent />}
-        {activeTab === "composition" && <CompositionContent />}
+          <section className="min-w-0">
+            {activeTab === "foundations" && <FoundationsContent />}
+            {activeTab === "typography" && <TypographyContent />}
+            {activeTab === "components" && <ComponentsContent />}
+            {activeTab === "composition" && <CompositionContent />}
+          </section>
+        </div>
       </div>
     </main>
   );
