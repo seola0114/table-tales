@@ -555,12 +555,32 @@ export default function DesignSystemPage() {
                 <button className="rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-5 py-3 text-[14px] font-semibold text-white">
                   Primary CTA
                 </button>
+                <button className="rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF]">
+                  Tonal Button
+                </button>
                 <button className="rounded-xl border border-white/15 bg-[#141425] px-5 py-3 text-[14px] font-medium text-white/75">
                   Surface Secondary
                 </button>
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
                   <Sparkles size={12} />
                   Primary Container Badge
+                </div>
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Primary</p>
+                  <p className="mt-2 text-[14px] font-semibold text-white">`primary` + `on-primary`</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/50">가장 강한 액션 버튼에 사용합니다.</p>
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Tonal</p>
+                  <p className="mt-2 text-[14px] font-semibold text-white">`primary-container` + `on-primary-container`</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/50">보조 강조 액션이나 필터, 상태성 버튼에 적합합니다.</p>
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Secondary</p>
+                  <p className="mt-2 text-[14px] font-semibold text-white">`surface-container` + `outline`</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/50">기본 액션 옆에 놓는 중립 버튼에 사용합니다.</p>
                 </div>
               </div>
             </div>
