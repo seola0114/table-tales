@@ -17,7 +17,7 @@ const reviews = [
     name: "수아",
     handle: "@sua.board",
     avatar: "S",
-    color: "from-violet-500 to-purple-600",
+    color: "from-emerald-500 to-emerald-600",
     text: "승률 통계 보고 나서 '아, 나 이 게임 생각보다 많이 졌구나' 알게 됐어요. 막연하게 잘 한다고 생각했는데 데이터가 현실을 알려주는 느낌.",
     game: "전략 게임 유저",
     rating: 5,
@@ -53,7 +53,7 @@ const reviews = [
     name: "현우",
     handle: "@hyunwoo_roll",
     avatar: "H",
-    color: "from-indigo-500 to-blue-600",
+    color: "from-teal-500 to-blue-600",
     text: "혼자 솔로 게임도 기록할 수 있어서 좋아요. 클리어 여부, 점수, 난이도 메모까지. 같은 게임 여러 번 돌릴 때 비교하기 딱이에요.",
     game: "솔로 플레이어",
     rating: 5,
@@ -74,7 +74,7 @@ export default function ReviewsSection() {
   return (
     <section id="reviews" className="relative py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px blur-sm bg-violet-500/15" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px blur-sm bg-emerald-500/15" />
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
         {/* Header */}
@@ -84,7 +84,7 @@ export default function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[12px] font-medium text-violet-400 uppercase tracking-[0.15em] mb-4"
+            className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.15em] mb-4"
           >
             From the community
           </motion.p>

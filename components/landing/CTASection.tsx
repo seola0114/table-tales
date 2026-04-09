@@ -23,10 +23,10 @@ export default function CTASection() {
     <section id="waitlist" className="relative py-40 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/20 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-radial from-violet-600/12 via-indigo-600/6 to-transparent rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/20 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-radial from-emerald-600/12 via-teal-600/6 to-transparent rounded-full blur-3xl" />
       </div>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
 
       <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
@@ -36,7 +36,7 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-[12px] font-medium text-violet-400 uppercase tracking-[0.18em] mb-6">
+          <p className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.18em] mb-6">
             Your Table, Your Tale
           </p>
 
@@ -62,12 +62,12 @@ export default function CTASection() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="이메일을 입력하세요"
                 required
-                className="flex-1 px-4 py-3.5 bg-white/[0.05] border border-white/[0.1] focus:border-violet-500/50 focus:bg-white/[0.07] rounded-xl text-white placeholder:text-white/25 text-[14px] outline-none transition-all duration-200"
+                className="flex-1 px-4 py-3.5 bg-white/[0.05] border border-white/[0.1] focus:border-emerald-500/50 focus:bg-white/[0.07] rounded-xl text-white placeholder:text-white/25 text-[14px] outline-none transition-all duration-200"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 disabled:opacity-60 text-white font-semibold text-[14px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(124,58,237,0.4)] hover:shadow-[0_0_36px_rgba(124,58,237,0.55)] whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 disabled:opacity-60 text-white font-semibold text-[14px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(16,185,129,0.4)] hover:shadow-[0_0_36px_rgba(16,185,129,0.55)] whitespace-nowrap"
               >
                 {loading ? (
                   <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -107,7 +107,7 @@ export default function CTASection() {
               "iOS · Android · Web",
             ].map((badge) => (
               <div key={badge} className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-violet-500/60" />
+                <div className="w-1 h-1 rounded-full bg-emerald-500/60" />
                 <span className="text-[12px] text-white/30 font-medium">{badge}</span>
               </div>
             ))}

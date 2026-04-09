@@ -21,7 +21,7 @@ export default function Footer() {
                 className="opacity-80"
               />
               <span className="text-[15px] font-semibold tracking-tight text-white">
-                Table<span className="text-violet-400">Tales</span>
+                Table<span className="text-emerald-400">Tales</span>
               </span>
             </div>
             <p className="text-[13px] text-white/35 leading-relaxed mb-5 max-w-[200px]">
@@ -73,7 +73,7 @@ export default function Footer() {
           </p>
           <p className="text-[12px] text-white/15 flex items-center gap-1.5">
             <span>Your Table,</span>
-            <span className="text-violet-500/40">Your Tale</span>
+            <span className="text-emerald-500/40">Your Tale</span>
           </p>
         </div>
       </div>

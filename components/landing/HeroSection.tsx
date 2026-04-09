@@ -45,7 +45,7 @@ function MockupDashboard() {
 
       <FloatingCard className="hidden sm:block w-[156px] -right-14 top-10 z-20" delay={1.0} duration={5.5}>
         <div className="flex items-center gap-2 mb-2">
-          <Sparkles size={12} className="text-violet-400" />
+          <Sparkles size={12} className="text-emerald-400" />
           <span className="text-[10px] font-semibold text-white/80">Favorite Game</span>
         </div>
         <p className="text-[13px] font-bold text-white leading-tight">Arclight Traders</p>
@@ -60,7 +60,7 @@ function MockupDashboard() {
         <p className="text-[22px] font-bold text-white leading-none">24</p>
         <div className="flex gap-1 mt-1.5">
           {["M", "J", "A", "Y"].map((i) => (
-            <div key={i} className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500/50 to-indigo-500/50 flex items-center justify-center text-[8px] font-bold text-white/80">
+            <div key={i} className="w-5 h-5 rounded-full bg-gradient-to-br from-emerald-500/50 to-teal-500/50 flex items-center justify-center text-[8px] font-bold text-white/80">
               {i}
             </div>
           ))}
@@ -69,13 +69,13 @@ function MockupDashboard() {
 
       <FloatingCard className="hidden sm:block w-[148px] -left-14 bottom-20 z-20" delay={0.6} duration={8}>
         <div className="flex items-center gap-2 mb-2">
-          <Clock size={12} className="text-indigo-400" />
+          <Clock size={12} className="text-teal-400" />
           <span className="text-[10px] font-semibold text-white/80">Last Session</span>
         </div>
         <p className="text-[12px] font-bold text-white">Moon Harbor</p>
         <p className="text-[9px] text-white/40 mt-0.5">with Juno · 3 days ago</p>
-        <div className="mt-1.5 px-2 py-0.5 bg-violet-500/10 rounded-full inline-block">
-          <span className="text-[9px] text-violet-300">2nd place</span>
+        <div className="mt-1.5 px-2 py-0.5 bg-emerald-500/10 rounded-full inline-block">
+          <span className="text-[9px] text-emerald-300">2nd place</span>
         </div>
       </FloatingCard>
 
@@ -102,8 +102,8 @@ function MockupDashboard() {
               <p className="text-[10px] text-white/30 font-medium uppercase tracking-widest mb-0.5">Today</p>
               <h3 className="text-[15px] font-semibold text-white">Mina의 게임 기록</h3>
             </div>
-            <div className="px-2.5 py-1 bg-violet-500/15 border border-violet-500/20 rounded-full">
-              <span className="text-[10px] font-medium text-violet-300">기록 중</span>
+            <div className="px-2.5 py-1 bg-emerald-500/15 border border-emerald-500/20 rounded-full">
+              <span className="text-[10px] font-medium text-emerald-300">기록 중</span>
             </div>
           </div>
 
@@ -149,11 +149,11 @@ function MockupDashboard() {
             <div className="space-y-1.5">
               {["Mina", "Juno", "Alex"].map((name, i) => (
                 <div key={name} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500/40 to-indigo-500/40 flex items-center justify-center text-[8px] font-bold text-white/70">
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-emerald-500/40 to-teal-500/40 flex items-center justify-center text-[8px] font-bold text-white/70">
                     {name[0]}
                   </div>
                   <div className="flex-1 h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full" style={{ width: `${[85, 60, 45][i]}%` }} />
+                    <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" style={{ width: `${[85, 60, 45][i]}%` }} />
                   </div>
                   <span className="text-[10px] font-semibold text-white/70 w-6 text-right">{[42, 31, 24][i]}</span>
                 </div>
@@ -164,7 +164,7 @@ function MockupDashboard() {
       </motion.div>
 
       {/* Glow behind mockup */}
-      <div className="absolute inset-0 -z-10 blur-3xl opacity-25 rounded-full bg-gradient-to-br from-violet-600/50 via-indigo-600/30 to-blue-600/20" />
+      <div className="absolute inset-0 -z-10 blur-3xl opacity-25 rounded-full bg-gradient-to-br from-emerald-600/50 via-teal-600/30 to-blue-600/20" />
     </div>
   );
 }
@@ -174,9 +174,9 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-hidden">
       {/* Backgrounds */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-b from-violet-600/8 via-indigo-600/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-violet-700/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] bg-indigo-700/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-b from-emerald-600/8 via-teal-600/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-emerald-700/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 -right-32 w-[500px] h-[500px] bg-teal-700/5 rounded-full blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -194,10 +194,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full border border-violet-500/25 bg-violet-500/8"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full border border-emerald-500/25 bg-emerald-500/8"
           >
-            <Sparkles size={12} className="text-violet-400" />
-            <span className="text-[12px] font-medium text-violet-300 tracking-wide">
+            <Sparkles size={12} className="text-emerald-400" />
+            <span className="text-[12px] font-medium text-emerald-300 tracking-wide">
               Board game sessions, beautifully remembered
             </span>
           </motion.div>
@@ -236,7 +236,7 @@ export default function HeroSection() {
           >
             <a
               href="#waitlist"
-              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold text-[15px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(124,58,237,0.4)] hover:shadow-[0_0_36px_rgba(124,58,237,0.55)]"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold text-[15px] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(16,185,129,0.4)] hover:shadow-[0_0_36px_rgba(16,185,129,0.55)]"
             >
               Waitlist 참여하기
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />

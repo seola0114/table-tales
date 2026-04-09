@@ -14,10 +14,10 @@ const features = [
     headline: "기록은 빠르게,\n기억은 오래",
     desc: "게임 제목, 플레이어, 점수, 날짜, 메모까지. 번거로운 입력 없이 한 흐름으로 기록하고 바로 다음 게임으로.",
     icon: PenLine,
-    accentColor: "from-violet-500/20 to-violet-600/5",
-    borderColor: "border-violet-500/15",
-    iconColor: "text-violet-400",
-    glowColor: "bg-violet-500/10",
+    accentColor: "from-emerald-500/20 to-emerald-600/5",
+    borderColor: "border-emerald-500/15",
+    iconColor: "text-emerald-400",
+    glowColor: "bg-emerald-500/10",
     bullets: [
       "플레이어 이름 자동완성",
       "점수 방식 자유 설정 (합산 / 최고점 / 팀전)",
@@ -32,10 +32,10 @@ const features = [
     headline: "숫자가 말해주는\n당신의 플레이",
     desc: "승률, 자주 한 게임, 자주 만나는 상대, 플레이 빈도, 선호 장르. 쌓인 기록이 패턴이 되고 패턴이 통찰이 됩니다.",
     icon: BarChart2,
-    accentColor: "from-indigo-500/20 to-indigo-600/5",
-    borderColor: "border-indigo-500/15",
-    iconColor: "text-indigo-400",
-    glowColor: "bg-indigo-500/10",
+    accentColor: "from-teal-500/20 to-teal-600/5",
+    borderColor: "border-teal-500/15",
+    iconColor: "text-teal-400",
+    glowColor: "bg-teal-500/10",
     bullets: [
       "게임별 / 플레이어별 통계",
       "월별 플레이 트렌드 차트",
@@ -87,8 +87,8 @@ function RecordVisual() {
     <div className="p-5 space-y-3">
       <div className="flex items-center justify-between mb-4">
         <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">새 세션 기록</p>
-        <div className="px-2.5 py-1 bg-violet-500/15 rounded-full">
-          <span className="text-[10px] text-violet-300 font-medium">저장됨</span>
+        <div className="px-2.5 py-1 bg-emerald-500/15 rounded-full">
+          <span className="text-[10px] text-emerald-300 font-medium">저장됨</span>
         </div>
       </div>
       <div className="space-y-2.5">
@@ -107,13 +107,13 @@ function RecordVisual() {
               { name: "Alex", score: 28, width: "53%", gold: false },
             ].map((p) => (
               <div key={p.name} className="flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-full bg-violet-500/20 flex items-center justify-center text-[9px] font-bold text-violet-300">
+                <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-[9px] font-bold text-emerald-300">
                   {p.name[0]}
                 </div>
                 <span className="text-[11px] text-white/70 w-10">{p.name}</span>
                 <div className="flex-1 h-1 bg-white/[0.05] rounded-full">
                   <div
-                    className={`h-full rounded-full ${p.gold ? "bg-amber-400" : "bg-violet-500/50"}`}
+                    className={`h-full rounded-full ${p.gold ? "bg-amber-400" : "bg-emerald-500/50"}`}
                     style={{ width: p.width }}
                   />
                 </div>
@@ -165,7 +165,7 @@ function AnalyzeVisual() {
           <div key={bar.label} className="flex-1 flex flex-col items-center gap-1">
             <div className="w-full rounded-t-md overflow-hidden" style={{ height: `${bar.height}%` }}>
               <div
-                className={`w-full h-full rounded-t-md ${i === bars.length - 1 ? "bg-indigo-500" : "bg-white/[0.08]"}`}
+                className={`w-full h-full rounded-t-md ${i === bars.length - 1 ? "bg-teal-500" : "bg-white/[0.08]"}`}
               />
             </div>
             <span className="text-[8px] text-white/25">{bar.label}</span>
@@ -235,7 +235,7 @@ function StoryVisual() {
 
 function GroupVisual() {
   const members = [
-    { name: "Mina", plays: 47, wins: 28, color: "from-violet-500 to-indigo-500" },
+    { name: "Mina", plays: 47, wins: 28, color: "from-emerald-500 to-teal-500" },
     { name: "Juno", plays: 42, wins: 19, color: "from-blue-500 to-cyan-500" },
     { name: "Alex", plays: 38, wins: 14, color: "from-emerald-500 to-teal-500" },
     { name: "Yuna", plays: 35, wins: 11, color: "from-amber-500 to-orange-500" },
@@ -297,7 +297,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
-            className="text-[12px] font-medium text-violet-400 uppercase tracking-[0.15em] mb-4"
+            className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.15em] mb-4"
           >
             Everything you need
           </motion.p>

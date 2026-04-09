@@ -44,7 +44,7 @@ export default function Header() {
               className="drop-shadow-[0_0_8px_rgba(13,212,192,0.45)] group-hover:drop-shadow-[0_0_14px_rgba(13,212,192,0.65)] transition-all duration-300"
             />
             <span className="text-[15px] font-semibold tracking-tight text-white">
-              Table<span className="text-violet-400">Tales</span>
+              Table<span className="text-emerald-400">Tales</span>
             </span>
           </a>
 
@@ -71,7 +71,7 @@ export default function Header() {
             </a>
             <a
               href="#waitlist"
-              className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white rounded-lg transition-all duration-200 shadow-[0_0_16px_rgba(124,58,237,0.3)] hover:shadow-[0_0_24px_rgba(124,58,237,0.45)]"
+              className="px-4 py-2 text-[13px] font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg transition-all duration-200 shadow-[0_0_16px_rgba(16,185,129,0.3)] hover:shadow-[0_0_24px_rgba(16,185,129,0.45)]"
             >
               Waitlist 참여
             </a>
@@ -120,7 +120,7 @@ export default function Header() {
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
-                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-lg"
+                  className="py-2.5 text-center text-[14px] font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg"
                 >
                   Waitlist 참여
                 </a>

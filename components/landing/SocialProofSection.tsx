@@ -51,7 +51,7 @@ export default function SocialProofSection() {
     <section className="relative py-24 overflow-hidden">
       {/* Section divider glow */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] blur-sm bg-violet-500/20" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] blur-sm bg-emerald-500/20" />
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
         {/* Label */}

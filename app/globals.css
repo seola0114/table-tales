@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #7c3aed;
-  --color-brand-indigo: #4f46e5;
-  --color-brand-blue: #2563eb;
-  --color-brand-glow: #6d28d9;
+  --color-brand-purple: #10b981;
+  --color-brand-indigo: #14b8a6;
+  --color-brand-blue: #059669;
+  --color-brand-glow: #047857;
 
   --color-surface-0: #06060f;
   --color-surface-1: #0a0a1a;
@@ -84,11 +84,11 @@ body::before {
   background: #06060f;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.3);
+  background: rgba(16, 185, 129, 0.3);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.5);
+  background: rgba(16, 185, 129, 0.5);
 }
 
 /* Glass card base */
@@ -110,14 +110,14 @@ body::before {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #60a5fa 100%);
+  background: linear-gradient(135deg, #6ee7b7 0%, #34d399 50%, #2dd4bf 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-warm {
-  background: linear-gradient(135deg, #c4b5fd 0%, #a5b4fc 60%, #93c5fd 100%);
+  background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 60%, #99f6e4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -125,14 +125,14 @@ body::before {
 
 /* Glow effects */
 .glow-purple {
-  box-shadow: 0 0 40px rgba(124, 58, 237, 0.15), 0 0 80px rgba(79, 70, 229, 0.08);
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15), 0 0 80px rgba(20, 184, 166, 0.08);
 }
 
 .glow-subtle {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.08);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
 }
 
 /* Section divider glow */
 .section-glow {
-  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
 }

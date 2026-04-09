@@ -47,12 +47,12 @@ function MobileScreen({ variant }: { variant: "home" | "session" | "stats" }) {
             <p className="text-[9px] text-white/30 font-medium">Good evening,</p>
             <p className="text-[14px] font-bold text-white">Mina 👋</p>
           </div>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-[12px] font-bold text-white">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-[12px] font-bold text-white">
             M
           </div>
         </div>
-        <div className="bg-gradient-to-br from-violet-500/20 to-indigo-500/10 rounded-xl p-3 border border-violet-500/15">
-          <p className="text-[9px] text-violet-300 font-medium mb-0.5">최근 세션</p>
+        <div className="bg-gradient-to-br from-emerald-500/20 to-teal-500/10 rounded-xl p-3 border border-emerald-500/15">
+          <p className="text-[9px] text-emerald-300 font-medium mb-0.5">최근 세션</p>
           <p className="text-[12px] font-bold text-white">Arclight Traders</p>
           <p className="text-[9px] text-white/40">3 players · 42 pts · 1st place</p>
         </div>
@@ -112,7 +112,7 @@ function MobileScreen({ variant }: { variant: "home" | "session" | "stats" }) {
                 </div>
                 <div className="h-1 bg-white/[0.05] rounded-full">
                   <div
-                    className={`h-full rounded-full ${p.first ? "bg-amber-400" : "bg-violet-500/50"}`}
+                    className={`h-full rounded-full ${p.first ? "bg-amber-400" : "bg-emerald-500/50"}`}
                     style={{ width: `${(p.score / 78) * 100}%` }}
                   />
                 </div>
@@ -131,13 +131,13 @@ function MobileScreen({ variant }: { variant: "home" | "session" | "stats" }) {
     <div className="p-4 space-y-3">
       <div className="flex items-center justify-between mb-2">
         <p className="text-[13px] font-bold text-white">My Stats</p>
-        <span className="text-[10px] text-indigo-300 font-medium">2024</span>
+        <span className="text-[10px] text-teal-300 font-medium">2024</span>
       </div>
       <div className="flex gap-2 h-16 items-end">
         {[30, 50, 40, 70, 60, 85, 75, 90, 65, 80, 70, 60].map((h, i) => (
           <div
             key={i}
-            className={`flex-1 rounded-t-sm ${i === 11 ? "bg-indigo-500" : "bg-white/[0.07]"}`}
+            className={`flex-1 rounded-t-sm ${i === 11 ? "bg-teal-500" : "bg-white/[0.07]"}`}
             style={{ height: `${h}%` }}
           />
         ))}
@@ -211,7 +211,7 @@ export default function ShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[12px] font-medium text-violet-400 uppercase tracking-[0.15em] mb-4"
+            className="text-[12px] font-medium text-emerald-400 uppercase tracking-[0.15em] mb-4"
           >
             Visual Showcase
           </motion.p>
@@ -252,7 +252,7 @@ export default function ShowcaseSection() {
             transition={{ delay: 0.1, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-20 scale-110 sm:scale-125"
           >
-            <div className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-b from-violet-600/50 to-indigo-600/30 rounded-full scale-150" />
+            <div className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-b from-emerald-600/50 to-teal-600/30 rounded-full scale-150" />
             <PhoneFrame>
               <MobileScreen variant="session" />
             </PhoneFrame>
@@ -288,7 +288,7 @@ export default function ShowcaseSection() {
             label="Avg Session Length"
             value="2.4h"
             sub="주말 모임 기준"
-            accent="bg-gradient-to-br from-indigo-500 to-violet-600"
+            accent="bg-gradient-to-br from-teal-500 to-emerald-600"
             delay={0.1}
           />
           <StatCard
