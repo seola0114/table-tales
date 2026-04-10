@@ -6,6 +6,7 @@ import LogoMark from "@/components/ui/LogoMark";
 import ThemeToggle from "@/components/landing/ThemeToggle";
 
 const tabs = [
+  { id: "overview", label: "Overview" },
   { id: "foundations", label: "Foundations" },
   { id: "typography", label: "Typography" },
   { id: "components", label: "Components" },
@@ -590,6 +591,63 @@ function FoundationsContent() {
   );
 }
 
+function OverviewContent() {
+  return (
+    <div className="space-y-8">
+      <section className="glass-card-strong overflow-hidden rounded-[32px] border border-white/[0.12] px-6 py-8 lg:px-10 lg:py-12">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/30 bg-[#8B5CF6]/10 px-3.5 py-1.5">
+              <Sparkles size={12} className="text-[#A78BFA]" />
+              <span className="text-[12px] font-semibold text-[#C3B2FF]">Table Tales Design System</span>
+            </div>
+            <h1 className="mt-6 text-[40px] font-bold leading-[1.2] tracking-[-0.05em] text-white sm:text-[58px]">
+              홈페이지 기준으로
+              <br />
+              <span className="gradient-text">콘텐츠별로 나눈</span>
+              <br />
+              디자인 시스템
+            </h1>
+            <p className="mt-5 max-w-[560px] text-[16px] leading-relaxed text-white/55">
+              랜딩페이지에서 실제로 쓰고 있는 컬러, 타이포그래피, 컴포넌트, 구성 원칙을 콘텐츠 기준으로 나눠서
+              빠르게 찾아볼 수 있게 정리했습니다.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)]">
+                Primary Button
+                <ArrowRight size={16} />
+              </div>
+              <div className="rounded-xl bg-[#24163F] px-6 py-3.5 text-center text-[15px] font-semibold text-[#E9DDFF]">
+                Tonal Button
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="glass-card p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Page Structure</p>
+              <ul className="mt-4 space-y-3 text-[14px] text-white/60">
+                <li>Overview: 페이지 전체 구조와 읽는 순서를 안내합니다.</li>
+                <li>Foundations: 컬러 토큰과 tonal palette 기준을 정리합니다.</li>
+                <li>Typography: 타입 스케일과 line-height 규칙을 보여줍니다.</li>
+                <li>Components / Composition: 실제 UI와 배치 원칙을 연결합니다.</li>
+              </ul>
+            </div>
+            <div className="glass-card p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">How To Use</p>
+              <ul className="mt-4 space-y-3 text-[14px] text-white/60">
+                <li>먼저 Overview에서 전체 맥락을 보고 필요한 탭으로 이동합니다.</li>
+                <li>토큰이 필요하면 Foundations, 문장과 헤딩 규칙은 Typography에서 확인합니다.</li>
+                <li>버튼, 카드, 섹션 조합은 Components와 Composition에서 이어서 봅니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function TypographyContent() {
   return (
     <section className="space-y-8 px-6 lg:px-10">
@@ -839,7 +897,7 @@ function CompositionContent() {
 }
 
 export default function DesignSystemPage() {
-  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]["id"]>("foundations");
+  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]["id"]>("overview");
 
   return (
     <main className="min-h-screen bg-[#070711] text-white">
@@ -900,57 +958,6 @@ export default function DesignSystemPage() {
       </div>
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-        <section className="glass-card-strong overflow-hidden rounded-[32px] border border-white/[0.12] px-6 py-8 lg:px-10 lg:py-12">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/30 bg-[#8B5CF6]/10 px-3.5 py-1.5">
-                <Sparkles size={12} className="text-[#A78BFA]" />
-                <span className="text-[12px] font-semibold text-[#C3B2FF]">Table Tales Design System</span>
-              </div>
-              <h1 className="mt-6 text-[40px] font-bold leading-[1.2] tracking-[-0.05em] text-white sm:text-[58px]">
-                홈페이지 기준으로
-                <br />
-                <span className="gradient-text">콘텐츠별로 나눈</span>
-                <br />
-                디자인 시스템
-              </h1>
-              <p className="mt-5 max-w-[560px] text-[16px] leading-relaxed text-white/55">
-                이제 디자인 시스템 페이지를 `Foundations`, `Typography`, `Components`, `Composition` 탭으로 나눠서,
-                필요한 내용만 빠르게 찾아볼 수 있게 정리했습니다.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)]">
-                  Primary Button
-                  <ArrowRight size={16} />
-                </button>
-                <button className="rounded-xl bg-[#24163F] px-6 py-3.5 text-[15px] font-semibold text-[#E9DDFF]">
-                  Tonal Button
-                </button>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="glass-card p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Page Structure</p>
-                <ul className="mt-4 space-y-3 text-[14px] text-white/60">
-                  <li>Foundations: 컬러 토큰과 support tonal palette</li>
-                  <li>Typography: 타입 스케일과 line-height 규칙</li>
-                  <li>Components: 버튼, 칩, 카드 시스템</li>
-                  <li>Composition: spacing, radius, 레이어 사용 원칙</li>
-                </ul>
-              </div>
-              <div className="glass-card p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Support Colors</p>
-                <ul className="mt-4 space-y-3 text-[14px] text-white/60">
-                  <li>support colors는 단일 값보다 tonal palette로 관리합니다.</li>
-                  <li>민트, 앰버, 블루 각각 tone 단계별 확장이 가능합니다.</li>
-                  <li>상태, 배지, 데이터 시각화에서 더 일관되게 적용할 수 있습니다.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <div>
           <aside className="hidden lg:fixed lg:left-6 lg:top-28 lg:block lg:w-[240px] xl:left-10 xl:w-[260px]">
             <section className="glass-card p-3">
@@ -1009,6 +1016,7 @@ export default function DesignSystemPage() {
           </aside>
 
           <section className="min-w-0">
+            {activeTab === "overview" && <OverviewContent />}
             {activeTab === "foundations" && <FoundationsContent />}
             {activeTab === "typography" && <TypographyContent />}
             {activeTab === "components" && <ComponentsContent />}
