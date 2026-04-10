@@ -1,743 +1,172 @@
 import Link from "next/link";
-import {
-  ArrowLeft, ArrowRight, Bell, Check, ChevronDown, ChevronRight,
-  Circle, Clock3, Home, Menu, Search, Settings, Sparkles, Star, Trophy, Users, X,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Clock3, Trophy, Users } from "lucide-react";
 import DesignSystemShell from "../../_components/design-system-shell";
+import { ComponentPreview } from "../../_components/component-previews";
 
 const componentGuides = {
   "app-bars": {
     label: "App bars / Navigation bars",
     title: "앱 바 가이드",
     description: "상단 내비게이션 바의 구성 요소와 콘텐츠 배치 원칙을 정리합니다.",
-    usage:
-      "앱 바는 현재 화면의 위치를 알리고 주요 액션에 빠르게 접근하게 하는 최상위 탐색 레이어입니다. 타이틀, 리딩 아이콘, 트레일링 액션의 세 영역으로 나누고 각 역할을 명확히 분리합니다.",
-    rules: [
-      "타이틀은 현재 화면을 설명하는 한 줄 텍스트로 제한합니다.",
-      "리딩 아이콘은 뒤로가기 또는 메뉴 열기 중 하나만 배치합니다.",
-      "트레일링 영역에는 3개 이하의 액션 아이콘만 사용합니다.",
-      "스크롤 시 surface-container 배경으로 전환해 콘텐츠와 분리감을 유지합니다.",
-    ],
-    tokens: [
-      "`surface` + `on-surface`",
-      "`surface-container` (scrolled)",
-      "`primary` (active icon)",
-    ],
-    preview: (
-      <div className="flex flex-col gap-3">
-        <p className="text-[11px] uppercase tracking-[0.12em] text-white/30">Default</p>
-        <div className="flex items-center justify-between rounded-2xl bg-[#070711] px-4 py-3">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06]">
-              <ArrowLeft size={16} className="text-white/70" />
-            </div>
-            <span className="text-[16px] font-semibold text-white">기록 상세</span>
-          </div>
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06]">
-            <Bell size={16} className="text-white/70" />
-          </div>
-        </div>
-        <p className="text-[11px] uppercase tracking-[0.12em] text-white/30">Scrolled</p>
-        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-[#141425] px-4 py-3">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06]">
-              <ArrowLeft size={16} className="text-white/70" />
-            </div>
-            <span className="text-[16px] font-semibold text-white">기록 상세</span>
-          </div>
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#24163F]">
-            <Bell size={16} className="text-[#A78BFA]" />
-          </div>
-        </div>
-      </div>
-    ),
+    usage: "앱 바는 현재 화면의 위치를 알리고 주요 액션에 빠르게 접근하게 하는 최상위 탐색 레이어입니다. 타이틀, 리딩 아이콘, 트레일링 액션의 세 영역으로 나누고 각 역할을 명확히 분리합니다.",
+    rules: ["타이틀은 현재 화면을 설명하는 한 줄 텍스트로 제한합니다.", "리딩 아이콘은 뒤로가기 또는 메뉴 열기 중 하나만 배치합니다.", "트레일링 영역에는 3개 이하의 액션 아이콘만 사용합니다.", "스크롤 시 surface-container 배경으로 전환해 콘텐츠와 분리감을 유지합니다."],
+    tokens: ["`surface` + `on-surface`", "`surface-container` (scrolled)", "`primary` (active icon)"],
   },
   buttons: {
     label: "Buttons",
     title: "버튼 가이드",
     description: "Primary, tonal, secondary 버튼의 역할과 상태 기준을 정리합니다.",
-    usage:
-      "버튼은 화면 안에서 행동 우선순위를 구분하는 가장 직접적인 장치입니다. 한 화면에서는 primary를 1개만 두고, 나머지는 tonal 또는 secondary로 위계를 분리하는 것을 기본 원칙으로 봅니다.",
-    rules: [
-      "Primary는 가장 중요한 전환 액션 한 개에만 사용합니다.",
-      "Tonal은 필터, 보조 액션, 선택 상태처럼 브랜드 강조가 필요하지만 메인 CTA는 아닌 경우에 사용합니다.",
-      "Secondary는 취소, 닫기, 보조 이동처럼 중립 액션에 사용합니다.",
-      "같은 행에 놓일 때는 primary > tonal > secondary 순으로 시각 우선순위를 유지합니다.",
-    ],
-    tokens: [
-      "`primary` + `on-primary`",
-      "`primary-container` + `on-primary-container`",
-      "`surface-container` + `outline` + `on-surface`",
-    ],
-    preview: (
-      <div className="flex flex-wrap gap-3">
-        <button className="rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-5 py-3 text-[14px] font-semibold text-white">
-          Primary CTA
-        </button>
-        <button className="rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF]">
-          Tonal Button
-        </button>
-        <button className="rounded-xl border border-white/15 bg-[#141425] px-5 py-3 text-[14px] font-medium text-white/75">
-          Surface Secondary
-        </button>
-      </div>
-    ),
+    usage: "버튼은 화면 안에서 행동 우선순위를 구분하는 가장 직접적인 장치입니다. 한 화면에서는 primary를 1개만 두고, 나머지는 tonal 또는 secondary로 위계를 분리하는 것을 기본 원칙으로 봅니다.",
+    rules: ["Primary는 가장 중요한 전환 액션 한 개에만 사용합니다.", "Tonal은 필터, 보조 액션, 선택 상태처럼 브랜드 강조가 필요하지만 메인 CTA는 아닌 경우에 사용합니다.", "Secondary는 취소, 닫기, 보조 이동처럼 중립 액션에 사용합니다.", "같은 행에 놓일 때는 primary > tonal > secondary 순으로 시각 우선순위를 유지합니다."],
+    tokens: ["`primary` + `on-primary`", "`primary-container` + `on-primary-container`", "`surface-container` + `outline` + `on-surface`"],
   },
   "bottom-sheets": {
     label: "Bottom sheets",
     title: "바텀 시트 가이드",
     description: "하단에서 올라오는 시트 컴포넌트의 구성과 콘텐츠 배치 원칙을 정리합니다.",
-    usage:
-      "바텀 시트는 현재 컨텍스트를 유지하면서 추가 선택이나 상세 정보를 제공하는 레이어입니다. 전체 화면 전환 없이 보조 흐름을 처리할 때 사용하며, 핸들과 타이틀로 시트의 범위를 명확히 합니다.",
-    rules: [
-      "핸들(드래그 인디케이터)은 항상 최상단에 배치해 인터랙션 가능성을 알립니다.",
-      "시트 높이는 콘텐츠 양에 맞게 조정하되 화면의 90%를 넘지 않게 합니다.",
-      "시트 뒤 딤 레이어 탭으로 닫힘을 보장합니다.",
-      "스크롤이 필요한 콘텐츠는 시트 내부에 스크롤 영역을 분리해 구성합니다.",
-    ],
-    tokens: [
-      "`surface-container-high`",
-      "`outline-variant` (handle)",
-      "`on-surface` + `on-surface-variant`",
-    ],
-    preview: (
-      <div className="rounded-[24px] border border-white/10 bg-[#1B1B31] overflow-hidden">
-        <div className="flex justify-center pt-3 pb-1">
-          <div className="h-1 w-10 rounded-full bg-white/20" />
-        </div>
-        <div className="px-5 py-4">
-          <p className="text-[16px] font-semibold text-white">게임 추가</p>
-          <p className="mt-1 text-[13px] text-white/50">플레이한 게임을 선택하세요</p>
-          <div className="mt-4 space-y-2">
-            {["아줄", "윙스팬", "카탄"].map((game) => (
-              <div key={game} className="flex items-center justify-between rounded-xl bg-white/[0.04] px-4 py-3">
-                <span className="text-[14px] text-white/80">{game}</span>
-                <ChevronRight size={16} className="text-white/30" />
-              </div>
-            ))}
-          </div>
-          <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] py-3 text-[14px] font-semibold text-white">
-            선택 완료
-          </button>
-        </div>
-      </div>
-    ),
+    usage: "바텀 시트는 현재 컨텍스트를 유지하면서 추가 선택이나 상세 정보를 제공하는 레이어입니다. 전체 화면 전환 없이 보조 흐름을 처리할 때 사용하며, 핸들과 타이틀로 시트의 범위를 명확히 합니다.",
+    rules: ["핸들(드래그 인디케이터)은 항상 최상단에 배치해 인터랙션 가능성을 알립니다.", "시트 높이는 콘텐츠 양에 맞게 조정하되 화면의 90%를 넘지 않게 합니다.", "시트 뒤 딤 레이어 탭으로 닫힘을 보장합니다.", "스크롤이 필요한 콘텐츠는 시트 내부에 스크롤 영역을 분리해 구성합니다."],
+    tokens: ["`surface-container-high`", "`outline-variant` (handle)", "`on-surface` + `on-surface-variant`"],
   },
   checkboxes: {
     label: "Checkboxes",
     title: "체크박스 가이드",
     description: "다중 선택 상태를 표현하는 체크박스의 상태와 토큰을 정리합니다.",
-    usage:
-      "체크박스는 독립적으로 선택·해제할 수 있는 다중 선택 컴포넌트입니다. 플레이어 선택이나 게임 옵션처럼 여러 항목을 동시에 고를 때 적합합니다.",
-    rules: [
-      "단일 선택에는 라디오 버튼을 쓰고, 다중 선택에만 체크박스를 사용합니다.",
-      "체크 상태는 primary 색으로 명확히 구분합니다.",
-      "레이블은 체크박스 오른쪽에 배치하고 클릭 영역에 포함시킵니다.",
-      "비활성 상태는 opacity를 낮춰 선택 불가임을 시각적으로 전달합니다.",
-    ],
-    tokens: [
-      "`primary` (checked fill)",
-      "`on-primary` (check icon)",
-      "`outline` (unchecked border)",
-    ],
-    preview: (
-      <div className="space-y-3">
-        {[
-          { label: "아줄", checked: true },
-          { label: "윙스팬", checked: true },
-          { label: "카탄", checked: false },
-          { label: "테라포밍 마스", checked: false, disabled: true },
-        ].map((item) => (
-          <div key={item.label} className={`flex items-center gap-3 ${item.disabled ? "opacity-35" : ""}`}>
-            <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] border ${item.checked ? "border-[#8B5CF6] bg-[#8B5CF6]" : "border-white/25 bg-transparent"}`}>
-              {item.checked && <Check size={12} className="text-white" strokeWidth={3} />}
-            </div>
-            <span className="text-[14px] text-white/80">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "체크박스는 독립적으로 선택·해제할 수 있는 다중 선택 컴포넌트입니다. 플레이어 선택이나 게임 옵션처럼 여러 항목을 동시에 고를 때 적합합니다.",
+    rules: ["단일 선택에는 라디오 버튼을 쓰고, 다중 선택에만 체크박스를 사용합니다.", "체크 상태는 primary 색으로 명확히 구분합니다.", "레이블은 체크박스 오른쪽에 배치하고 클릭 영역에 포함시킵니다.", "비활성 상태는 opacity를 낮춰 선택 불가임을 시각적으로 전달합니다."],
+    tokens: ["`primary` (checked fill)", "`on-primary` (check icon)", "`outline` (unchecked border)"],
   },
   chips: {
     label: "Chips",
     title: "칩 가이드",
     description: "상태, 데이터, 필터 칩의 톤과 역할을 정리합니다.",
-    usage:
-      "칩은 짧은 상태나 범주를 빠르게 인지시키는 용도입니다. 버튼처럼 강하게 행동을 유도하기보다, 정보를 압축해 보여주거나 선택 상태를 가볍게 표시할 때 적합합니다.",
-    rules: [
-      "브랜드 강조가 필요한 상태 칩은 primary-container 계열을 사용합니다.",
-      "성공, 경고, 랭크 같은 상태는 support tonal palette를 사용합니다.",
-      "칩 안의 텍스트는 짧고 명확하게 유지합니다.",
-      "필터 칩과 상태 칩을 한 화면에 같이 쓸 때는 목적이 섞이지 않게 그룹을 분리합니다.",
-    ],
-    tokens: [
-      "`primary-container` + `on-primary-container`",
-      "`success` tonal palette",
-      "`warning` tonal palette",
-    ],
-    preview: (
-      <div className="flex flex-wrap gap-3">
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#24163F] px-3 py-1.5 text-[12px] font-semibold text-[#E9DDFF]">
-          <Clock3 size={12} />
-          기록 중
-        </div>
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#19c8a6]/12 px-3 py-1.5 text-[12px] font-semibold text-[#43e0c1]">
-          <Check size={12} />
-          Active
-        </div>
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#ffbf47]/14 px-3 py-1.5 text-[12px] font-semibold text-[#ffbf47]">
-          <Trophy size={12} />
-          Best Win Streak
-        </div>
-      </div>
-    ),
+    usage: "칩은 짧은 상태나 범주를 빠르게 인지시키는 용도입니다. 버튼처럼 강하게 행동을 유도하기보다, 정보를 압축해 보여주거나 선택 상태를 가볍게 표시할 때 적합합니다.",
+    rules: ["브랜드 강조가 필요한 상태 칩은 primary-container 계열을 사용합니다.", "성공, 경고, 랭크 같은 상태는 support tonal palette를 사용합니다.", "칩 안의 텍스트는 짧고 명확하게 유지합니다.", "필터 칩과 상태 칩을 한 화면에 같이 쓸 때는 목적이 섞이지 않게 그룹을 분리합니다."],
+    tokens: ["`primary-container` + `on-primary-container`", "`success` tonal palette", "`warning` tonal palette"],
   },
   "radio-buttons": {
     label: "Radio buttons",
     title: "라디오 버튼 가이드",
     description: "단일 선택 상태를 표현하는 라디오 버튼의 사용 원칙을 정리합니다.",
-    usage:
-      "라디오 버튼은 그룹 안에서 하나만 선택할 수 있는 단일 선택 컴포넌트입니다. 승/패, 게임 결과 같은 상호 배타적인 옵션을 선택할 때 사용합니다.",
-    rules: [
-      "반드시 그룹으로 묶어 사용하며 독립 배치는 지양합니다.",
-      "선택 상태는 primary 색의 내부 원으로 명확히 표시합니다.",
-      "옵션이 2개뿐이라면 스위치나 세그먼트 컨트롤을 우선 검토합니다.",
-      "레이블을 라디오 오른쪽에 배치하고 전체 행을 클릭 영역으로 처리합니다.",
-    ],
-    tokens: [
-      "`primary` (selected indicator)",
-      "`outline` (unselected border)",
-      "`on-surface` (label)",
-    ],
-    preview: (
-      <div className="space-y-3">
-        {[
-          { label: "승리", selected: true },
-          { label: "패배", selected: false },
-          { label: "무승부", selected: false },
-        ].map((item) => (
-          <div key={item.label} className="flex items-center gap-3">
-            <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${item.selected ? "border-[#8B5CF6]" : "border-white/25"}`}>
-              {item.selected && <div className="h-2.5 w-2.5 rounded-full bg-[#8B5CF6]" />}
-            </div>
-            <span className="text-[14px] text-white/80">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "라디오 버튼은 그룹 안에서 하나만 선택할 수 있는 단일 선택 컴포넌트입니다. 승/패, 게임 결과 같은 상호 배타적인 옵션을 선택할 때 사용합니다.",
+    rules: ["반드시 그룹으로 묶어 사용하며 독립 배치는 지양합니다.", "선택 상태는 primary 색의 내부 원으로 명확히 표시합니다.", "옵션이 2개뿐이라면 스위치나 세그먼트 컨트롤을 우선 검토합니다.", "레이블을 라디오 오른쪽에 배치하고 전체 행을 클릭 영역으로 처리합니다."],
+    tokens: ["`primary` (selected indicator)", "`outline` (unselected border)", "`on-surface` (label)"],
   },
   dialogs: {
     label: "Dialogs / Alerts",
     title: "다이얼로그 가이드",
     description: "사용자 확인이 필요한 다이얼로그와 알럿의 구성 원칙을 정리합니다.",
-    usage:
-      "다이얼로그는 사용자의 의도적인 확인이 필요한 흐름 차단 레이어입니다. 기록 삭제, 로그아웃처럼 되돌리기 어려운 액션에만 사용하고, 단순 알림은 스낵바로 대체합니다.",
-    rules: [
-      "타이틀은 액션의 결과를 직접적으로 설명하는 한 문장으로 작성합니다.",
-      "Destructive 액션(삭제, 초기화)은 버튼에 error 컬러를 사용합니다.",
-      "항상 취소(dismiss) 옵션을 제공해 사용자가 빠져나올 수 있게 합니다.",
-      "다이얼로그 뒤 딤 레이어는 탭 시 닫힘으로 처리합니다.",
-    ],
-    tokens: [
-      "`surface-container-high`",
-      "`error` (destructive action)",
-      "`on-surface` + `on-surface-variant`",
-    ],
-    preview: (
-      <div className="rounded-[24px] border border-white/12 bg-[#1B1B31] p-6">
-        <p className="text-[18px] font-bold text-white">기록을 삭제할까요?</p>
-        <p className="mt-2 text-[14px] leading-relaxed text-white/55">
-          삭제한 기록은 복구할 수 없습니다. 계속하시겠어요?
-        </p>
-        <div className="mt-6 flex justify-end gap-3">
-          <button className="rounded-xl border border-white/12 bg-white/[0.04] px-4 py-2.5 text-[14px] font-medium text-white/70">
-            취소
-          </button>
-          <button className="rounded-xl bg-[#FF5A6B]/15 px-4 py-2.5 text-[14px] font-semibold text-[#FF5A6B]">
-            삭제
-          </button>
-        </div>
-      </div>
-    ),
+    usage: "다이얼로그는 사용자의 의도적인 확인이 필요한 흐름 차단 레이어입니다. 기록 삭제, 로그아웃처럼 되돌리기 어려운 액션에만 사용하고, 단순 알림은 스낵바로 대체합니다.",
+    rules: ["타이틀은 액션의 결과를 직접적으로 설명하는 한 문장으로 작성합니다.", "Destructive 액션(삭제, 초기화)은 버튼에 error 컬러를 사용합니다.", "항상 취소(dismiss) 옵션을 제공해 사용자가 빠져나올 수 있게 합니다.", "다이얼로그 뒤 딤 레이어는 탭 시 닫힘으로 처리합니다."],
+    tokens: ["`surface-container-high`", "`error` (destructive action)", "`on-surface` + `on-surface-variant`"],
   },
   dividers: {
     label: "Dividers",
     title: "디바이더 가이드",
     description: "콘텐츠를 시각적으로 분리하는 디바이더의 사용 기준을 정리합니다.",
-    usage:
-      "디바이더는 관련 없는 콘텐츠 그룹 사이를 명확히 나누는 시각적 구분선입니다. 디바이더 없이도 간격으로 충분히 분리될 때는 사용을 자제하고, 꼭 필요한 경우에만 씁니다.",
-    rules: [
-      "같은 영역 안의 항목 구분에는 outline-variant(더 약한 보더)를 사용합니다.",
-      "섹션 레벨의 구분에는 outline을 사용합니다.",
-      "디바이더에 레이블(텍스트)을 추가할 때는 on-surface-variant 색으로 처리합니다.",
-      "수직 디바이더는 인라인 요소 사이 짧은 구분선으로만 사용합니다.",
-    ],
-    tokens: [
-      "`outline-variant` (inset divider)",
-      "`outline` (section divider)",
-      "`on-surface-variant` (label)",
-    ],
-    preview: (
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-white/30">Full-width</p>
-          <div className="h-px w-full bg-white/[0.12]" />
-        </div>
-        <div className="space-y-2">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-white/30">Inset</p>
-          <div className="flex items-center gap-3">
-            <div className="h-px flex-1 bg-white/[0.08]" />
-          </div>
-        </div>
-        <div className="space-y-2">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-white/30">With Label</p>
-          <div className="flex items-center gap-3">
-            <div className="h-px flex-1 bg-white/[0.08]" />
-            <span className="text-[11px] font-medium text-white/35">이번 달</span>
-            <div className="h-px flex-1 bg-white/[0.08]" />
-          </div>
-        </div>
-      </div>
-    ),
+    usage: "디바이더는 관련 없는 콘텐츠 그룹 사이를 명확히 나누는 시각적 구분선입니다. 디바이더 없이도 간격으로 충분히 분리될 때는 사용을 자제하고, 꼭 필요한 경우에만 씁니다.",
+    rules: ["같은 영역 안의 항목 구분에는 outline-variant(더 약한 보더)를 사용합니다.", "섹션 레벨의 구분에는 outline을 사용합니다.", "디바이더에 레이블(텍스트)을 추가할 때는 on-surface-variant 색으로 처리합니다.", "수직 디바이더는 인라인 요소 사이 짧은 구분선으로만 사용합니다."],
+    tokens: ["`outline-variant` (inset divider)", "`outline` (section divider)", "`on-surface-variant` (label)"],
   },
   lists: {
     label: "Lists",
     title: "리스트 가이드",
     description: "항목 목록을 구성하는 리스트 컴포넌트의 레이아웃과 토큰을 정리합니다.",
-    usage:
-      "리스트는 동일한 유형의 정보를 일관된 형식으로 나열하는 컴포넌트입니다. 게임 기록, 플레이어 목록처럼 반복되는 데이터를 보여줄 때 항목 간 간격과 정렬을 통일합니다.",
-    rules: [
-      "리스트 항목의 높이와 내부 정렬은 모든 항목에서 동일하게 유지합니다.",
-      "리딩 요소(아이콘, 아바타)는 각 행의 왼쪽에 고정합니다.",
-      "트레일링 요소(메타, 아이콘)는 오른쪽에 정렬합니다.",
-      "선택 상태 항목은 primary-container 배경으로 강조합니다.",
-    ],
-    tokens: [
-      "`surface-container` (list bg)",
-      "`primary-container` (selected)",
-      "`on-surface` + `on-surface-variant`",
-    ],
-    preview: (
-      <div className="space-y-1">
-        {[
-          { title: "아줄", meta: "2024.03.15", selected: true },
-          { title: "윙스팬", meta: "2024.03.10", selected: false },
-          { title: "카탄", meta: "2024.03.05", selected: false },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className={`flex items-center justify-between rounded-xl px-4 py-3 ${item.selected ? "bg-[#24163F]" : "bg-white/[0.02]"}`}
-          >
-            <div className="flex items-center gap-3">
-              <div className={`h-8 w-8 rounded-xl ${item.selected ? "bg-[#8B5CF6]/30" : "bg-white/[0.06]"}`} />
-              <span className={`text-[14px] font-medium ${item.selected ? "text-[#E9DDFF]" : "text-white/75"}`}>{item.title}</span>
-            </div>
-            <span className="text-[12px] text-white/35">{item.meta}</span>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "리스트는 동일한 유형의 정보를 일관된 형식으로 나열하는 컴포넌트입니다. 게임 기록, 플레이어 목록처럼 반복되는 데이터를 보여줄 때 항목 간 간격과 정렬을 통일합니다.",
+    rules: ["리스트 항목의 높이와 내부 정렬은 모든 항목에서 동일하게 유지합니다.", "리딩 요소(아이콘, 아바타)는 각 행의 왼쪽에 고정합니다.", "트레일링 요소(메타, 아이콘)는 오른쪽에 정렬합니다.", "선택 상태 항목은 primary-container 배경으로 강조합니다."],
+    tokens: ["`surface-container` (list bg)", "`primary-container` (selected)", "`on-surface` + `on-surface-variant`"],
   },
   menus: {
     label: "Menus",
     title: "메뉴 가이드",
     description: "컨텍스트 메뉴와 드롭다운의 구성 원칙을 정리합니다.",
-    usage:
-      "메뉴는 현재 컨텍스트에 맞는 보조 액션을 제공하는 임시 레이어입니다. 주요 액션은 버튼으로 노출하고, 부차적인 옵션을 담아두는 용도로 사용합니다.",
-    rules: [
-      "메뉴 항목은 7개 이하로 유지해 스캔하기 쉽게 합니다.",
-      "Destructive 항목(삭제, 초기화)은 항상 맨 아래에 배치하고 error 컬러를 사용합니다.",
-      "아이콘은 선택 사항이며, 쓸 경우 모든 항목에 일관되게 적용합니다.",
-      "메뉴 외부 탭 시 즉시 닫힘으로 처리합니다.",
-    ],
-    tokens: [
-      "`surface-container-highest`",
-      "`error` (destructive item)",
-      "`on-surface` + `on-surface-variant`",
-    ],
-    preview: (
-      <div className="w-48 rounded-[20px] border border-white/10 bg-[#242440] p-2 shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
-        {[
-          { label: "편집", icon: Sparkles },
-          { label: "공유", icon: Users },
-          { label: "통계 보기", icon: Trophy },
-        ].map((item) => (
-          <button key={item.label} className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] text-white/75 hover:bg-white/[0.06]">
-            <item.icon size={15} className="text-white/40" />
-            {item.label}
-          </button>
-        ))}
-        <div className="my-1.5 h-px bg-white/[0.08]" />
-        <button className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-[14px] text-[#FF5A6B]">
-          <X size={15} />
-          삭제
-        </button>
-      </div>
-    ),
+    usage: "메뉴는 현재 컨텍스트에 맞는 보조 액션을 제공하는 임시 레이어입니다. 주요 액션은 버튼으로 노출하고, 부차적인 옵션을 담아두는 용도로 사용합니다.",
+    rules: ["메뉴 항목은 7개 이하로 유지해 스캔하기 쉽게 합니다.", "Destructive 항목(삭제, 초기화)은 항상 맨 아래에 배치하고 error 컬러를 사용합니다.", "아이콘은 선택 사항이며, 쓸 경우 모든 항목에 일관되게 적용합니다.", "메뉴 외부 탭 시 즉시 닫힘으로 처리합니다."],
+    tokens: ["`surface-container-highest`", "`error` (destructive item)", "`on-surface` + `on-surface-variant`"],
   },
   "nav-tabs": {
     label: "Navigation bars / Tab Bar",
     title: "탭 바 가이드",
     description: "하단 탭 내비게이션의 구성 요소와 활성 상태 표현을 정리합니다.",
-    usage:
-      "탭 바는 앱의 최상위 화면 간 이동을 담당합니다. 3~5개의 주요 목적지를 아이콘과 레이블로 나타내고, 현재 위치를 active 상태로 명확히 구분합니다.",
-    rules: [
-      "탭은 3개 이상 5개 이하로 구성합니다.",
-      "활성 탭은 primary 컬러와 indicator pill로 구분합니다.",
-      "레이블은 항상 표시하며 아이콘만 단독으로 쓰지 않습니다.",
-      "탭 간 이동은 스택이 초기화되는 루트 탐색으로 처리합니다.",
-    ],
-    tokens: [
-      "`surface-container` (bar bg)",
-      "`primary` (active indicator)",
-      "`on-surface-variant` (inactive icon)",
-    ],
-    preview: (
-      <div className="rounded-[24px] border border-white/10 bg-[#141425] px-4 py-3">
-        <div className="flex items-center justify-around">
-          {[
-            { icon: Home, label: "홈", active: true },
-            { icon: Search, label: "검색", active: false },
-            { icon: Clock3, label: "기록", active: false },
-            { icon: Settings, label: "설정", active: false },
-          ].map((tab) => (
-            <div key={tab.label} className="flex flex-col items-center gap-1">
-              <div className={`flex h-8 w-14 items-center justify-center rounded-full ${tab.active ? "bg-[#24163F]" : ""}`}>
-                <tab.icon size={20} className={tab.active ? "text-[#A78BFA]" : "text-white/40"} />
-              </div>
-              <span className={`text-[11px] font-medium ${tab.active ? "text-[#A78BFA]" : "text-white/40"}`}>{tab.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
+    usage: "탭 바는 앱의 최상위 화면 간 이동을 담당합니다. 3~5개의 주요 목적지를 아이콘과 레이블로 나타내고, 현재 위치를 active 상태로 명확히 구분합니다.",
+    rules: ["탭은 3개 이상 5개 이하로 구성합니다.", "활성 탭은 primary 컬러와 indicator pill로 구분합니다.", "레이블은 항상 표시하며 아이콘만 단독으로 쓰지 않습니다.", "탭 간 이동은 스택이 초기화되는 루트 탐색으로 처리합니다."],
+    tokens: ["`surface-container` (bar bg)", "`primary` (active indicator)", "`on-surface-variant` (inactive icon)"],
   },
   pickers: {
     label: "Pickers",
     title: "피커 가이드",
     description: "날짜, 시간, 옵션 선택을 위한 피커 컴포넌트의 사용 기준을 정리합니다.",
-    usage:
-      "피커는 스크롤이나 선택 인터랙션으로 값을 고르는 컴포넌트입니다. 게임 날짜나 참여 인원처럼 범위가 정해진 값을 선택할 때 텍스트 입력보다 정확하고 빠릅니다.",
-    rules: [
-      "피커는 바텀 시트나 모달 안에 배치해 현재 흐름을 방해하지 않게 합니다.",
-      "선택된 항목은 시각적으로 가장 뚜렷하게 표시합니다.",
-      "스크롤 피커는 위아래 항목을 흐리게 처리해 현재 선택 위치를 알립니다.",
-      "확인 버튼을 명시적으로 제공해 선택 완료를 명확히 합니다.",
-    ],
-    tokens: [
-      "`primary` (selected value)",
-      "`surface-container-high`",
-      "`on-surface-variant` (unselected)",
-    ],
-    preview: (
-      <div className="rounded-[24px] border border-white/10 bg-[#1B1B31] overflow-hidden">
-        <div className="border-b border-white/8 px-5 py-3 flex items-center justify-between">
-          <span className="text-[14px] font-semibold text-white">날짜 선택</span>
-          <button className="text-[13px] font-semibold text-[#A78BFA]">완료</button>
-        </div>
-        <div className="relative py-2">
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 bg-[#24163F]/60 mx-4 rounded-xl pointer-events-none" />
-          {["2024.03.13", "2024.03.14", "2024.03.15", "2024.03.16", "2024.03.17"].map((date, i) => (
-            <div key={date} className={`px-5 py-2 text-center text-[15px] font-medium ${i === 2 ? "text-white" : i === 1 || i === 3 ? "text-white/40" : "text-white/15"}`}>
-              {date}
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
+    usage: "피커는 스크롤이나 선택 인터랙션으로 값을 고르는 컴포넌트입니다. 게임 날짜나 참여 인원처럼 범위가 정해진 값을 선택할 때 텍스트 입력보다 정확하고 빠릅니다.",
+    rules: ["피커는 바텀 시트나 모달 안에 배치해 현재 흐름을 방해하지 않게 합니다.", "선택된 항목은 시각적으로 가장 뚜렷하게 표시합니다.", "스크롤 피커는 위아래 항목을 흐리게 처리해 현재 선택 위치를 알립니다.", "확인 버튼을 명시적으로 제공해 선택 완료를 명확히 합니다."],
+    tokens: ["`primary` (selected value)", "`surface-container-high`", "`on-surface-variant` (unselected)"],
   },
   "progress-bar": {
     label: "Progress bar",
     title: "프로그레스 바 가이드",
     description: "진행 상태를 시각적으로 표현하는 프로그레스 바의 사용 원칙을 정리합니다.",
-    usage:
-      "프로그레스 바는 작업 완료율이나 목표 달성 정도를 한눈에 보여주는 인디케이터입니다. 게임 세션 진행, 통계 비율 표시처럼 수치가 직관적으로 전달되어야 하는 곳에 사용합니다.",
-    rules: [
-      "값이 없거나 불확실한 경우 인디터미네이트(애니메이션) 형태를 씁니다.",
-      "컬러는 진행 맥락에 맞게 primary, success, warning을 구분해 사용합니다.",
-      "레이블이나 퍼센트 수치를 바 오른쪽 또는 아래에 병기합니다.",
-      "배경 트랙은 surface-container, 프로그레스는 primary 또는 support 컬러로 처리합니다.",
-    ],
-    tokens: [
-      "`primary` (progress fill)",
-      "`success` / `warning` (state-based)",
-      "`surface-container` (track)",
-    ],
-    preview: (
-      <div className="space-y-5">
-        {[
-          { label: "승률", value: 68, color: "bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA]" },
-          { label: "완주율", value: 85, color: "bg-[#19C8A6]" },
-          { label: "목표 달성", value: 42, color: "bg-[#FFBF47]" },
-        ].map((bar) => (
-          <div key={bar.label}>
-            <div className="mb-1.5 flex items-center justify-between">
-              <span className="text-[12px] font-medium text-white/55">{bar.label}</span>
-              <span className="text-[12px] font-semibold text-white/75">{bar.value}%</span>
-            </div>
-            <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.08]">
-              <div className={`h-full rounded-full ${bar.color}`} style={{ width: `${bar.value}%` }} />
-            </div>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "프로그레스 바는 작업 완료율이나 목표 달성 정도를 한눈에 보여주는 인디케이터입니다. 게임 세션 진행, 통계 비율 표시처럼 수치가 직관적으로 전달되어야 하는 곳에 사용합니다.",
+    rules: ["값이 없거나 불확실한 경우 인디터미네이트(애니메이션) 형태를 씁니다.", "컬러는 진행 맥락에 맞게 primary, success, warning을 구분해 사용합니다.", "레이블이나 퍼센트 수치를 바 오른쪽 또는 아래에 병기합니다.", "배경 트랙은 surface-container, 프로그레스는 primary 또는 support 컬러로 처리합니다."],
+    tokens: ["`primary` (progress fill)", "`success` / `warning` (state-based)", "`surface-container` (track)"],
   },
   sliders: {
     label: "Sliders",
     title: "슬라이더 가이드",
     description: "연속적인 값 조정을 위한 슬라이더의 구성과 토큰을 정리합니다.",
-    usage:
-      "슬라이더는 정해진 범위 안에서 연속적인 값을 선택할 때 사용합니다. 게임 난이도나 점수 범위처럼 정확한 숫자보다 상대적인 위치 감각이 중요한 입력에 적합합니다.",
-    rules: [
-      "현재 값은 thumb 위 툴팁이나 별도 레이블로 표시합니다.",
-      "최솟값·최댓값 레이블을 양 끝에 두어 범위를 명확히 합니다.",
-      "트랙의 채워진 부분과 빈 부분의 대비를 충분히 유지합니다.",
-      "드래그 영역을 충분히 크게 설정해 터치 조작을 쉽게 합니다.",
-    ],
-    tokens: [
-      "`primary` (track fill + thumb)",
-      "`surface-container` (track bg)",
-      "`on-surface` (value label)",
-    ],
-    preview: (
-      <div className="space-y-6 px-2">
-        <div>
-          <div className="mb-3 flex justify-between text-[12px] text-white/40">
-            <span>난이도</span>
-            <span className="font-semibold text-white/75">7</span>
-          </div>
-          <div className="relative flex items-center">
-            <div className="h-2 w-full overflow-hidden rounded-full bg-white/[0.08]">
-              <div className="h-full w-[60%] rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA]" />
-            </div>
-            <div className="absolute left-[60%] h-5 w-5 -translate-x-1/2 rounded-full border-2 border-[#A78BFA] bg-[#1B1B31] shadow-[0_0_0_3px_rgba(139,92,246,0.3)]" />
-          </div>
-          <div className="mt-1 flex justify-between text-[11px] text-white/25">
-            <span>1</span>
-            <span>10</span>
-          </div>
-        </div>
-      </div>
-    ),
+    usage: "슬라이더는 정해진 범위 안에서 연속적인 값을 선택할 때 사용합니다. 게임 난이도나 점수 범위처럼 정확한 숫자보다 상대적인 위치 감각이 중요한 입력에 적합합니다.",
+    rules: ["현재 값은 thumb 위 툴팁이나 별도 레이블로 표시합니다.", "최솟값·최댓값 레이블을 양 끝에 두어 범위를 명확히 합니다.", "트랙의 채워진 부분과 빈 부분의 대비를 충분히 유지합니다.", "드래그 영역을 충분히 크게 설정해 터치 조작을 쉽게 합니다."],
+    tokens: ["`primary` (track fill + thumb)", "`surface-container` (track bg)", "`on-surface` (value label)"],
   },
   snackbars: {
     label: "Snackbars",
     title: "스낵바 가이드",
     description: "짧은 피드백 메시지를 전달하는 스낵바의 사용 기준을 정리합니다.",
-    usage:
-      "스낵바는 사용자 액션의 결과를 비침습적으로 알리는 피드백 레이어입니다. 기록 저장 완료, 삭제 완료처럼 별도 확인이 필요 없는 결과를 짧게 전달할 때 사용합니다.",
-    rules: [
-      "메시지는 1~2줄을 넘지 않게 짧게 작성합니다.",
-      "액션 버튼이 필요하면 최대 1개만 추가합니다(예: 실행 취소).",
-      "스낵바는 3~5초 후 자동으로 사라지게 처리합니다.",
-      "화면 하단 중앙 또는 좌하단에 배치하고 탭 바 위에 올립니다.",
-    ],
-    tokens: [
-      "`inverse-surface` (bg)",
-      "`inverse-on-surface` (text)",
-      "`primary-fixed-dim` (action)",
-    ],
-    preview: (
-      <div className="space-y-3">
-        <div className="flex items-center justify-between rounded-2xl bg-[#F4F1FF] px-4 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.3)]">
-          <span className="text-[14px] font-medium text-[#171221]">기록이 저장되었어요</span>
-          <button className="text-[13px] font-semibold text-[#8B5CF6]">확인</button>
-        </div>
-        <div className="flex items-center justify-between rounded-2xl bg-[#F4F1FF] px-4 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.3)]">
-          <span className="text-[14px] font-medium text-[#171221]">기록이 삭제되었어요</span>
-          <button className="text-[13px] font-semibold text-[#8B5CF6]">실행 취소</button>
-        </div>
-      </div>
-    ),
+    usage: "스낵바는 사용자 액션의 결과를 비침습적으로 알리는 피드백 레이어입니다. 기록 저장 완료, 삭제 완료처럼 별도 확인이 필요 없는 결과를 짧게 전달할 때 사용합니다.",
+    rules: ["메시지는 1~2줄을 넘지 않게 짧게 작성합니다.", "액션 버튼이 필요하면 최대 1개만 추가합니다(예: 실행 취소).", "스낵바는 3~5초 후 자동으로 사라지게 처리합니다.", "화면 하단 중앙 또는 좌하단에 배치하고 탭 바 위에 올립니다."],
+    tokens: ["`inverse-surface` (bg)", "`inverse-on-surface` (text)", "`primary-fixed-dim` (action)"],
   },
   "star-rating": {
     label: "Star rating",
     title: "스타 레이팅 가이드",
     description: "게임 경험을 별점으로 표현하는 레이팅 컴포넌트의 사용 원칙을 정리합니다.",
-    usage:
-      "스타 레이팅은 게임 경험을 직관적으로 수치화하는 입력 컴포넌트입니다. 기록 완료 후 게임 만족도를 표현하거나, 검색 결과에서 인기도를 보여줄 때 사용합니다.",
-    rules: [
-      "별점은 5개를 기본으로 하며 0.5단계 단위도 허용합니다.",
-      "채워진 별은 warning(노란) 컬러를 사용해 시각적으로 즉시 인식되게 합니다.",
-      "읽기 전용 상태에서는 소수점 값을 반 별로 표시합니다.",
-      "입력 모드에서는 탭한 별까지 즉시 채워지는 인터랙션을 제공합니다.",
-    ],
-    tokens: [
-      "`warning` #FFBF47 (filled star)",
-      "`surface-container` (empty star)",
-      "`on-surface-variant` (count label)",
-    ],
-    preview: (
-      <div className="space-y-4">
-        {[
-          { label: "아줄", rating: 5 },
-          { label: "윙스팬", rating: 4 },
-          { label: "카탄", rating: 3 },
-        ].map((item) => (
-          <div key={item.label} className="flex items-center justify-between">
-            <span className="text-[14px] text-white/70">{item.label}</span>
-            <div className="flex items-center gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star
-                  key={i}
-                  size={18}
-                  className={i < item.rating ? "fill-[#FFBF47] text-[#FFBF47]" : "fill-white/10 text-white/10"}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "스타 레이팅은 게임 경험을 직관적으로 수치화하는 입력 컴포넌트입니다. 기록 완료 후 게임 만족도를 표현하거나, 검색 결과에서 인기도를 보여줄 때 사용합니다.",
+    rules: ["별점은 5개를 기본으로 하며 0.5단계 단위도 허용합니다.", "채워진 별은 warning(노란) 컬러를 사용해 시각적으로 즉시 인식되게 합니다.", "읽기 전용 상태에서는 소수점 값을 반 별로 표시합니다.", "입력 모드에서는 탭한 별까지 즉시 채워지는 인터랙션을 제공합니다."],
+    tokens: ["`warning` #FFBF47 (filled star)", "`surface-container` (empty star)", "`on-surface-variant` (count label)"],
   },
   switches: {
     label: "Switch / Toggles",
     title: "스위치 가이드",
     description: "온/오프 상태를 전환하는 스위치 컴포넌트의 사용 기준을 정리합니다.",
-    usage:
-      "스위치는 즉각적으로 효과가 적용되는 이진 설정을 제어합니다. 알림 on/off, 다크모드처럼 저장 없이 즉시 반영되는 토글에 적합하며, 확인이 필요한 전환에는 체크박스를 사용합니다.",
-    rules: [
-      "스위치 변경은 즉시 반영되며 별도 저장 액션이 필요하지 않아야 합니다.",
-      "on 상태는 primary 컬러 트랙으로 명확히 표현합니다.",
-      "레이블은 스위치 왼쪽에 배치하고 상태 텍스트를 추가하지 않습니다.",
-      "비활성 상태는 opacity를 낮춰 조작 불가임을 전달합니다.",
-    ],
-    tokens: [
-      "`primary` (on track)",
-      "`surface-container-highest` (off track)",
-      "`on-primary` (thumb)",
-    ],
-    preview: (
-      <div className="space-y-4">
-        {[
-          { label: "게임 알림", on: true },
-          { label: "기록 공유", on: true },
-          { label: "위치 정보", on: false },
-        ].map((item) => (
-          <div key={item.label} className="flex items-center justify-between">
-            <span className="text-[14px] text-white/75">{item.label}</span>
-            <div className={`relative h-7 w-12 rounded-full transition-colors ${item.on ? "bg-[#8B5CF6]" : "bg-white/[0.12]"}`}>
-              <div className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow-sm transition-transform ${item.on ? "translate-x-6" : "translate-x-1"}`} />
-            </div>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "스위치는 즉각적으로 효과가 적용되는 이진 설정을 제어합니다. 알림 on/off, 다크모드처럼 저장 없이 즉시 반영되는 토글에 적합하며, 확인이 필요한 전환에는 체크박스를 사용합니다.",
+    rules: ["스위치 변경은 즉시 반영되며 별도 저장 액션이 필요하지 않아야 합니다.", "on 상태는 primary 컬러 트랙으로 명확히 표현합니다.", "레이블은 스위치 왼쪽에 배치하고 상태 텍스트를 추가하지 않습니다.", "비활성 상태는 opacity를 낮춰 조작 불가임을 전달합니다."],
+    tokens: ["`primary` (on track)", "`surface-container-highest` (off track)", "`on-primary` (thumb)"],
   },
   "text-fields": {
     label: "Text Fields",
     title: "텍스트 필드 가이드",
     description: "텍스트 입력을 위한 필드 컴포넌트의 상태와 토큰을 정리합니다.",
-    usage:
-      "텍스트 필드는 사용자가 직접 값을 입력하는 컴포넌트입니다. 게임 이름, 메모, 검색어 입력처럼 자유 형식의 데이터를 받을 때 사용하며, 선택지가 있는 경우 피커나 메뉴를 우선 검토합니다.",
-    rules: [
-      "플레이스홀더는 입력 예시나 힌트만 담고, 레이블을 대체하지 않습니다.",
-      "포커스 상태는 primary 컬러 보더로 명확히 구분합니다.",
-      "에러 상태는 error 컬러 보더와 하단 도움말 텍스트로 안내합니다.",
-      "입력 완료(success) 상태는 success 컬러 아이콘으로 확인을 제공합니다.",
-    ],
-    tokens: [
-      "`primary` (focused border)",
-      "`error` (error border + helper)",
-      "`on-surface-variant` (placeholder)",
-    ],
-    preview: (
-      <div className="space-y-3">
-        <div>
-          <p className="mb-1.5 text-[11px] uppercase tracking-[0.12em] text-white/30">Default</p>
-          <div className="flex items-center gap-3 rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3">
-            <Search size={15} className="shrink-0 text-white/30" />
-            <span className="text-[14px] text-white/30">게임 이름 입력</span>
-          </div>
-        </div>
-        <div>
-          <p className="mb-1.5 text-[11px] uppercase tracking-[0.12em] text-white/30">Focused</p>
-          <div className="flex items-center gap-3 rounded-xl border border-[#8B5CF6] bg-white/[0.04] px-4 py-3 shadow-[0_0_0_3px_rgba(139,92,246,0.15)]">
-            <Search size={15} className="shrink-0 text-[#A78BFA]" />
-            <span className="text-[14px] text-white/80">아줄</span>
-          </div>
-        </div>
-        <div>
-          <p className="mb-1.5 text-[11px] uppercase tracking-[0.12em] text-white/30">Error</p>
-          <div className="flex items-center gap-3 rounded-xl border border-[#FF5A6B] bg-white/[0.04] px-4 py-3">
-            <Search size={15} className="shrink-0 text-[#FF5A6B]" />
-            <span className="text-[14px] text-white/50">입력값을 확인해주세요</span>
-          </div>
-        </div>
-      </div>
-    ),
+    usage: "텍스트 필드는 사용자가 직접 값을 입력하는 컴포넌트입니다. 게임 이름, 메모, 검색어 입력처럼 자유 형식의 데이터를 받을 때 사용하며, 선택지가 있는 경우 피커나 메뉴를 우선 검토합니다.",
+    rules: ["플레이스홀더는 입력 예시나 힌트만 담고, 레이블을 대체하지 않습니다.", "포커스 상태는 primary 컬러 보더로 명확히 구분합니다.", "에러 상태는 error 컬러 보더와 하단 도움말 텍스트로 안내합니다.", "입력 완료(success) 상태는 success 컬러 아이콘으로 확인을 제공합니다."],
+    tokens: ["`primary` (focused border)", "`error` (error border + helper)", "`on-surface-variant` (placeholder)"],
   },
   cards: {
     label: "Cards",
     title: "카드 가이드",
     description: "surface 단계별 카드와 강조 카드의 역할을 정리합니다.",
-    usage:
-      "카드는 정보 덩어리를 나누는 기본 레이어입니다. surface 단계가 올라갈수록 더 중요하고 더 앞으로 떠 있는 정보라는 인상을 주기 때문에, 카드 간 위계는 색과 그림자보다 먼저 surface token으로 결정합니다.",
-    rules: [
-      "일반 정보 카드는 surface-container를 기본으로 사용합니다.",
-      "강조 카드나 핵심 요약 패널은 surface-container-high 또는 highest를 사용합니다.",
-      "카드 안에서는 제목과 본문 대비를 on-surface / on-surface-variant로 분리합니다.",
-      "같은 섹션 안에서 카드 단계가 너무 많아지지 않게 2단계 이내로 제한합니다.",
-    ],
-    tokens: [
-      "`surface-container` + `outline-variant`",
-      "`surface-container-high` + `outline`",
-      "`on-surface` / `on-surface-variant`",
-    ],
-    preview: (
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-[24px] border border-[#FFFFFF12] bg-[#141425] p-4">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Surface Container</p>
-          <p className="mt-2 text-[18px] font-bold text-white">정보 카드</p>
-          <p className="mt-2 text-[14px] leading-relaxed text-white/50">기본 정보 모듈과 설명 카드에 사용합니다.</p>
-        </div>
-        <div className="rounded-[24px] border border-[#FFFFFF1F] bg-[#1B1B31] p-4 shadow-[0_16px_48px_rgba(0,0,0,0.3)]">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/30">Surface High</p>
-          <p className="mt-2 text-[18px] font-bold text-white">강조 카드</p>
-          <p className="mt-2 text-[14px] leading-relaxed text-white/50">히어로와 강조 블록, 대표 패널에 사용합니다.</p>
-        </div>
-      </div>
-    ),
+    usage: "카드는 정보 덩어리를 나누는 기본 레이어입니다. surface 단계가 올라갈수록 더 중요하고 더 앞으로 떠 있는 정보라는 인상을 주기 때문에, 카드 간 위계는 색과 그림자보다 먼저 surface token으로 결정합니다.",
+    rules: ["일반 정보 카드는 surface-container를 기본으로 사용합니다.", "강조 카드나 핵심 요약 패널은 surface-container-high 또는 highest를 사용합니다.", "카드 안에서는 제목과 본문 대비를 on-surface / on-surface-variant로 분리합니다.", "같은 섹션 안에서 카드 단계가 너무 많아지지 않게 2단계 이내로 제한합니다."],
+    tokens: ["`surface-container` + `outline-variant`", "`surface-container-high` + `outline`", "`on-surface` / `on-surface-variant`"],
   },
   "stat-cards": {
     label: "Stat Cards",
     title: "스탯 카드 가이드",
     description: "숫자 중심 카드에서 아이콘, 컬러, 보조 정보 사용 원칙을 정리합니다.",
-    usage:
-      "스탯 카드는 핵심 수치를 빠르게 읽게 만드는 카드입니다. 숫자를 가장 먼저 읽고, 그 다음 라벨과 보조 설명을 따라가게 만드는 것이 중요하므로 정보 순서와 대비가 일반 카드보다 더 명확해야 합니다.",
-    rules: [
-      "값은 가장 큰 시각 우선순위를 가져야 하며 한 카드에 하나의 핵심 숫자만 둡니다.",
-      "아이콘 색은 support 색 또는 tertiary 같은 보조 강조 컬러로 제한합니다.",
-      "보조 설명은 한 줄 안팎으로 짧게 유지합니다.",
-      "여러 개를 나열할 때는 카드 간 크기와 내부 정렬을 동일하게 맞춥니다.",
-    ],
-    tokens: [
-      "`surface-container-high` + `outline`",
-      "`warning` / `tertiary` support accent",
-      "`on-surface` + `on-surface-variant`",
-    ],
-    preview: (
-      <div className="grid gap-4 sm:grid-cols-2">
-        {[
-          { icon: Trophy, label: "Best Win Streak", value: "6", color: "from-[#ff9f1a] to-[#ffbf47]" },
-          { icon: Users, label: "Unique Players", value: "12", color: "from-[#2fa5ff] to-[#5666ff]" },
-        ].map((item) => (
-          <div key={item.label} className="rounded-[24px] border border-[#FFFFFF1F] bg-[#1B1B31] p-5">
-            <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${item.color}`}>
-              <item.icon size={16} className="text-white" />
-            </div>
-            <p className="mt-4 text-[11px] uppercase tracking-[0.16em] text-white/30">{item.label}</p>
-            <p className="mt-1 text-[28px] font-bold text-white">{item.value}</p>
-          </div>
-        ))}
-      </div>
-    ),
+    usage: "스탯 카드는 핵심 수치를 빠르게 읽게 만드는 카드입니다. 숫자를 가장 먼저 읽고, 그 다음 라벨과 보조 설명을 따라가게 만드는 것이 중요하므로 정보 순서와 대비가 일반 카드보다 더 명확해야 합니다.",
+    rules: ["값은 가장 큰 시각 우선순위를 가져야 하며 한 카드에 하나의 핵심 숫자만 둡니다.", "아이콘 색은 support 색 또는 tertiary 같은 보조 강조 컬러로 제한합니다.", "보조 설명은 한 줄 안팎으로 짧게 유지합니다.", "여러 개를 나열할 때는 카드 간 크기와 내부 정렬을 동일하게 맞춥니다."],
+    tokens: ["`surface-container-high` + `outline`", "`warning` / `tertiary` support accent", "`on-surface` + `on-surface-variant`"],
   },
 } as const;
 
 type GuideKey = keyof typeof componentGuides;
-
 const slugOrder = Object.keys(componentGuides) as GuideKey[];
 
 export function generateStaticParams() {
@@ -751,10 +180,7 @@ export default async function ComponentGuidePage({
 }) {
   const { slug } = await params;
   const guide = componentGuides[slug as GuideKey];
-
-  if (!guide) {
-    return null;
-  }
+  if (!guide) return null;
 
   const currentIndex = slugOrder.indexOf(slug as GuideKey);
   const prevSlug = currentIndex > 0 ? slugOrder[currentIndex - 1] : null;
@@ -765,6 +191,8 @@ export default async function ComponentGuidePage({
   return (
     <DesignSystemShell activeTab="component-guide" activeComponentSlug={slug}>
       <section className="space-y-8 px-6 lg:px-10">
+
+        {/* 1. Title */}
         <section className="glass-card-strong overflow-hidden rounded-[32px] border border-white/[0.12] px-6 py-8 lg:px-10 lg:py-12">
           <Link href="/design-system/components" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/55 hover:text-[#A78BFA]">
             <ArrowLeft size={14} />
@@ -775,29 +203,33 @@ export default async function ComponentGuidePage({
           <p className="mt-4 max-w-[760px] text-[16px] leading-relaxed text-white/58">{guide.description}</p>
         </section>
 
+        {/* 2. Preview — first */}
+        <section className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Preview</p>
+          <div className="relative mt-5 rounded-[24px] border border-white/10 bg-[#141425] p-5">
+            <ComponentPreview slug={slug} />
+          </div>
+        </section>
+
+        {/* 3. Usage */}
         <section className="glass-card p-6">
           <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Usage Principle</p>
           <p className="mt-4 text-[15px] leading-relaxed text-white/60">{guide.usage}</p>
         </section>
 
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <section className="glass-card p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Rules</p>
-            <ul className="mt-4 space-y-3 text-[14px] leading-relaxed text-white/60">
-              {guide.rules.map((rule) => (
-                <li key={rule} className="rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-3">
-                  {rule}
-                </li>
-              ))}
-            </ul>
-          </section>
+        {/* 4. Rules */}
+        <section className="glass-card p-6">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Rules</p>
+          <ul className="mt-4 space-y-3 text-[14px] leading-relaxed text-white/60">
+            {guide.rules.map((rule) => (
+              <li key={rule} className="rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-3">
+                {rule}
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          <section className="glass-card p-6">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Preview</p>
-            <div className="mt-5 rounded-[24px] border border-white/10 bg-[#141425] p-5">{guide.preview}</div>
-          </section>
-        </div>
-
+        {/* 5. Tokens */}
         <section className="glass-card p-6">
           <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Recommended Tokens</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
@@ -809,6 +241,7 @@ export default async function ComponentGuidePage({
           </div>
         </section>
 
+        {/* 6. Prev / Next */}
         <section className="glass-card p-6">
           <div className="flex items-center justify-between gap-4">
             {prevGuide && prevSlug ? (
@@ -819,9 +252,7 @@ export default async function ComponentGuidePage({
                 <ArrowLeft size={14} />
                 {prevGuide.label}
               </Link>
-            ) : (
-              <div />
-            )}
+            ) : <div />}
             {nextGuide && nextSlug ? (
               <Link
                 href={`/design-system/components/${nextSlug}`}
@@ -830,11 +261,10 @@ export default async function ComponentGuidePage({
                 {nextGuide.label}
                 <ArrowRight size={14} />
               </Link>
-            ) : (
-              <div />
-            )}
+            ) : <div />}
           </div>
         </section>
+
       </section>
     </DesignSystemShell>
   );
