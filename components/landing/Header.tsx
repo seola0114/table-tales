@@ -34,10 +34,6 @@ export default function Header() {
     >
       <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
         <div className="relative flex items-center justify-center h-16">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2">
-            <ThemeToggle />
-          </div>
-
           <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
             {/* Logo */}
             <a href="/" className="flex items-center gap-2.5 group">
@@ -65,14 +61,19 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden p-2 text-white/60 hover:text-[#A78BFA] transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="메뉴 열기"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Right side: ThemeToggle (desktop) + Mobile Menu Button */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-2">
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+            <button
+              className="md:hidden p-2 text-white/60 hover:text-[#A78BFA] transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="메뉴 열기"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </div>
 
