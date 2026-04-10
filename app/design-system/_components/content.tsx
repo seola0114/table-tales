@@ -10,8 +10,24 @@ export const designSystemTabs = [
 ] as const;
 
 export const componentGuideItems = [
+  { slug: "app-bars", label: "App bars / Navigation bars", title: "앱 바 가이드", description: "상단 내비게이션 바의 구성과 배치 원칙을 정리합니다.", href: "/design-system/components/app-bars" },
   { slug: "buttons", label: "Buttons", title: "버튼 가이드", description: "Primary, tonal, secondary 버튼의 역할과 토큰 조합을 정리합니다.", href: "/design-system/components/buttons" },
+  { slug: "bottom-sheets", label: "Bottom sheets", title: "바텀 시트 가이드", description: "하단에서 올라오는 시트 컴포넌트의 구성 원칙을 정리합니다.", href: "/design-system/components/bottom-sheets" },
+  { slug: "checkboxes", label: "Checkboxes", title: "체크박스 가이드", description: "다중 선택 상태를 표현하는 체크박스의 상태와 토큰을 정리합니다.", href: "/design-system/components/checkboxes" },
   { slug: "chips", label: "Chips", title: "칩 가이드", description: "상태, 데이터, 필터 칩을 언제 어떤 컬러로 쓰는지 보여줍니다.", href: "/design-system/components/chips" },
+  { slug: "radio-buttons", label: "Radio buttons", title: "라디오 버튼 가이드", description: "단일 선택 상태를 표현하는 라디오 버튼의 사용 원칙을 정리합니다.", href: "/design-system/components/radio-buttons" },
+  { slug: "dialogs", label: "Dialogs / Alerts", title: "다이얼로그 가이드", description: "사용자 확인이 필요한 다이얼로그와 알럿의 구성 원칙을 정리합니다.", href: "/design-system/components/dialogs" },
+  { slug: "dividers", label: "Dividers", title: "디바이더 가이드", description: "콘텐츠를 시각적으로 분리하는 디바이더의 사용 기준을 정리합니다.", href: "/design-system/components/dividers" },
+  { slug: "lists", label: "Lists", title: "리스트 가이드", description: "항목 목록을 구성하는 리스트 컴포넌트의 레이아웃과 토큰을 정리합니다.", href: "/design-system/components/lists" },
+  { slug: "menus", label: "Menus", title: "메뉴 가이드", description: "컨텍스트 메뉴와 드롭다운의 구성 원칙을 정리합니다.", href: "/design-system/components/menus" },
+  { slug: "nav-tabs", label: "Navigation bars / Tab Bar", title: "탭 바 가이드", description: "하단 탭 내비게이션의 구성 요소와 활성 상태 표현을 정리합니다.", href: "/design-system/components/nav-tabs" },
+  { slug: "pickers", label: "Pickers", title: "피커 가이드", description: "날짜, 시간, 옵션 선택을 위한 피커 컴포넌트의 사용 기준을 정리합니다.", href: "/design-system/components/pickers" },
+  { slug: "progress-bar", label: "Progress bar", title: "프로그레스 바 가이드", description: "진행 상태를 시각적으로 표현하는 프로그레스 바의 사용 원칙을 정리합니다.", href: "/design-system/components/progress-bar" },
+  { slug: "sliders", label: "Sliders", title: "슬라이더 가이드", description: "연속적인 값 조정을 위한 슬라이더의 구성과 토큰을 정리합니다.", href: "/design-system/components/sliders" },
+  { slug: "snackbars", label: "Snackbars", title: "스낵바 가이드", description: "짧은 피드백 메시지를 전달하는 스낵바의 사용 기준을 정리합니다.", href: "/design-system/components/snackbars" },
+  { slug: "star-rating", label: "Star rating", title: "스타 레이팅 가이드", description: "게임 경험을 별점으로 표현하는 레이팅 컴포넌트의 사용 원칙을 정리합니다.", href: "/design-system/components/star-rating" },
+  { slug: "switches", label: "Switch / Toggles", title: "스위치 가이드", description: "온/오프 상태를 전환하는 스위치 컴포넌트의 사용 기준을 정리합니다.", href: "/design-system/components/switches" },
+  { slug: "text-fields", label: "Text Fields", title: "텍스트 필드 가이드", description: "텍스트 입력을 위한 필드 컴포넌트의 상태와 토큰을 정리합니다.", href: "/design-system/components/text-fields" },
   { slug: "cards", label: "Cards", title: "카드 가이드", description: "surface 단계별 카드 역할과 강조 카드 사용 기준을 정리합니다.", href: "/design-system/components/cards" },
   { slug: "stat-cards", label: "Stat Cards", title: "스탯 카드 가이드", description: "숫자 중심 정보 카드를 구성하는 아이콘, 타이포, 보조색 원칙을 설명합니다.", href: "/design-system/components/stat-cards" },
 ] as const;
