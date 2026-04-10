@@ -1,12 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import Header from "@/components/landing/Header";
 import { componentGuideItems, designSystemTabs } from "./content";
 
 type TabId = (typeof designSystemTabs)[number]["id"];
+
+const LNB_SCROLL_KEY = "ds-lnb-scroll";
+
+function LnbScroll({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const saved = sessionStorage.getItem(LNB_SCROLL_KEY);
+    if (saved) el.scrollTop = parseInt(saved, 10);
+    const onScroll = () => sessionStorage.setItem(LNB_SCROLL_KEY, String(el.scrollTop));
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div ref={ref} className="min-h-0 flex-1 overflow-y-auto">
+      {children}
+    </div>
+  );
+}
 
 function NavGroup({
   activeTab,
@@ -123,9 +145,9 @@ export default function DesignSystemShell({
               <div className="mb-3 shrink-0 px-3 pt-2">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Contents</p>
               </div>
-              <div className="min-h-0 flex-1 overflow-y-auto">
+              <LnbScroll>
                 <NavGroup activeTab={activeTab} activeComponentSlug={activeComponentSlug} />
-              </div>
+              </LnbScroll>
             </section>
           </aside>
 
