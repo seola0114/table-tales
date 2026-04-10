@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, Check, Clock3, Sparkles, Trophy, Users } from "lucide-react";
 import LogoMark from "@/components/ui/LogoMark";
@@ -736,6 +737,33 @@ function TypographyContent() {
 }
 
 function ComponentsContent() {
+  const componentGuides = [
+    {
+      href: "/design-system/components/buttons",
+      label: "Buttons",
+      title: "버튼 가이드",
+      description: "Primary, tonal, secondary 버튼의 역할과 토큰 조합을 정리합니다.",
+    },
+    {
+      href: "/design-system/components/chips",
+      label: "Chips",
+      title: "칩 가이드",
+      description: "상태, 데이터, 필터 칩을 언제 어떤 컬러로 쓰는지 보여줍니다.",
+    },
+    {
+      href: "/design-system/components/cards",
+      label: "Cards",
+      title: "카드 가이드",
+      description: "surface 단계별 카드 역할과 강조 카드 사용 기준을 정리합니다.",
+    },
+    {
+      href: "/design-system/components/stat-cards",
+      label: "Stat Cards",
+      title: "스탯 카드 가이드",
+      description: "숫자 중심 정보 카드를 구성하는 아이콘, 타이포, 보조색 원칙을 설명합니다.",
+    },
+  ];
+
   return (
     <section className="space-y-8 px-6 lg:px-10">
       <SectionTitle
@@ -744,6 +772,35 @@ function ComponentsContent() {
         highlight="UI 패턴"
         description="버튼, 칩, 카드도 새 토큰 이름 기준으로 읽을 수 있게 정리했습니다."
       />
+
+      <div className="glass-card p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Component Guides</p>
+            <p className="mt-2 max-w-[640px] text-[14px] leading-relaxed text-white/55">
+              컴포넌트는 이제 상세 가이드 페이지로 나눠서 확인할 수 있습니다. 샘플만 보는 구조보다 실제 사용 기준과 do/don&apos;t를 찾기 쉽게 만든 허브입니다.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {componentGuides.map((guide) => (
+            <Link
+              key={guide.href}
+              href={guide.href}
+              className="group rounded-[24px] border border-white/10 bg-white/[0.03] p-5 transition-all duration-200 hover:border-[#8B5CF6]/35 hover:bg-[#24163F]/45"
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">{guide.label}</p>
+              <p className="mt-2 text-[22px] font-bold text-white">{guide.title}</p>
+              <p className="mt-3 text-[14px] leading-relaxed text-white/55">{guide.description}</p>
+              <div className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-[#C3B2FF]">
+                가이드 보기
+                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="glass-card p-6">
