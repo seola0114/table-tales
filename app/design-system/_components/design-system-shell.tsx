@@ -118,12 +118,14 @@ export default function DesignSystemShell({
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 pb-12 pt-8 lg:px-10 lg:pb-16 lg:pt-12">
         <div>
-          <aside className="hidden lg:fixed lg:left-6 lg:top-24 lg:block lg:w-[240px] xl:left-10 xl:w-[260px]">
-            <section className="glass-card p-3">
+          <aside className="hidden lg:fixed lg:left-6 lg:top-24 lg:block lg:w-[240px] xl:left-10 xl:w-[260px]" style={{ maxHeight: "calc(100vh - 7rem)" }}>
+            <section className="glass-card flex h-full flex-col p-3">
               <div className="mb-3 px-3 pt-2">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Contents</p>
               </div>
-              <NavGroup activeTab={activeTab} activeComponentSlug={activeComponentSlug} />
+              <div className="overflow-y-auto">
+                <NavGroup activeTab={activeTab} activeComponentSlug={activeComponentSlug} />
+              </div>
             </section>
           </aside>
 
