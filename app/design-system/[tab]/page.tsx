@@ -7,7 +7,7 @@ import {
   TypographyContent,
 } from "../_components/content";
 
-const validTabs = ["overview", "foundations", "typography", "composition"] as const;
+const validTabs = ["overview", "color", "typography", "composition"] as const;
 
 export function generateStaticParams() {
   return validTabs.map((tab) => ({ tab }));
@@ -27,7 +27,7 @@ export default async function DesignSystemTabPage({
   return (
     <DesignSystemShell activeTab={tab as (typeof validTabs)[number]}>
       {tab === "overview" && <OverviewContent />}
-      {tab === "foundations" && <FoundationsContent />}
+      {tab === "color" && <FoundationsContent />}
       {tab === "typography" && <TypographyContent />}
       {tab === "composition" && <CompositionContent />}
     </DesignSystemShell>

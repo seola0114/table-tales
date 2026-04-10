@@ -3,7 +3,7 @@ import { ArrowRight, Check, Clock3, Sparkles, Trophy, Users } from "lucide-react
 
 export const designSystemTabs = [
   { id: "overview", label: "Overview" },
-  { id: "foundations", label: "Foundations" },
+  { id: "color", label: "Color" },
   { id: "typography", label: "Typography" },
   { id: "components", label: "Components" },
   { id: "composition", label: "Composition" },
@@ -519,7 +519,7 @@ export function FoundationsContent() {
   return (
     <section className="space-y-8 px-6 lg:px-10">
       <SectionTitle
-        eyebrow="Foundations"
+        eyebrow="Color"
         title="새 기준으로 정리한"
         highlight="컬러 토큰"
         description="페이지 기본 색상은 primary, surface, support의 세 축으로 정리하고, support colors는 tonal palette로 확장합니다."
@@ -631,7 +631,7 @@ export function OverviewContent() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">Page Structure</p>
               <ul className="mt-4 space-y-3 text-[14px] text-white/60">
                 <li>Overview: 페이지 전체 구조와 읽는 순서를 안내합니다.</li>
-                <li>Foundations: 컬러 토큰과 tonal palette 기준을 정리합니다.</li>
+                <li>Color: 컬러 토큰과 tonal palette 기준을 정리합니다.</li>
                 <li>Typography: 타입 스케일과 line-height 규칙을 보여줍니다.</li>
                 <li>Components / Composition: 실제 UI와 배치 원칙을 연결합니다.</li>
               </ul>
@@ -640,7 +640,7 @@ export function OverviewContent() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/35">How To Use</p>
               <ul className="mt-4 space-y-3 text-[14px] text-white/60">
                 <li>먼저 Overview에서 전체 맥락을 보고 필요한 탭으로 이동합니다.</li>
-                <li>토큰이 필요하면 Foundations, 문장과 헤딩 규칙은 Typography에서 확인합니다.</li>
+                <li>토큰이 필요하면 Color, 문장과 헤딩 규칙은 Typography에서 확인합니다.</li>
                 <li>버튼, 카드, 섹션 조합은 Components와 Composition에서 이어서 봅니다.</li>
               </ul>
             </div>
