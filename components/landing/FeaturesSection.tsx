@@ -187,24 +187,6 @@ export default function FeaturesSection() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mt-14 grid gap-4 md:grid-cols-3"
-        >
-          {[
-            { label: "최근 기록", value: "최근 플레이를 한눈에" },
-            { label: "게임 탐색", value: "찾고 바로 기록하는 검색 경험" },
-            { label: "플레이어", value: "누구와 했는지 함께 남기기" },
-          ].map((item) => (
-            <div key={item.label} className="glass-card-strong rounded-2xl p-5 text-center">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-white/30">{item.label}</p>
-              <p className="mt-2 text-[18px] font-semibold text-white">{item.value}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

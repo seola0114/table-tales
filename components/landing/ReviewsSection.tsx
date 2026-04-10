@@ -28,30 +28,6 @@ const reviews = [
     game: "정기 모임 운영 중",
     rating: 5,
   },
-  {
-    name: "재영",
-    avatar: "Jy",
-    color: "from-[#ff9f1a] to-[#ffbf47]",
-    text: "친구들이랑 했던 플레이를 다시 비교해보는 재미가 있어요. 같이 한 기록이 남으니까 모임 자체가 더 기억에 오래 남아요.",
-    game: "4인 정기 모임",
-    rating: 5,
-  },
-  {
-    name: "민정",
-    avatar: "M",
-    color: "from-[#ff2f7d] to-[#ff5fa8]",
-    text: "입력이 빠른 게 정말 좋았어요. 게임 끝나고 바로 정리해도 부담이 없어서 기록이 훨씬 잘 남습니다.",
-    game: "보드게임 카페 단골",
-    rating: 5,
-  },
-  {
-    name: "현우",
-    avatar: "H",
-    color: "from-[#5666ff] to-[#8b5cf6]",
-    text: "혼자 하는 솔로 플레이도 기록할 수 있어서 좋아요. 같은 게임을 여러 번 했을 때 비교해서 보는 재미가 있습니다.",
-    game: "솔로 플레이어",
-    rating: 5,
-  },
 ];
 
 function Stars({ count }: { count: number }) {
