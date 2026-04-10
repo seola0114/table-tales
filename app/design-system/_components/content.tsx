@@ -346,8 +346,8 @@ const typography = [
 
 function TokenRow({ label, value, note }: { label: string; value: string; note: string }) {
   return (
-    <div className="grid items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-3 sm:grid-cols-[72px_minmax(0,1fr)]">
-      <div className="aspect-square w-full rounded-2xl border border-white/10" style={{ background: value }} />
+    <div className="flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-3">
+      <div className="h-14 w-14 shrink-0 rounded-2xl border border-white/10" style={{ background: value }} />
       <div className="flex items-center gap-3">
         <div>
           <p className="text-[14px] font-semibold text-white">{label}</p>

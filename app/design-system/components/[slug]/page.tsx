@@ -138,8 +138,10 @@ const componentGuides = {
 
 type GuideKey = keyof typeof componentGuides;
 
+const slugOrder = Object.keys(componentGuides) as GuideKey[];
+
 export function generateStaticParams() {
-  return Object.keys(componentGuides).map((slug) => ({ slug }));
+  return slugOrder.map((slug) => ({ slug }));
 }
 
 export default async function ComponentGuidePage({
@@ -153,6 +155,12 @@ export default async function ComponentGuidePage({
   if (!guide) {
     return null;
   }
+
+  const currentIndex = slugOrder.indexOf(slug as GuideKey);
+  const prevSlug = currentIndex > 0 ? slugOrder[currentIndex - 1] : null;
+  const nextSlug = currentIndex < slugOrder.length - 1 ? slugOrder[currentIndex + 1] : null;
+  const prevGuide = prevSlug ? componentGuides[prevSlug] : null;
+  const nextGuide = nextSlug ? componentGuides[nextSlug] : null;
 
   return (
     <DesignSystemShell activeTab="component-guide" activeComponentSlug={slug}>
@@ -203,17 +211,28 @@ export default async function ComponentGuidePage({
 
             <section className="glass-card p-6">
               <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Next Guide</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-white/55">다른 컴포넌트 가이드도 이어서 볼 수 있습니다.</p>
-                </div>
-                <Link
-                  href="/design-system/components"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF]"
-                >
-                  Components 허브로 이동
-                  <ArrowRight size={14} />
-                </Link>
+                {prevGuide && prevSlug ? (
+                  <Link
+                    href={`/design-system/components/${prevSlug}`}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-[14px] font-semibold text-white/70 transition-all duration-200 hover:border-[#8B5CF6]/35 hover:bg-[#24163F] hover:text-[#E9DDFF]"
+                  >
+                    <ArrowLeft size={14} />
+                    {prevGuide.label}
+                  </Link>
+                ) : (
+                  <div />
+                )}
+                {nextGuide && nextSlug ? (
+                  <Link
+                    href={`/design-system/components/${nextSlug}`}
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF] transition-all duration-200 hover:bg-[#2e1a50]"
+                  >
+                    {nextGuide.label}
+                    <ArrowRight size={14} />
+                  </Link>
+                ) : (
+                  <div />
+                )}
               </div>
             </section>
       </section>
