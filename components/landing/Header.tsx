@@ -33,36 +33,34 @@ export default function Header() {
       }`}
     >
       <div className="w-full max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="relative flex items-center justify-center h-16">
-          <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
-            {/* Logo */}
-            <a href="/" className="flex items-center gap-2.5 group">
-              <LogoMark
-                width={28}
-                height={28}
-                className="drop-shadow-[0_0_10px_rgba(139,92,246,0.42)] group-hover:drop-shadow-[0_0_18px_rgba(125,162,255,0.32)] transition-all duration-300"
-              />
-              <span className="text-[15px] font-semibold tracking-tight text-white">
-                Table<span className="text-[#A78BFA]">Tales</span>
-              </span>
-            </a>
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2.5 group">
+            <LogoMark
+              width={28}
+              height={28}
+              className="drop-shadow-[0_0_10px_rgba(139,92,246,0.42)] group-hover:drop-shadow-[0_0_18px_rgba(125,162,255,0.32)] transition-all duration-300"
+            />
+            <span className="text-[15px] font-semibold tracking-tight text-white">
+              Table<span className="text-[#A78BFA]">Tales</span>
+            </span>
+          </a>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-2 text-[13px] font-medium text-white/52 hover:text-[#A78BFA] transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-[13px] font-medium text-white/52 hover:text-[#A78BFA] transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
           {/* Right side: ThemeToggle (desktop) + Mobile Menu Button */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <div className="hidden md:block">
               <ThemeToggle />
             </div>
