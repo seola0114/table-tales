@@ -8,7 +8,7 @@ import ThemeToggle from "@/components/landing/ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/design-system", label: "Design System" },
+  { href: "/design-system/overview", label: "Design System" },
 ];
 
 export default function Header() {

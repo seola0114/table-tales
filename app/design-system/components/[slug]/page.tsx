@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, Clock3, Sparkles, Trophy, Users } from "lucide-react";
-import LogoMark from "@/components/ui/LogoMark";
-import ThemeToggle from "@/components/landing/ThemeToggle";
+import DesignSystemShell from "../../_components/design-system-shell";
 
 const componentGuides = {
   buttons: {
@@ -156,93 +155,12 @@ export default async function ComponentGuidePage({
   }
 
   return (
-    <main className="min-h-screen bg-[#070711] text-white">
-      <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#070711]/75 backdrop-blur-xl">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-10">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
-                <LogoMark className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="text-[14px] font-semibold text-white">Table Tales</p>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/35">Design System</p>
-              </div>
-            </Link>
-            <nav className="hidden md:flex items-center gap-1">
-              <Link
-                href="/"
-                className="px-4 py-2 text-[13px] font-medium text-white/52 transition-colors duration-200 rounded-lg hover:bg-white/[0.04] hover:text-[#A78BFA]"
-              >
-                Home
-              </Link>
-              <Link
-                href="/design-system"
-                className="px-4 py-2 text-[13px] font-medium rounded-lg bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
-              >
-                Design System
-              </Link>
-            </nav>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/design-system"
-              className="hidden sm:inline-flex rounded-lg border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-white/60 transition-colors duration-200 hover:text-[#A78BFA]"
-            >
-              컴포넌트 목록으로
-            </Link>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
-
-      <div className="absolute inset-0 -z-10">
-        <div
-          className="absolute inset-0 opacity-[0.028]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.45) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-          }}
-        />
-        <div className="absolute left-1/2 top-0 h-[720px] w-[960px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.18)_0%,_rgba(125,162,255,0.05)_38%,_transparent_72%)] blur-3xl" />
-      </div>
-
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-        <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
-          <aside className="lg:sticky lg:top-28 lg:self-start">
-            <section className="glass-card p-3">
-              <div className="mb-3 px-3 pt-2">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Components</p>
-              </div>
-              <div className="space-y-2">
-                {(Object.entries(componentGuides) as Array<[GuideKey, (typeof componentGuides)[GuideKey]]>).map(([key, item]) => {
-                  const active = key === slug;
-                  return (
-                    <Link
-                      key={key}
-                      href={`/design-system/components/${key}`}
-                      className={`block w-full rounded-2xl px-4 py-3 text-left transition-all duration-200 ${
-                        active
-                          ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
-                          : "bg-white/[0.02] text-white/55 hover:bg-white/[0.04] hover:text-white"
-                      }`}
-                    >
-                      <p className="text-[11px] uppercase tracking-[0.16em]">Guide</p>
-                      <p className="mt-1 text-[14px] font-semibold">{item.title}</p>
-                    </Link>
-                  );
-                })}
-              </div>
-            </section>
-          </aside>
-
-          <section className="space-y-8">
+    <DesignSystemShell activeTab="component-guide" activeComponentSlug={slug}>
+      <section className="space-y-8 px-6 lg:px-10">
             <section className="glass-card-strong overflow-hidden rounded-[32px] border border-white/[0.12] px-6 py-8 lg:px-10 lg:py-12">
-              <Link href="/design-system" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/55 hover:text-[#A78BFA]">
+              <Link href="/design-system/components" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/55 hover:text-[#A78BFA]">
                 <ArrowLeft size={14} />
-                Design System으로 돌아가기
+                Components로 돌아가기
               </Link>
               <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#C3B2FF]">{guide.label}</p>
               <h1 className="mt-3 text-[40px] font-bold leading-[1.2] tracking-[-0.05em] text-white sm:text-[56px]">{guide.title}</h1>
@@ -290,7 +208,7 @@ export default async function ComponentGuidePage({
                   <p className="mt-2 text-[14px] leading-relaxed text-white/55">다른 컴포넌트 가이드도 이어서 볼 수 있습니다.</p>
                 </div>
                 <Link
-                  href="/design-system"
+                  href="/design-system/components"
                   className="inline-flex items-center gap-2 rounded-xl bg-[#24163F] px-5 py-3 text-[14px] font-semibold text-[#E9DDFF]"
                 >
                   Components 허브로 이동
@@ -298,9 +216,7 @@ export default async function ComponentGuidePage({
                 </Link>
               </div>
             </section>
-          </section>
-        </div>
-      </div>
-    </main>
+      </section>
+    </DesignSystemShell>
   );
 }
