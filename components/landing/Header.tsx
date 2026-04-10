@@ -5,13 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import LogoMark from "@/components/ui/LogoMark";
 import ThemeToggle from "@/components/landing/ThemeToggle";
-import { EXTERNAL_LINKS } from "@/lib/external-links";
 
 const navLinks = [
-  { href: "#features", label: "Features" },
-  { href: "#stats", label: "Stats" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/", label: "Home" },
+  { href: "/design-system", label: "Design System" },
 ];
 
 export default function Header() {
@@ -43,7 +40,7 @@ export default function Header() {
 
           <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2.5 group">
+            <a href="/" className="flex items-center gap-2.5 group">
               <LogoMark
                 width={28}
                 height={28}
@@ -66,18 +63,6 @@ export default function Header() {
                 </a>
               ))}
             </nav>
-
-            {/* CTA Buttons */}
-            <div className="hidden md:flex items-center gap-3">
-              <a
-                href={EXTERNAL_LINKS.web}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[13px] font-medium text-white/60 hover:text-[#A78BFA] transition-colors duration-200"
-              >
-                서비스 소식
-              </a>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -116,15 +101,6 @@ export default function Header() {
                 <div className="flex justify-start">
                   <ThemeToggle />
                 </div>
-                <a
-                  href={EXTERNAL_LINKS.web}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="py-2.5 text-center text-[14px] font-medium text-white/60 border border-white/[0.1] rounded-lg"
-                >
-                  서비스 소식 받기
-                </a>
               </div>
             </div>
           </motion.div>
