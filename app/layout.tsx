@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     title: "Table Tales — Your Table, Your Tale",
     description: "보드게임 플레이를 기록하고, 통계로 분석하고, 이야기로 남기세요.",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Table Tales",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Table Tales — Your Table, Your Tale",
+    description: "보드게임 플레이를 기록하고, 통계로 분석하고, 이야기로 남기세요.",
+    images: ["/og.png"],
   },
 };
 
