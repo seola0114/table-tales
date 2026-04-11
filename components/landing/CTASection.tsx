@@ -42,7 +42,7 @@ export default function CTASection() {
             {[
               {
                 href: EXTERNAL_LINKS.web,
-                label: "Web에서 시작하기",
+                label: "시작하기",
                 variant:
                   "bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] hover:from-[#7C4DED] hover:to-[#7DA2FF] text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]",
                 icon: ArrowRight,
