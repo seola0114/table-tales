@@ -1,10 +1,11 @@
 import LogoMark from "@/components/ui/LogoMark";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.05]">
       <div className="w-full max-w-6xl mx-auto px-6 lg:px-8 py-16">
-        <div className="mb-16">
+        <div className="mb-16 grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5 mb-4">
               <LogoMark
@@ -19,6 +20,21 @@ export default function Footer() {
             <p className="text-[13px] text-white/35 leading-relaxed mb-5 max-w-[200px]">
               보드게임 플레이를 기록하고, 통계로 돌아보고, 이야기로 남기는 앱
             </p>
+          </div>
+
+          <div className="md:justify-self-end">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/35">Sitemap</p>
+            <nav className="mt-4 flex flex-col items-start gap-2">
+              <Link href="/" className="text-[13px] text-white/55 transition-colors hover:text-[#A78BFA]">
+                Home
+              </Link>
+              <Link href="/design-system/overview" className="text-[13px] text-white/55 transition-colors hover:text-[#A78BFA]">
+                Design System
+              </Link>
+              <a href="mailto:gwabansuri@gmail.com" className="text-[13px] text-white/55 transition-colors hover:text-[#A78BFA]">
+                Contact
+              </a>
+            </nav>
           </div>
         </div>
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ChevronUp, Menu, X } from "lucide-react";
 import Link from "next/link";
 import LogoMark from "@/components/ui/LogoMark";
 import ThemeToggle from "@/components/landing/ThemeToggle";
@@ -11,6 +11,7 @@ import ThemeToggle from "@/components/landing/ThemeToggle";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/design-system/overview", label: "Design System" },
+  { href: "mailto:gwabansuri@gmail.com", label: "Contact" },
 ];
 
 export default function Header() {
@@ -25,9 +26,12 @@ export default function Header() {
   }, []);
 
   function isActive(href: string) {
+    if (href.startsWith("mailto:")) return false;
     if (href === "/") return pathname === "/";
     return pathname.startsWith("/design-system");
   }
+
+  const showBackToTop = scrolled;
 
   return (
     <header
@@ -54,17 +58,27 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-2 text-[13px] font-medium transition-colors duration-200 rounded-lg ${
-                  isActive(link.href)
-                    ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
-                    : "text-white/52 hover:text-[#A78BFA] hover:bg-white/[0.04]"
-                }`}
-              >
-                {link.label}
-              </Link>
+              link.href.startsWith("mailto:") ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 text-[13px] font-medium transition-colors duration-200 rounded-lg text-white/52 hover:text-[#A78BFA] hover:bg-white/[0.04]"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-2 text-[13px] font-medium transition-colors duration-200 rounded-lg ${
+                    isActive(link.href)
+                      ? "bg-[#24163F] text-[#E9DDFF] shadow-[0_0_0_1px_rgba(139,92,246,0.18)]"
+                      : "text-white/52 hover:text-[#A78BFA] hover:bg-white/[0.04]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -96,16 +110,27 @@ export default function Header() {
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`py-3 text-[14px] font-medium transition-colors border-b border-white/[0.04] last:border-0 ${
-                    isActive(link.href) ? "text-[#A78BFA]" : "text-white/60 hover:text-[#A78BFA]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                link.href.startsWith("mailto:") ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="py-3 text-[14px] font-medium transition-colors border-b border-white/[0.04] last:border-0 text-white/60 hover:text-[#A78BFA]"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`py-3 text-[14px] font-medium transition-colors border-b border-white/[0.04] last:border-0 ${
+                      isActive(link.href) ? "text-[#A78BFA]" : "text-white/60 hover:text-[#A78BFA]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
               <div className="pt-4 flex flex-col gap-3">
                 <div className="flex justify-start">
@@ -114,6 +139,22 @@ export default function Header() {
               </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 14 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="맨 위로 이동"
+            className="fixed right-6 bottom-6 z-[70] inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8B5CF6]/35 bg-[#120d22]/85 text-[#CDB7FF] shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-colors hover:bg-[#1B1330] hover:text-white"
+          >
+            <ChevronUp size={18} />
+          </motion.button>
         )}
       </AnimatePresence>
     </header>
