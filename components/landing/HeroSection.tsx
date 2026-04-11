@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Clock3, Search, Trophy, Users2 } from "lucide-react";
+import { ArrowRight, Clock3, Search, Sparkles, Trophy, Users2 } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/external-links";
 import PhoneScreenPreview from "./PhoneScreenPreview";
 
@@ -157,6 +157,18 @@ export default function HeroSection() {
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-10 xl:gap-14">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#8B5CF6]/10 px-3.5 py-1.5"
+            >
+              <Sparkles size={12} className="text-[#A78BFA]" />
+              <span className="font-display-italic text-[13px] tracking-wide text-[#C3B2FF]">
+                “우리 지난주에 뭐 했더라?”에서 시작된 기록 앱
+              </span>
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -174,20 +186,22 @@ export default function HeroSection() {
               transition={{ delay: 0.35, duration: 0.6 }}
               className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-white/50 lg:text-[17px]"
             >
-              테이블테일즈는 누구나 쓸 수 있는 간편한 보드게임 기록 앱입니다.
+              TableTales는 지난주에 무슨 게임을 했는지, 그 게임이 얼마나 재미있었는지,
+              <br className="hidden lg:block" />
+              누구와 함께했는지까지 한 번에 남길 수 있는 보드게임 기록 앱입니다.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.6 }}
-              className="flex w-full max-w-[560px] flex-row gap-3 lg:justify-start"
+              className="flex flex-col gap-3 sm:flex-row lg:justify-start"
             >
               <a
                 href={EXTERNAL_LINKS.web}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-4 py-3 text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] transition-all duration-200 hover:from-[#7C4DED] hover:to-[#7DA2FF] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)] sm:flex-none sm:px-6 sm:py-3.5 sm:text-[15px]"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] transition-all duration-200 hover:from-[#7C4DED] hover:to-[#7DA2FF] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]"
               >
                 시작하기
                 <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -196,7 +210,7 @@ export default function HeroSection() {
                 href={EXTERNAL_LINKS.appStore}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-4 py-3 text-[14px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white sm:flex-none sm:px-6 sm:py-3.5 sm:text-[15px]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white"
               >
                 App Store에서 보기
               </a>

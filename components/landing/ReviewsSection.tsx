@@ -67,7 +67,7 @@ export default function ReviewsSection() {
           >
             테이블 위의 순간들이
             <br />
-            <span className="gradient-text">기록으로 이어지고 있습니다</span>
+            <span className="gradient-text">기록으로 이어집니다</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -76,7 +76,7 @@ export default function ReviewsSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-[15px] text-white/35"
           >
-            베타 유저들이 TableTales를 사용하며 남긴 이야기입니다.
+            베타 유저들이 TableTales를 사용하며 <br /> 남긴 이야기입니다.
           </motion.p>
         </div>
 

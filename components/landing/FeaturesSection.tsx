@@ -14,8 +14,8 @@ const features = [
   {
     id: "home",
     tag: "Home Overview",
-    headline: "오늘의 플레이를,\n한 장으로 정리해보세요",
-    desc: "최근 플레이한 게임, 다시 보고 싶은 세션, 기록의 흐름까지 홈에서 한 번에 확인할 수 있습니다.",
+    headline: "오늘의 플레이를\n한 장으로 정리해보세요",
+    desc: "최근 플레이한 게임, 다시 보고 싶은 세션, 기록의 흐름까지\n홈에서 한 번에 확인할 수 있습니다.",
     icon: CalendarDays,
     accentColor: "from-[#8B5CF6]/20 to-[#7DA2FF]/8",
     borderColor: "border-[#8B5CF6]/24",
@@ -34,7 +34,7 @@ const features = [
     id: "record",
     tag: "Session Record",
     headline: "기록은 간단하게,\n그날의 순간은 더 풍부하게",
-    desc: "게임, 날짜, 별점, 플레이 시간, 장소, 후기까지 오늘의 플레이를 한 흐름 안에서 부담 없이 남길 수 있습니다.",
+    desc: "게임, 날짜, 별점, 플레이 시간, 장소, 후기까지\n오늘의 플레이를 부담 없이 남길 수 있습니다.",
     icon: PenLine,
     accentColor: "from-[#19c8a6]/16 to-[#8B5CF6]/8",
     borderColor: "border-[#19c8a6]/24",
@@ -52,8 +52,8 @@ const features = [
   {
     id: "players",
     tag: "Players",
-    headline: "누구와 함께했는지도\n플레이의 중요한 기억이니까",
-    desc: "함께한 플레이어를 남겨두면 나중에 이 게임을 누구와 했는지, 그날의 모임 분위기가 어땠는지 더 선명하게 떠올릴 수 있습니다.",
+    headline: "누구와 함께했는지도\n 중요한 기억이니까",
+    desc: "함께한 플레이어를 남겨두면 누구와 함께했는지,\n그날의 모임 분위기가 어땠는지 더 선명하게 떠올릴 수 있습니다.",
     icon: Users2,
     accentColor: "from-[#8B5CF6]/20 to-[#19c8a6]/8",
     borderColor: "border-[#8B5CF6]/22",
@@ -114,7 +114,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="mb-5 text-[36px] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[44px]"
           >
-            보드게임 플레이를 기록하는
+            플레이를 기록하는
             <br />
             <span className="gradient-text">가장 자연스러운 흐름</span>
           </motion.h2>

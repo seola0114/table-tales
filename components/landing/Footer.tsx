@@ -17,9 +17,7 @@ export default function Footer() {
                 Table<span className="text-[#A78BFA]">Tales</span>
               </span>
             </div>
-            <p className="text-[13px] text-white/35 leading-relaxed mb-5 max-w-[200px]">
-              보드게임 플레이를 기록하고, 통계로 돌아보고, 이야기로 남기는 앱
-            </p>
+           
           </div>
 
           <div className="md:justify-self-end">
