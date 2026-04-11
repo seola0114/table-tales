@@ -117,8 +117,8 @@ export default function FAQSection() {
           className="mt-12 text-center text-[14px] text-white/30"
         >
           다른 궁금한 점이 있다면{" "}
-          <a href="mailto:hello@tabletales.app" className="text-[#A78BFA] hover:text-[#C3B2FF] transition-colors">
-            hello@tabletales.app
+          <a href="mailto:gwabansuri@gmail.com" className="text-[#A78BFA] hover:text-[#C3B2FF] transition-colors">
+            gwabansuri@gmail.com
           </a>
           으로 연락해 주세요. 앱은{" "}
           <a href={EXTERNAL_LINKS.web} target="_blank" rel="noreferrer" className="text-[#A78BFA] hover:text-[#C3B2FF] transition-colors">
