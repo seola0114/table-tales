@@ -634,7 +634,7 @@ export function OverviewContent() {
               <Sparkles size={12} className="text-[#A78BFA]" />
               <span className="text-[12px] font-semibold text-[#C3B2FF]">Table Tales Design System</span>
             </div>
-            <h1 className="mt-6 text-[40px] font-bold leading-[1.2] tracking-[-0.05em] text-white sm:text-[58px]">
+            <h1 className="mt-6 font-bold leading-[1.2] tracking-[-0.05em] text-white">
               홈페이지 기준으로
               <br />
               <span className="gradient-text">콘텐츠별로 나눈</span>
