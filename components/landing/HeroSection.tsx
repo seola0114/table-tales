@@ -174,9 +174,8 @@ export default function HeroSection() {
               transition={{ delay: 0.35, duration: 0.6 }}
               className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-white/50 lg:text-[17px]"
             >
-              TableTales는 지난주에 무슨 게임을 했는지, 그 게임이 얼마나 재미있었는지,
-              <br />
-              <br className="hidden lg:block" />
+              TableTales는 지난주에 무슨 게임을 했는지,<br />
+              그 게임이 얼마나 재미있었는지,<br />
               누구와 함께했는지까지 한 번에 남길 수 있는 보드게임 기록 앱입니다.
             </motion.p>
 
