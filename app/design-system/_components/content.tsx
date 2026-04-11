@@ -634,13 +634,13 @@ export function OverviewContent() {
               <Sparkles size={12} className="text-[#A78BFA]" />
               <span className="text-[12px] font-semibold text-[#C3B2FF]">Table Tales Design System</span>
             </div>
-            <h1 className="mt-6 font-bold leading-[1.2] tracking-[-0.05em] text-white">
+            <h2 className="mt-6 font-bold leading-[1.2] tracking-[-0.05em] text-white">
               홈페이지 기준으로
               <br />
               <span className="gradient-text">콘텐츠별로 나눈</span>
               <br />
               디자인 시스템
-            </h1>
+            </h2>
             <p className="mt-5 max-w-[560px] text-[16px] leading-relaxed text-white/55">
               랜딩페이지에서 실제로 쓰고 있는 컬러, 타이포그래피, 컴포넌트, 구성 원칙을 콘텐츠 기준으로 나눠서
               빠르게 찾아볼 수 있게 정리했습니다.
