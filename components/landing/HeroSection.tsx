@@ -181,13 +181,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.6 }}
-              className="flex flex-col gap-3 sm:flex-row lg:justify-start"
+              className="flex w-full max-w-[560px] flex-row gap-3 lg:justify-start"
             >
               <a
                 href={EXTERNAL_LINKS.web}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] transition-all duration-200 hover:from-[#7C4DED] hover:to-[#7DA2FF] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)]"
+                className="group inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] px-4 py-3 text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(139,92,246,0.34)] transition-all duration-200 hover:from-[#7C4DED] hover:to-[#7DA2FF] hover:shadow-[0_0_36px_rgba(125,162,255,0.16)] sm:flex-none sm:px-6 sm:py-3.5 sm:text-[15px]"
               >
                 시작하기
                 <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -196,7 +196,7 @@ export default function HeroSection() {
                 href={EXTERNAL_LINKS.appStore}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-6 py-3.5 text-[15px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#8B5CF6]/28 px-4 py-3 text-[14px] font-medium text-white/70 transition-all duration-200 hover:border-[#A78BFA]/55 hover:bg-white/[0.04] hover:text-white sm:flex-none sm:px-6 sm:py-3.5 sm:text-[15px]"
               >
                 App Store에서 보기
               </a>

@@ -151,7 +151,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="맨 위로 이동"
-            className="fixed right-6 bottom-6 z-[70] inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8B5CF6]/35 bg-[#120d22]/85 text-[#CDB7FF] shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-colors hover:bg-[#1B1330] hover:text-white"
+            className="fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-[70] inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8B5CF6]/35 bg-[#120d22]/85 text-[#CDB7FF] shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-colors hover:bg-[#1B1330] hover:text-white md:right-6 md:bottom-6"
           >
             <ChevronUp size={18} />
           </motion.button>
