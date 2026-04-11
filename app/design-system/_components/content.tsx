@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Check, Clock3, Sparkles, Trophy, Users } from "lucide-react";
+import type { ElementType } from "react";
 
 export const designSystemTabs = [
   { id: "overview", label: "Overview" },
@@ -484,7 +485,7 @@ function TypeRow({
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Sample</p>
         <div className="mt-2 max-w-full space-y-2 overflow-hidden lg:mt-0">
           {samples.map((sample) => {
-            const resolvedElement = (sample.element ?? element.split("/")[0].trim().toLowerCase()) as keyof JSX.IntrinsicElements;
+            const resolvedElement = sample.element ?? element.split("/")[0].trim().toLowerCase();
             const sampleClass = `${className} ${sample.weightClass} max-w-full overflow-hidden break-words [overflow-wrap:anywhere] text-white`;
 
             if (resolvedElement === "button") {
@@ -495,7 +496,7 @@ function TypeRow({
               );
             }
 
-            const SampleElement = resolvedElement;
+            const SampleElement = resolvedElement as ElementType;
             return (
               <SampleElement key={sample.text} className={sampleClass}>
                 {sample.text}
