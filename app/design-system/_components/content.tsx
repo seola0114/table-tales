@@ -336,7 +336,7 @@ const typography = [
   {
     label: "label",
     element: "label / button",
-    samples: [{ text: "Product Flow", weightClass: "font-semibold" }],
+    samples: [{ text: "Product Flow", weightClass: "font-semibold", element: "button" }],
     className: "text-[12px] leading-[1.5] uppercase tracking-[0.16em]",
     mobileSize: "12px",
     desktopSize: "12px",
@@ -348,8 +348,8 @@ const typography = [
     label: "caption",
     element: "span / small",
     samples: [
-      { text: "surface-container-high (Medium)", weightClass: "font-medium" },
-      { text: "surface-container-high (Semibold)", weightClass: "font-semibold" },
+      { text: "surface-container-high (Medium)", weightClass: "font-medium", element: "span" },
+      { text: "surface-container-high (Semibold)", weightClass: "font-semibold", element: "small" },
     ],
     className: "text-[11px] leading-[1.5] uppercase tracking-[0.16em]",
     mobileSize: "11px",
@@ -436,7 +436,7 @@ function TypeRow({
 }: {
   label: string;
   element: string;
-  samples: { text: string; weightClass: string }[];
+  samples: { text: string; weightClass: string; element?: string }[];
   className: string;
   mobileSize: string;
   desktopSize: string;
@@ -483,11 +483,25 @@ function TypeRow({
       <div className="min-w-0 overflow-hidden border-t border-white/8 pt-3 lg:border-t-0 lg:pt-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Sample</p>
         <div className="mt-2 max-w-full space-y-2 overflow-hidden lg:mt-0">
-          {samples.map((sample) => (
-            <p key={sample.text} className={`${className} ${sample.weightClass} max-w-full overflow-hidden break-words [overflow-wrap:anywhere] text-white`}>
-              {sample.text}
-            </p>
-          ))}
+          {samples.map((sample) => {
+            const resolvedElement = (sample.element ?? element.split("/")[0].trim().toLowerCase()) as keyof JSX.IntrinsicElements;
+            const sampleClass = `${className} ${sample.weightClass} max-w-full overflow-hidden break-words [overflow-wrap:anywhere] text-white`;
+
+            if (resolvedElement === "button") {
+              return (
+                <button key={sample.text} type="button" className={`${sampleClass} appearance-none border-0 bg-transparent p-0 text-left`}>
+                  {sample.text}
+                </button>
+              );
+            }
+
+            const SampleElement = resolvedElement;
+            return (
+              <SampleElement key={sample.text} className={sampleClass}>
+                {sample.text}
+              </SampleElement>
+            );
+          })}
         </div>
       </div>
     </div>

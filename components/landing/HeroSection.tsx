@@ -161,12 +161,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#8B5CF6]/10 px-3.5 py-1.5"
+              className="mb-8 inline-flex items-center rounded-full border border-[#8B5CF6]/28 bg-[#8B5CF6]/10 px-3.5 py-1.5"
             >
               <Sparkles size={12} className="text-[#A78BFA]" />
-              <span className="font-display-italic text-[13px] tracking-wide text-[#C3B2FF]">
-                “우리 지난주에 뭐 했더라?”에서 시작된 기록 앱
-              </span>
             </motion.div>
 
             <motion.h1
@@ -186,9 +183,7 @@ export default function HeroSection() {
               transition={{ delay: 0.35, duration: 0.6 }}
               className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-white/50 lg:text-[17px]"
             >
-              TableTales는 지난주에 무슨 게임을 했는지, 그 게임이 얼마나 재미있었는지,
-              <br className="hidden lg:block" />
-              누구와 함께했는지까지 한 번에 남길 수 있는 보드게임 기록 앱입니다.
+              테이블테일즈는 누구나 쓸 수 있는 간편한 보드게임 기록 앱입니다.
             </motion.p>
 
             <motion.div
