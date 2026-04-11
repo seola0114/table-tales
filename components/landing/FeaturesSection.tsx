@@ -125,7 +125,9 @@ export default function FeaturesSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto max-w-xl text-[16px] leading-relaxed text-white/40"
           >
-            “지난주에 뭐 했더라?”, “그 게임 이름이 뭐였지?” 같은 순간에서 출발해,<br />
+            “지난주에 뭐 했더라?”, “그 게임 이름이 뭐였지?” 같은 순간에서 출발해,
+            <br />
+            <br />
             게임 검색부터 기록 작성, 플레이어 저장까지 실제 사용 흐름이 자연스럽게 이어지도록 설계했습니다.
           </motion.p>
         </div>
