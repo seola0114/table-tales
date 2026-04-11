@@ -445,7 +445,7 @@ function TypeRow({
   usage: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,0.75fr)_minmax(0,0.8fr)_minmax(0,0.7fr)_minmax(0,1.2fr)_minmax(0,1.3fr)] lg:items-center lg:gap-4">
+    <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)_minmax(0,0.65fr)_minmax(0,0.75fr)_minmax(0,0.8fr)_minmax(0,0.7fr)_minmax(0,1fr)_minmax(0,1.35fr)] lg:items-center lg:gap-4">
       <div className="mb-3 lg:mb-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Style</p>
         <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/75 lg:mt-0">{label}</p>
@@ -480,11 +480,11 @@ function TypeRow({
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Usage</p>
         <p className="mt-1 text-[13px] leading-relaxed text-white/50 lg:mt-0">{usage}</p>
       </div>
-      <div className="min-w-0 border-t border-white/8 pt-3 lg:border-t-0 lg:pt-0">
+      <div className="min-w-0 overflow-hidden border-t border-white/8 pt-3 lg:border-t-0 lg:pt-0">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/30 lg:hidden">Sample</p>
-        <div className="mt-2 space-y-2 lg:mt-0">
+        <div className="mt-2 max-w-full space-y-2 overflow-hidden lg:mt-0">
           {samples.map((sample) => (
-            <p key={sample.text} className={`${className} ${sample.weightClass} break-keep text-white`}>
+            <p key={sample.text} className={`${className} ${sample.weightClass} max-w-full overflow-hidden break-words [overflow-wrap:anywhere] text-white`}>
               {sample.text}
             </p>
           ))}

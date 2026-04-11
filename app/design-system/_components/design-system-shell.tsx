@@ -139,8 +139,8 @@ export default function DesignSystemShell({
       </div>
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 pb-12 pt-8 lg:px-10 lg:pb-16 lg:pt-12">
-        <div>
-          <aside className="hidden lg:fixed lg:left-6 lg:top-24 lg:flex lg:w-[240px] lg:flex-col xl:left-10 xl:w-[260px]" style={{ maxHeight: "calc(100vh - 7rem)" }}>
+        <div className="lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[260px_minmax(0,1fr)] xl:gap-12">
+          <aside className="hidden lg:flex lg:sticky lg:top-24 lg:flex-col" style={{ maxHeight: "calc(100vh - 7rem)" }}>
             <section className="glass-card flex min-h-0 flex-1 flex-col p-3">
               <div className="mb-3 shrink-0 px-3 pt-2">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30">Contents</p>
@@ -160,7 +160,7 @@ export default function DesignSystemShell({
             </section>
           </aside>
 
-          <section className="min-w-0">{children}</section>
+          <section className="min-w-0 lg:max-w-full">{children}</section>
         </div>
       </div>
     </main>
