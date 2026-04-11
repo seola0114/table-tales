@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Clock3, Search, Sparkles, Trophy, Users2 } from "lucide-react";
+import { ArrowRight, Clock3, Search, Trophy, Users2 } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/external-links";
 import PhoneScreenPreview from "./PhoneScreenPreview";
 
@@ -157,18 +157,6 @@ export default function HeroSection() {
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-10 xl:gap-14">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/28 bg-[#8B5CF6]/10 px-3.5 py-1.5"
-            >
-              <Sparkles size={12} className="text-[#A78BFA]" />
-              <span className="font-display-italic text-[13px] tracking-wide text-[#C3B2FF]">
-                “우리 지난주에 뭐 했더라?”에서 시작된 기록 앱
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
