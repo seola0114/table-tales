@@ -76,7 +76,7 @@ export default function ReviewsSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-[15px] text-white/35"
           >
-            베타 유저분들이 TableTales를 사용하며 <br /> 남겨주신 이야기입니다.
+            베타 유저분들이 테이블테일즈를 사용하며 <br /> 남겨주신 이야기입니다.
           </motion.p>
         </div>
 

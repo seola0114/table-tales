@@ -42,7 +42,7 @@ export default function Footer() {
             © 2024 Table Tales. All rights reserved.
           </p>
           <p className="text-[12px] text-white/15">
-            TableTales
+            테이블테일즈
           </p>
         </div>
       </div>

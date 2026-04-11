@@ -112,7 +112,7 @@ export default function ShowcaseSection() {
             <span className="gradient-text">가장 자연스러운 방법</span>
           </motion.h2>
           <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-white/42">
-            게임이 끝난 뒤의 기억은 생각보다 빨리 흐려집니다. TableTales는 플레이한 게임, 함께한 사람, 그날의 분위기와 감상을 쉽게 기록하고 다시 꺼내볼 수 있도록 돕습니다.
+            게임이 끝난 뒤의 기억은 생각보다 빨리 흐려집니다. 테이블테일즈는 플레이한 게임, 함께한 사람, 그날의 분위기와 감상을 쉽게 기록하고 다시 꺼내볼 수 있도록 돕습니다.
           </p>
         </div>
 

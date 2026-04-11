@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "어디에서 사용할 수 있나요?",
-    a: "TableTales는 iOS, Android, Web에서 사용할 수 있습니다. App Store, Google Play, 웹에서 바로 시작할 수 있어요.",
+    a: "테이블테일즈는 iOS, Android, Web에서 사용할 수 있습니다. App Store, Google Play, 웹에서 바로 시작할 수 있어요.",
   },
   {
     q: "데이터는 안전하게 보관되나요?",

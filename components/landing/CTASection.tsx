@@ -34,7 +34,7 @@ export default function CTASection() {
           </h2>
 
           <p className="text-[16px] text-white/45 leading-relaxed mb-12 max-w-md mx-auto">
-            TableTales와 함께 보드게임의 순간을 더 오래 남겨보세요.
+            테이블테일즈와 함께 보드게임의 순간을 더 오래 남겨보세요.
             웹과 앱에서 바로 플레이 기록을 시작할 수 있습니다.
           </p>
 
