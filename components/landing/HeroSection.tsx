@@ -174,9 +174,7 @@ export default function HeroSection() {
               transition={{ delay: 0.35, duration: 0.6 }}
               className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-white/50 lg:text-[17px]"
             >
-              테이블테일즈는 무슨 게임을 했는지,<br />
-              그 게임이 얼마나 재미있었는지,<br />
-              한 번에 남길 수 있는 보드게임 기록 앱입니다.
+              테이블테일즈는 누구나 쓸 수 있는 간편한 보드게임 기록 앱입니다.
             </motion.p>
 
             <motion.div
